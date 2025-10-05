@@ -301,7 +301,99 @@ const translations = {
       description:
         'We are a team of passionate developers and designers dedicated to creating innovative digital solutions. Our expertise spans modern web technologies, mobile development, and cutting-edge AI implementations.',
     },
-
+    // Contact Page
+    contactPage: {
+      title: 'Contact Us',
+      subtitle:
+        'We are here to help you transform your ideas into digital reality. Contact us today and get a free consultation',
+      phone: 'Phone',
+      email: 'Email',
+      location: 'Location',
+      whatsapp: 'WhatsApp',
+      businessHours: {
+        title: 'Business Hours',
+        subtitle: "We're available during these hours",
+        weekdays: 'Weekdays',
+        weekdaysTime: 'Sunday - Thursday: 9:00 AM - 6:00 PM',
+        weekend: 'Weekend',
+        weekendTime: 'Friday - Saturday: Closed',
+      },
+      locationSection: {
+        title: 'Our Location',
+        subtitle: 'Visit us at our office in the heart of Libya',
+        officeTitle: 'StyleraTech Office',
+        address: 'Address',
+        mapPlaceholder: 'Click to Open Map',
+        mapSubtext: 'View our location on Google Maps',
+      },
+      faq: {
+        title: 'Frequently Asked Questions',
+        subtitle:
+          'Find answers to common questions about our services and process',
+        questions: [
+          {
+            question: 'What services do you offer?',
+            answer:
+              'We offer comprehensive technology solutions including web development, mobile applications, AI solutions, and UI/UX design. Our team specializes in modern technologies and can handle projects of any scale.',
+          },
+          {
+            question: 'How long does a typical project take?',
+            answer:
+              'Project timelines vary depending on complexity and scope. A simple website might take 2-4 weeks, while complex applications can take 3-6 months. We provide detailed timelines during our initial consultation.',
+          },
+          {
+            question: 'Do you provide ongoing support and maintenance?',
+            answer:
+              'Yes, we offer comprehensive support and maintenance packages to ensure your application continues to perform optimally. This includes updates, security patches, and technical support.',
+          },
+          {
+            question: 'What is your development process?',
+            answer:
+              'We follow an agile development methodology with regular client communication, iterative development, and thorough testing. Our process includes discovery, design, development, testing, and deployment phases.',
+          },
+          {
+            question: 'Can you work with existing systems?',
+            answer:
+              'We have extensive experience integrating with existing systems and can help modernize legacy applications or build new features that work seamlessly with your current infrastructure.',
+          },
+          {
+            question: 'What technologies do you specialize in?',
+            answer:
+              'We specialize in modern web technologies including React, Next.js, Node.js, Python, mobile development with React Native and Flutter, and AI/ML technologies including TensorFlow and various cloud platforms.',
+          },
+        ],
+        cta: {
+          title: "Didn't find an answer to your question?",
+          subtitle: 'Contact us directly and we will answer all your inquiries',
+          whatsappButton: 'Message us on WhatsApp',
+          emailButton: 'Send an Email',
+        },
+      },
+      form: {
+        title: 'Start Your Project With Us',
+        subtitle:
+          'Fill out the form below and we will contact you within 24 hours',
+        name: 'Name',
+        email: 'Email',
+        phone: 'Phone',
+        company: 'Company',
+        projectType: 'Project Type',
+        projectTypeOptions: {
+          placeholder: 'Select project type',
+          web: 'Web Development',
+          mobile: 'Mobile App',
+          ai: 'AI Solution',
+          design: 'UI/UX Design',
+          other: 'Other',
+        },
+        message: 'Project Description',
+        messagePlaceholder:
+          'Tell us about your project, goals, and any specific requirements...',
+        submit: 'Send Message',
+        sending: 'Sending...',
+        required: '*',
+      },
+    },
     // Contact
     contact: {
       title: 'Contact Us',
@@ -605,7 +697,96 @@ const translations = {
         submit: 'إرسال الرسالة',
       },
     },
-
+    // Contact Page
+    contactPage: {
+      title: 'تواصل معنا',
+      subtitle:
+        'نحن هنا لمساعدتك في تحويل أفكارك إلى واقع رقمي. تواصل معنا اليوم واحصل على استشارة مجانية',
+      phone: 'الهاتف',
+      email: 'البريد الإلكتروني',
+      location: 'الموقع',
+      whatsapp: 'واتساب',
+      businessHours: {
+        title: 'ساعات العمل',
+        subtitle: 'نحن متاحون خلال هذه الأوقات',
+        weekdays: 'أيام الأسبوع',
+        weekdaysTime: 'الأحد - الخميس: 9:00 صباحاً - 6:00 مساءً',
+        weekend: 'عطلة نهاية الأسبوع',
+        weekendTime: 'الجمعة - السبت: مغلق',
+      },
+      locationSection: {
+        title: 'موقعنا',
+        subtitle: 'قم بزيارتنا في مكتبنا في قلب ليبيا',
+        officeTitle: 'مكتب ستايليرا تك',
+        address: 'العنوان',
+        mapPlaceholder: 'اضغط لفتح الخريطة',
+        mapSubtext: 'اعرض موقعنا على خرائط جوجل',
+      },
+      faq: {
+        title: 'الأسئلة الشائعة',
+        subtitle: 'اعثر على إجابات للأسئلة الشائعة حول خدماتنا وعملياتنا',
+        questions: [
+          {
+            question: 'ما هي الخدمات التي تقدمونها؟',
+            answer:
+              'نقدم حلولاً تقنية شاملة تشمل تطوير المواقع الإلكترونية، وتطبيقات الجوال، وحلول الذكاء الاصطناعي، وتصميم واجهات المستخدم. فريقنا متخصص في التقنيات الحديثة ويمكنه التعامل مع المشاريع بأي حجم.',
+          },
+          {
+            question: 'كم من الوقت يستغرق المشروع عادةً؟',
+            answer:
+              'تختلف مدة المشاريع حسب التعقيد والنطاق. قد يستغرق موقع ويب بسيط من 2-4 أسابيع، بينما قد تستغرق التطبيقات المعقدة من 3-6 أشهر. نقدم جداول زمنية تفصيلية خلال الاستشارة الأولية.',
+          },
+          {
+            question: 'هل تقدمون الدعم والصيانة المستمرة؟',
+            answer:
+              'نعم، نقدم باقات دعم وصيانة شاملة لضمان استمرار تطبيقك في الأداء الأمثل. يشمل ذلك التحديثات، وإصلاحات الأمان، والدعم التقني.',
+          },
+          {
+            question: 'ما هي عملية التطوير لديكم؟',
+            answer:
+              'نتبع منهجية تطوير رشيقة مع تواصل منتظم مع العميل، وتطوير تكراري، واختبار شامل. تشمل عمليتنا مراحل الاكتشاف والتصميم والتطوير والاختبار والنشر.',
+          },
+          {
+            question: 'هل يمكنكم العمل مع الأنظمة الموجودة؟',
+            answer:
+              'لدينا خبرة واسعة في التكامل مع الأنظمة الموجودة ويمكننا المساعدة في تحديث التطبيقات القديمة أو بناء ميزات جديدة تعمل بسلاسة مع بنيتك التحتية الحالية.',
+          },
+          {
+            question: 'ما هي التقنيات التي تتخصصون فيها؟',
+            answer:
+              'نتخصص في تقنيات الويب الحديثة بما في ذلك React و Next.js و Node.js و Python، وتطوير الجوال باستخدام React Native و Flutter، وتقنيات الذكاء الاصطناعي/التعلم الآلي بما في ذلك TensorFlow ومنصات السحابة المختلفة.',
+          },
+        ],
+        cta: {
+          title: 'لم تجد إجابة لسؤالك؟',
+          subtitle: 'تواصل معنا مباشرة وسنجيب على جميع استفساراتك',
+          whatsappButton: 'راسلنا على واتساب',
+          emailButton: 'أرسل بريداً إلكترونياً',
+        },
+      },
+      form: {
+        title: 'ابدأ مشروعك معنا',
+        subtitle: 'املأ النموذج أدناه وسنتواصل معك خلال 24 ساعة',
+        name: 'الاسم',
+        email: 'البريد الإلكتروني',
+        phone: 'الهاتف',
+        company: 'الشركة',
+        projectType: 'نوع المشروع',
+        projectTypeOptions: {
+          placeholder: 'اختر نوع المشروع',
+          web: 'تطوير المواقع',
+          mobile: 'تطبيق جوال',
+          ai: 'حل ذكاء اصطناعي',
+          design: 'تصميم UI/UX',
+          other: 'أخرى',
+        },
+        message: 'وصف المشروع',
+        messagePlaceholder: 'أخبرنا عن مشروعك وأهدافك وأي متطلبات محددة...',
+        submit: 'إرسال الرسالة',
+        sending: 'جارٍ الإرسال...',
+        required: '*',
+      },
+    },
     // Team
     team: {
       title: 'فريقنا',
