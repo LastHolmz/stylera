@@ -142,7 +142,7 @@ const translations = {
       title: 'Our Services',
       subtitle:
         'We provide advanced technology solutions tailored to your needs.',
-
+      requestQuote: 'Request a Quote',
       web: {
         title: 'Web Development',
         description: 'Modern and fast websites using the latest technologies',
@@ -385,7 +385,7 @@ const translations = {
     OurServices: {
       title: 'خدماتنا',
       subtitle: 'نقدم حلولاً تقنية متقدمة مصممة خصيصاً لتلبية احتياجاتك.',
-
+      requestQuote: 'اطلب عرض سعر',
       web: {
         title: 'تطوير المواقع الإلكترونية',
         description: 'مواقع ويب حديثة وسريعة باستخدام أحدث التقنيات',

@@ -19,6 +19,7 @@ import {
   Target,
   Rocket,
   MessageCircle,
+  ArrowLeft,
 } from 'lucide-react'
 import Link from 'next/link'
 import { FaWhatsapp } from 'react-icons/fa'
@@ -108,8 +109,12 @@ export default function ServicesPage() {
                         variant='outline'
                         className='w-full border-slate-600 text-white hover:bg-slate-800 px-6 py-3 text-lg group bg-transparent'
                       >
-                        <ArrowRight className='w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform' />
-                        {t('OurServices.requestQuote') || 'Request a Quote'}
+                        {t('OurServices.requestQuote')}
+                        {isRTL ? (
+                          <ArrowLeft />
+                        ) : (
+                          <ArrowRight className='w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform' />
+                        )}
                       </Button>
                     </div>
                   </Card>
