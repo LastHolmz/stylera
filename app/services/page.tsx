@@ -49,21 +49,22 @@ export default function ServicesPage() {
   return (
     <div className='relative'>
       <ShaderBackground>
-        <Navigation />
+        <div className='relative z-10'>
+          <Navigation />
 
-        {/* Hero Section */}
-        <section className='pt-32 pb-20 px-4'>
-          <div className='max-w-4xl mx-auto text-center'>
-            <h1 className='text-5xl md:text-7xl font-bold text-white mb-6 leading-tight'>
-              {t('OurServices.title')}
-            </h1>
-            <p className='text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto'>
-              {t('OurServices.subtitle')}
-            </p>
-          </div>
-        </section>
+          {/* Hero Section */}
+          <section className='pt-32 pb-20 px-4'>
+            <div className='max-w-4xl mx-auto text-center'>
+              <h1 className='text-5xl md:text-7xl font-bold text-accent mb-6 leading-tight'>
+                {t('OurServices.title')}
+              </h1>
+              <p className='text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto'>
+                {t('OurServices.subtitle')}
+              </p>
+            </div>
+          </section>
+        </div>
       </ShaderBackground>
-
       <div className='bg-background'>
         {/* Detailed Services Section */}
         <section className='py-20 px-4'>
