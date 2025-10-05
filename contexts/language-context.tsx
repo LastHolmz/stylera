@@ -62,7 +62,65 @@ const translations = {
         },
       },
     },
-
+    // About us
+    aboutPage: {
+      title: 'Who We Are',
+      subtitle:
+        'We are a team of passionate developers and designers who believe in the power of technology to change the world and improve lives.',
+      story: {
+        title: 'Our Story',
+        paragraphs: [
+          'Our journey began in 2022 with a simple dream: to provide innovative technology solutions that help companies grow and thrive in the digital age.',
+          'From humble beginnings as a small team of passionate developers, we have grown into a comprehensive technology company serving clients across various industries.',
+          'We believe technology should not only solve problems but also inspire and empower people to achieve their dreams.',
+        ],
+      },
+      mission: {
+        title: 'Our Mission',
+        text: 'To empower businesses with innovative technology solutions that drive growth, efficiency, and success.',
+      },
+      vision: {
+        title: 'Our Vision',
+        text: 'To be the leading technology partner that transforms ideas into reality and inspires people worldwide.',
+      },
+      values: {
+        title: 'Our Core Values',
+        subtitle: 'The values that guide our work and shape our culture.',
+        items: {
+          passion: {
+            title: 'Passion',
+            description:
+              'We are passionate about what we do and committed to delivering exceptional results.',
+          },
+          excellence: {
+            title: 'Excellence',
+            description:
+              'We strive for excellence in every project and never settle for mediocrity.',
+          },
+          innovation: {
+            title: 'Innovation',
+            description:
+              'We embrace innovation and constantly seek new ways to solve problems.',
+          },
+          integrity: {
+            title: 'Integrity',
+            description:
+              'We operate with honesty, transparency, and respect in all our relationships.',
+          },
+        },
+      },
+      timeline: {
+        title: 'Our Journey Through the Years',
+        subtitle:
+          'Track our growth and development from the beginning to today.',
+        items: {
+          2022: 'Company Founded — Started with a vision to transform digital experiences.',
+          2023: 'Team Expansion — Grew to 10+ talented developers and designers.',
+          2024: 'Major Achievements — Completed 50+ successful projects across industries.',
+          2025: 'Future Goals — Expanding internationally and embracing new technologies.',
+        },
+      },
+    },
     // Testimonials Section
     testimonials: {
       title: 'What Our Clients Say',
@@ -468,6 +526,63 @@ const translations = {
       ctaTitle: 'ابدأ مشروعك اليوم',
       ctaSubtitle:
         'تواصل معنا الآن للحصول على استشارة مجانية وعرض سعر مخصص لمشروعك.',
+    },
+    aboutPage: {
+      title: 'من نحن',
+      subtitle:
+        'نحن فريق من المطورين والمصممين الشغوفين الذين يؤمنون بقوة التكنولوجيا في تغيير العالم وتحسين حياة الناس.',
+      story: {
+        title: 'قصتنا',
+        paragraphs: [
+          'بدأت رحلتنا في عام 2022 بحلم بسيط: تقديم حلول تكنولوجية مبتكرة تساعد الشركات على النمو والازدهار في العصر الرقمي.',
+          'من بدايات متواضعة كفريق صغير من المطورين المتحمسين، تطورنا إلى شركة تقنية متكاملة تقدم خدماتها لعملاء من مختلف الصناعات.',
+          'نؤمن أن التكنولوجيا لا يجب أن تقتصر على حل المشكلات فحسب، بل يجب أن تلهم وتمكّن الناس من تحقيق أحلامهم. هذه الفلسفة هي ما يوجه كل ما نقوم به.',
+        ],
+      },
+      mission: {
+        title: 'مهمتنا',
+        text: 'تمكين الأعمال من خلال حلول تقنية مبتكرة تعزز النمو والكفاءة والنجاح في العالم الرقمي.',
+      },
+      vision: {
+        title: 'رؤيتنا',
+        text: 'أن نكون الشريك التقني الرائد الذي يحول الأفكار إلى واقع، ويُلهم الناس في جميع أنحاء العالم من خلال التجارب الرقمية المميزة.',
+      },
+      values: {
+        title: 'قيمنا الأساسية',
+        subtitle: 'القيم التي توجه عملنا وتشكل ثقافتنا المؤسسية.',
+        items: {
+          passion: {
+            title: 'الشغف',
+            description:
+              'نحن شغوفون بما نقوم به وملتزمون بتقديم نتائج استثنائية في كل مشروع.',
+          },
+          excellence: {
+            title: 'التميز',
+            description:
+              'نسعى نحو التميز في كل مشروع ولا نرضى بالحلول المتوسطة.',
+          },
+          innovation: {
+            title: 'الابتكار',
+            description:
+              'نحتضن الابتكار ونسعى باستمرار إلى إيجاد طرق جديدة ومبدعة لحل المشكلات.',
+          },
+          integrity: {
+            title: 'النزاهة',
+            description:
+              'نعمل بشفافية وأمانة واحترام في جميع تعاملاتنا وعلاقاتنا المهنية.',
+          },
+        },
+      },
+      timeline: {
+        title: 'رحلتنا على مر السنين',
+        subtitle: 'تابع تطورنا ونمونا منذ البداية وحتى اليوم.',
+        items: {
+          2022: 'تأسيس الشركة — انطلقت برؤية تهدف إلى تحويل التجارب الرقمية.',
+          2023: 'توسّع الفريق — نمونا ليشمل أكثر من 10 مطورين ومصممين موهوبين.',
+          2024: 'إنجازات كبرى — إتمام أكثر من 50 مشروعاً ناجحاً في مختلف القطاعات.',
+          2025: 'أهداف مستقبلية — التوسع عالمياً وتبني أحدث التقنيات الحديثة.',
+        },
+      },
     },
 
     // About
