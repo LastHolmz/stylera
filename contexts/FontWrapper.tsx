@@ -11,7 +11,6 @@ function FontDirectionWrapper({ children }: { children: React.ReactNode }) {
     html.lang = language
     html.dir = isRTL ? 'rtl' : 'ltr'
 
-    // Apply the correct font
     if (language === 'ar') {
       document.body.classList.add('font-arabic')
       document.body.classList.remove('font-english')

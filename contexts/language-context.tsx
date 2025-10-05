@@ -137,7 +137,106 @@ const translations = {
         button: 'Start Your Project',
       },
     },
+    // Our Services
+    OurServices: {
+      title: 'Our Services',
+      subtitle:
+        'We provide advanced technology solutions tailored to your needs.',
 
+      web: {
+        title: 'Web Development',
+        description: 'Modern and fast websites using the latest technologies',
+        features: [
+          'Next.js & React',
+          'Responsive Design',
+          'SEO Optimized',
+          'High Performance',
+        ],
+      },
+      mobile: {
+        title: 'Mobile Applications',
+        description: 'Advanced mobile apps for iOS and Android',
+        features: [
+          'Flutter & React Native',
+          'Excellent UX',
+          'Optimized Performance',
+          'App Store Ready',
+        ],
+      },
+      ai: {
+        title: 'Artificial Intelligence',
+        description:
+          'Smart AI-powered solutions for automation and optimization',
+        features: [
+          'Machine Learning',
+          'Natural Language Processing',
+          'Computer Vision',
+          'Intelligent Analytics',
+        ],
+      },
+      design: {
+        title: 'UI/UX Design',
+        description: 'Attractive designs and exceptional user experiences',
+        features: [
+          'Interface Design',
+          'User Experience',
+          'Prototypes',
+          'User Testing',
+        ],
+      },
+      security: {
+        title: 'Cyber Security',
+        description: 'Comprehensive protection for systems and data',
+        features: [
+          'Data Encryption',
+          'Security Monitoring',
+          'Penetration Testing',
+          'Security Awareness',
+        ],
+      },
+      data: {
+        title: 'Data Management',
+        description: 'Advanced data management and analytics systems',
+        features: [
+          'Databases',
+          'Data Analysis',
+          'Smart Reports',
+          'Predictive Modeling',
+        ],
+      },
+
+      // ✅ NEW: How We Work section
+      howWeWorkTitle: 'How We Work',
+      howWeWorkSubtitle:
+        'We follow a clear and proven methodology to ensure we deliver the best results.',
+      steps: [
+        {
+          title: 'Analysis & Research',
+          description:
+            'We start by understanding your needs and analyzing project requirements thoroughly.',
+        },
+        {
+          title: 'Planning & Design',
+          description:
+            'We create a comprehensive plan and design solutions aligned with your goals.',
+        },
+        {
+          title: 'Development & Coding',
+          description:
+            'We develop solutions using the latest technologies and standards.',
+        },
+        {
+          title: 'Launch & Support',
+          description:
+            'We launch the project and provide continuous support to ensure success.',
+        },
+      ],
+
+      // ✅ NEW: CTA Section
+      ctaTitle: 'Start Your Project Today',
+      ctaSubtitle:
+        'Contact us now for a free consultation and a custom quote for your project.',
+    },
     // About
     about: {
       title: 'Who We Are',
@@ -282,6 +381,93 @@ const translations = {
           'دعنا نساعدك في تحويل فكرتك إلى واقع رقمي مذهل. تواصل معنا اليوم لمناقشة مشروعك.',
         button: 'ابدأ مشروعك',
       },
+    },
+    OurServices: {
+      title: 'خدماتنا',
+      subtitle: 'نقدم حلولاً تقنية متقدمة مصممة خصيصاً لتلبية احتياجاتك.',
+
+      web: {
+        title: 'تطوير المواقع الإلكترونية',
+        description: 'مواقع ويب حديثة وسريعة باستخدام أحدث التقنيات',
+        features: ['Next.js و React', 'تصميم متجاوب', 'تحسين SEO', 'أداء عالي'],
+      },
+      mobile: {
+        title: 'تطبيقات الجوال',
+        description: 'تطبيقات جوال متقدمة لأنظمة iOS و Android',
+        features: [
+          'Flutter و React Native',
+          'تجربة مستخدم متميزة',
+          'أداء محسّن',
+          'متجر التطبيقات',
+        ],
+      },
+      ai: {
+        title: 'الذكاء الاصطناعي',
+        description: 'حلول ذكية مدعومة بالذكاء الاصطناعي للأتمتة والتحسين',
+        features: [
+          'التعلّم الآلي',
+          'معالجة اللغة الطبيعية',
+          'الرؤية الحاسوبية',
+          'التحليل الذكي',
+        ],
+      },
+      design: {
+        title: 'تصميم UI/UX',
+        description: 'تصميمات جذابة وتجربة مستخدم متميزة',
+        features: [
+          'تصميم الواجهات',
+          'تجربة المستخدم',
+          'النماذج الأولية',
+          'اختبار المستخدم',
+        ],
+      },
+      security: {
+        title: 'الأمن السيبراني',
+        description: 'حماية شاملة للأنظمة والبيانات',
+        features: [
+          'تشفير البيانات',
+          'مراقبة الأمان',
+          'اختبار الاختراق',
+          'التوعية الأمنية',
+        ],
+      },
+      data: {
+        title: 'إدارة البيانات',
+        description: 'أنظمة إدارة البيانات المتقدمة والتحليلات',
+        features: [
+          'قواعد البيانات',
+          'تحليل البيانات',
+          'التقارير الذكية',
+          'النمذجة التنبؤية',
+        ],
+      },
+
+      // ✅ كيف نعمل
+      howWeWorkTitle: 'كيف نعمل',
+      howWeWorkSubtitle: 'نتبع منهجية واضحة ومجربة لضمان تقديم أفضل النتائج.',
+      steps: [
+        {
+          title: 'التحليل والدراسة',
+          description: 'نبدأ بفهم احتياجاتك وتحليل متطلبات المشروع بدقة.',
+        },
+        {
+          title: 'التخطيط والتصميم',
+          description: 'نضع خطة شاملة ونصمم الحلول المناسبة لأهدافك.',
+        },
+        {
+          title: 'التطوير والبرمجة',
+          description: 'نطور الحلول باستخدام أحدث التقنيات والمعايير.',
+        },
+        {
+          title: 'الإطلاق والدعم',
+          description: 'نطلق المشروع ونقدم الدعم المستمر لضمان النجاح.',
+        },
+      ],
+
+      // ✅ CTA
+      ctaTitle: 'ابدأ مشروعك اليوم',
+      ctaSubtitle:
+        'تواصل معنا الآن للحصول على استشارة مجانية وعرض سعر مخصص لمشروعك.',
     },
 
     // About

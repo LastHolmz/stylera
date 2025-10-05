@@ -39,7 +39,7 @@ export default function ServicesSection() {
         {/* Section Header */}
         <div className='max-w-3xl mx-auto mb-20 text-start'>
           <h2 className='text-4xl md:text-5xl font-light text-white mb-6'>
-            <span className='font-medium instrument text-accent'>
+            <span className='font-medium ltr:instrument text-accent'>
               {t('services.title')}
             </span>
           </h2>
