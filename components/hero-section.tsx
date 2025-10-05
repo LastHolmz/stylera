@@ -1,10 +1,10 @@
 'use client'
 
 import { useLanguage } from '@/contexts/language-context'
-import { ArrowRight, Play } from 'lucide-react'
+import { ArrowRight, ArrowLeft, Play } from 'lucide-react'
 
 export default function HeroSection() {
-  const { t } = useLanguage()
+  const { t, isRTL } = useLanguage()
 
   return (
     <section
@@ -30,32 +30,51 @@ export default function HeroSection() {
 
           {/* CTA Buttons */}
           <div className='flex items-center gap-6 flex-wrap'>
-            <button className='group px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium text-base transition-all duration-300 hover:bg-primary/90 cursor-pointer flex items-center gap-3 hover:gap-4'>
+            <button className='group px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium text-base transition-all duration-300 hover:bg-primary/80 cursor-pointer flex items-center gap-3'>
               {t('hero.cta.primary')}
-              <ArrowRight size={20} className='transition-all duration-300' />
+              {isRTL ? (
+                <ArrowLeft size={20} className='transition-all duration-300' />
+              ) : (
+                <ArrowRight size={20} className='transition-all duration-300' />
+              )}
             </button>
 
             <button className='group px-8 py-4 rounded-full bg-transparent border border-white/30 text-white font-medium text-base transition-all duration-300 hover:bg-white/10 hover:border-white/50 cursor-pointer flex items-center gap-3'>
-              <Play size={18} className='fill-current' />
-              {t('hero.cta.secondary')}
+              {isRTL ? (
+                <>
+                  {t('hero.cta.secondary')}
+                  <Play
+                    size={18}
+                    className='fill-current rotate-180 transition-transform duration-300'
+                  />
+                </>
+              ) : (
+                <>
+                  <Play
+                    size={18}
+                    className='fill-current transition-transform duration-300'
+                  />
+                  {t('hero.cta.secondary')}
+                </>
+              )}
             </button>
           </div>
 
           {/* Stats */}
           <div className='mt-16 grid grid-cols-3 gap-8 max-w-lg'>
-            <div className='text-left'>
+            <div>
               <div className='text-3xl font-semibold text-white mb-1'>50+</div>
               <div className='text-sm text-white/60 font-light'>
                 {t('hero.stats.projects')}
               </div>
             </div>
-            <div className='text-left'>
+            <div>
               <div className='text-3xl font-semibold text-white mb-1'>5+</div>
               <div className='text-sm text-white/60 font-light'>
                 {t('hero.stats.experience')}
               </div>
             </div>
-            <div className='text-left'>
+            <div>
               <div className='text-3xl font-semibold text-white mb-1'>100%</div>
               <div className='text-sm text-white/60 font-light'>
                 {t('hero.stats.clients')}
