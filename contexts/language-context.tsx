@@ -54,38 +54,13 @@ const translations = {
       subtitle:
         'Discover some of our most successful projects that showcase our expertise and innovation.',
       viewAll: 'View All Projects',
-      items: [
-        {
-          title: 'E-Commerce Platform',
-          description:
-            'Complete online shopping solution with advanced features and seamless user experience.',
-        },
-        {
-          title: 'Healthcare Management System',
-          description:
-            'Comprehensive healthcare platform with AI-powered diagnostics and patient management.',
-        },
-        {
-          title: 'FinTech Mobile App',
-          description:
-            'Secure financial application with real-time transactions and advanced analytics.',
-        },
-        {
+      items: {
+        mset: {
           title: 'Educational Platform',
           description:
-            'Interactive learning management system with AI-powered personalized content.',
+            'A modern educational platform built with React and Next.js, enhancing digital learning experiences.',
         },
-        {
-          title: 'Logistics Management',
-          description:
-            'Smart logistics solution with real-time tracking and route optimization.',
-        },
-        {
-          title: 'Social Media Platform',
-          description:
-            'Modern social networking application with advanced engagement features.',
-        },
-      ],
+      },
     },
 
     // Testimonials Section
@@ -230,35 +205,13 @@ const translations = {
       title: 'مشاريعنا المميزة',
       subtitle: 'اكتشف بعض مشاريعنا الأكثر نجاحاً التي تُظهر خبرتنا وابتكارنا.',
       viewAll: 'عرض جميع المشاريع',
-      items: [
-        {
-          title: 'منصة التجارة الإلكترونية',
+      items: {
+        mset: {
+          title: 'منصة تعليمية حديثة',
           description:
-            'حل تسوق إلكتروني متكامل بميزات متقدمة وتجربة مستخدم سلسة.',
+            'منصة تعليمية رقمية متطورة تم إنشاؤها باستخدام React وNext.js لتعزيز تجربة التعلم الإلكترونية.',
         },
-        {
-          title: 'نظام إدارة الرعاية الصحية',
-          description:
-            'منصة رعاية صحية شاملة مع تشخيص مدعوم بالذكاء الاصطناعي وإدارة المرضى.',
-        },
-        {
-          title: 'تطبيق التكنولوجيا المالية',
-          description: 'تطبيق مالي آمن مع معاملات فورية وتحليلات متقدمة.',
-        },
-        {
-          title: 'المنصة التعليمية',
-          description:
-            'نظام إدارة تعلم تفاعلي مع محتوى مخصص مدعوم بالذكاء الاصطناعي.',
-        },
-        {
-          title: 'إدارة اللوجستيات',
-          description: 'حل لوجستي ذكي مع تتبع فوري وتحسين المسارات.',
-        },
-        {
-          title: 'منصة التواصل الاجتماعي',
-          description: 'تطبيق شبكات اجتماعية حديث بميزات تفاعل متقدمة.',
-        },
-      ],
+      },
     },
 
     // Testimonials Section
