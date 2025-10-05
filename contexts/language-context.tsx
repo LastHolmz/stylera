@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
-import type React from "react"
-import { createContext, useContext, useState, useEffect } from "react"
+import type React from 'react'
+import { createContext, useContext, useState, useEffect } from 'react'
 
-type Language = "en" | "ar"
+type Language = 'en' | 'ar'
 
 interface LanguageContextType {
   language: Language
@@ -16,335 +16,369 @@ const translations = {
   en: {
     // Navigation
     nav: {
-      home: "Home",
-      services: "Our Services",
-      about: "Who We Are",
-      contact: "Contact Us",
+      home: 'Home',
+      services: 'Our Services',
+      about: 'Who We Are',
+      contact: 'Contact Us',
     },
 
     // Hero Section
     hero: {
-      badge: "✨ Modern Web Technologies",
-      title: "StyleraTech",
-      subtitle: "Software Development Excellence",
+      badge: '✨ Modern Web Technologies',
+      title: 'StyleraTech',
+      subtitle: 'Software Development Excellence',
       description:
-        "StyleraTech is a software development company specializing in modern web technologies and advanced IT solutions. We help businesses achieve their digital goals.",
+        'StyleraTech is a software development company specializing in modern web technologies and advanced IT solutions. We help businesses achieve their digital goals.',
       cta: {
-        primary: "Get Started",
-        secondary: "Our Services",
+        primary: 'Get Started',
+        secondary: 'Our Services',
       },
       stats: {
-        projects: "Completed Projects",
-        clients: "Happy Clients",
-        experience: "Years Experience",
-        team: "Team Members",
+        projects: 'Completed Projects',
+        clients: 'Happy Clients',
+        experience: 'Years Experience',
+        team: 'Team Members',
       },
     },
 
     // Technologies Section
     technologies: {
-      title: "Technologies We Use",
+      title: 'Technologies We Use',
       subtitle:
-        "We leverage cutting-edge technologies to build robust, scalable, and innovative solutions for our clients.",
+        'We leverage cutting-edge technologies to build robust, scalable, and innovative solutions for our clients.',
     },
 
     // Projects Section
     projects: {
-      title: "Our Featured Projects",
-      subtitle: "Discover some of our most successful projects that showcase our expertise and innovation.",
-      viewAll: "View All Projects",
+      title: 'Our Featured Projects',
+      subtitle:
+        'Discover some of our most successful projects that showcase our expertise and innovation.',
+      viewAll: 'View All Projects',
       items: [
         {
-          title: "E-Commerce Platform",
-          description: "Complete online shopping solution with advanced features and seamless user experience.",
+          title: 'E-Commerce Platform',
+          description:
+            'Complete online shopping solution with advanced features and seamless user experience.',
         },
         {
-          title: "Healthcare Management System",
-          description: "Comprehensive healthcare platform with AI-powered diagnostics and patient management.",
+          title: 'Healthcare Management System',
+          description:
+            'Comprehensive healthcare platform with AI-powered diagnostics and patient management.',
         },
         {
-          title: "FinTech Mobile App",
-          description: "Secure financial application with real-time transactions and advanced analytics.",
+          title: 'FinTech Mobile App',
+          description:
+            'Secure financial application with real-time transactions and advanced analytics.',
         },
         {
-          title: "Educational Platform",
-          description: "Interactive learning management system with AI-powered personalized content.",
+          title: 'Educational Platform',
+          description:
+            'Interactive learning management system with AI-powered personalized content.',
         },
         {
-          title: "Logistics Management",
-          description: "Smart logistics solution with real-time tracking and route optimization.",
+          title: 'Logistics Management',
+          description:
+            'Smart logistics solution with real-time tracking and route optimization.',
         },
         {
-          title: "Social Media Platform",
-          description: "Modern social networking application with advanced engagement features.",
+          title: 'Social Media Platform',
+          description:
+            'Modern social networking application with advanced engagement features.',
         },
       ],
     },
 
     // Testimonials Section
     testimonials: {
-      title: "What Our Clients Say",
+      title: 'What Our Clients Say',
       subtitle:
         "Don't just take our word for it - hear from some of our satisfied clients about their experience working with us.",
       items: [
         {
-          name: "Ahmed Al-Rashid",
-          position: "CEO, TechVision",
+          name: 'Ahmed Al-Rashid',
+          position: 'CEO, TechVision',
           content:
-            "StyleraTech delivered an exceptional e-commerce platform that exceeded our expectations. Their attention to detail and technical expertise is outstanding.",
+            'StyleraTech delivered an exceptional e-commerce platform that exceeded our expectations. Their attention to detail and technical expertise is outstanding.',
         },
         {
-          name: "Sarah Johnson",
-          position: "Founder, HealthCare Plus",
+          name: 'Sarah Johnson',
+          position: 'Founder, HealthCare Plus',
           content:
-            "The healthcare management system they built for us has revolutionized our operations. The AI features are incredibly accurate and user-friendly.",
+            'The healthcare management system they built for us has revolutionized our operations. The AI features are incredibly accurate and user-friendly.',
         },
         {
-          name: "Mohammed Hassan",
-          position: "CTO, FinanceFlow",
+          name: 'Mohammed Hassan',
+          position: 'CTO, FinanceFlow',
           content:
-            "Our mobile banking app developed by StyleraTech has received excellent user feedback. The security features and performance are top-notch.",
+            'Our mobile banking app developed by StyleraTech has received excellent user feedback. The security features and performance are top-notch.',
         },
         {
-          name: "Lisa Chen",
-          position: "Director, EduTech Solutions",
+          name: 'Lisa Chen',
+          position: 'Director, EduTech Solutions',
           content:
-            "The educational platform they created has transformed how we deliver online learning. The personalized AI features are game-changing.",
+            'The educational platform they created has transformed how we deliver online learning. The personalized AI features are game-changing.',
         },
       ],
     },
 
     // CTA Section
     cta: {
-      title: "Ready to Start Your Project?",
-      subtitle: "Let us help you transform your ideas into stunning digital reality.",
-      startProject: "Start Your Project",
-      freeConsultation: "Free Consultation",
+      title: 'Ready to Start Your Project?',
+      subtitle:
+        'Let us help you transform your ideas into stunning digital reality.',
+      startProject: 'Start Your Project',
+      freeConsultation: 'Free Consultation',
     },
 
-    // Services
     services: {
-      title: "Our Distinguished Services",
-      subtitle: "We provide comprehensive technology solutions tailored to your business needs.",
+      title: 'Our Distinguished Services',
+      subtitle:
+        'We provide comprehensive technology solutions tailored to your business needs.',
       web: {
-        title: "Web Development",
-        description: "Modern, responsive websites built with cutting-edge technologies",
+        title: 'Web Development',
+        description:
+          'Modern, responsive websites built with cutting-edge technologies.',
       },
       mobile: {
-        title: "Mobile Applications",
-        description: "Native and cross-platform mobile apps for iOS and Android",
+        title: 'Mobile Applications',
+        description:
+          'Native and cross-platform mobile apps for iOS and Android.',
       },
       ai: {
-        title: "Artificial Intelligence",
-        description: "AI-powered solutions to automate and enhance your business processes",
+        title: 'Artificial Intelligence',
+        description:
+          'AI-powered solutions to automate and enhance your business processes.',
       },
       design: {
-        title: "UI/UX Design",
-        description: "Beautiful, user-centered designs that convert and engage",
+        title: 'UI/UX Design',
+        description:
+          'Beautiful, user-centered designs that convert and engage.',
+      },
+      learnMore: 'Learn More',
+      cta: {
+        title: 'Have a project in mind?',
+        subtitle:
+          'Let us help you turn your idea into a stunning digital reality. Get in touch today to discuss your project.',
+        button: 'Start Your Project',
       },
     },
 
     // About
     about: {
-      title: "Who We Are",
+      title: 'Who We Are',
       description:
-        "We are a team of passionate developers and designers dedicated to creating innovative digital solutions. Our expertise spans modern web technologies, mobile development, and cutting-edge AI implementations.",
+        'We are a team of passionate developers and designers dedicated to creating innovative digital solutions. Our expertise spans modern web technologies, mobile development, and cutting-edge AI implementations.',
     },
 
     // Contact
     contact: {
-      title: "Contact Us",
-      phone: "Phone",
-      email: "Email",
-      location: "Location",
+      title: 'Contact Us',
+      phone: 'Phone',
+      email: 'Email',
+      location: 'Location',
       form: {
-        name: "Name",
-        email: "Email",
-        message: "Message",
-        submit: "Send Message",
+        name: 'Name',
+        email: 'Email',
+        message: 'Message',
+        submit: 'Send Message',
       },
     },
 
     // Team
     team: {
-      title: "Our Team",
-      subtitle: "Meet the talented individuals who make our success possible.",
+      title: 'Our Team',
+      subtitle: 'Meet the talented individuals who make our success possible.',
     },
   },
   ar: {
     // Navigation
     nav: {
-      home: "الرئيسية",
-      services: "خدماتنا",
-      about: "من نحن",
-      contact: "اتصل بنا",
+      home: 'الرئيسية',
+      services: 'خدماتنا',
+      about: 'من نحن',
+      contact: 'اتصل بنا',
     },
 
     // Hero Section
     hero: {
-      badge: "✨ تقنيات الويب الحديثة",
-      title: "ستايليرا تك",
-      subtitle: "التميز في تطوير البرمجيات",
-      description: "شركة متخصصة في تطوير البرمجيات والحلول التقنية المتقدمة. نساعد الشركات على تحقيق أهدافها الرقمية.",
+      badge: '✨ تقنيات الويب الحديثة',
+      title: 'ستايليرا تك',
+      subtitle: 'التميز في تطوير البرمجيات',
+      description:
+        'شركة متخصصة في تطوير البرمجيات والحلول التقنية المتقدمة. نساعد الشركات على تحقيق أهدافها الرقمية.',
       cta: {
-        primary: "ابدأ الآن",
-        secondary: "خدماتنا",
+        primary: 'ابدأ الآن',
+        secondary: 'خدماتنا',
       },
       stats: {
-        projects: "مشروع مكتمل",
-        clients: "عميل سعيد",
-        experience: "سنوات خبرة",
-        team: "عضو فريق",
+        projects: 'مشروع مكتمل',
+        clients: 'عميل سعيد',
+        experience: 'سنوات خبرة',
+        team: 'عضو فريق',
       },
     },
 
     // Technologies Section
     technologies: {
-      title: "التقنيات التي نستخدمها",
-      subtitle: "نستخدم أحدث التقنيات لبناء حلول قوية وقابلة للتطوير ومبتكرة لعملائنا.",
+      title: 'التقنيات التي نستخدمها',
+      subtitle:
+        'نستخدم أحدث التقنيات لبناء حلول قوية وقابلة للتطوير ومبتكرة لعملائنا.',
     },
 
     // Projects Section
     projects: {
-      title: "مشاريعنا المميزة",
-      subtitle: "اكتشف بعض مشاريعنا الأكثر نجاحاً التي تُظهر خبرتنا وابتكارنا.",
-      viewAll: "عرض جميع المشاريع",
+      title: 'مشاريعنا المميزة',
+      subtitle: 'اكتشف بعض مشاريعنا الأكثر نجاحاً التي تُظهر خبرتنا وابتكارنا.',
+      viewAll: 'عرض جميع المشاريع',
       items: [
         {
-          title: "منصة التجارة الإلكترونية",
-          description: "حل تسوق إلكتروني متكامل بميزات متقدمة وتجربة مستخدم سلسة.",
+          title: 'منصة التجارة الإلكترونية',
+          description:
+            'حل تسوق إلكتروني متكامل بميزات متقدمة وتجربة مستخدم سلسة.',
         },
         {
-          title: "نظام إدارة الرعاية الصحية",
-          description: "منصة رعاية صحية شاملة مع تشخيص مدعوم بالذكاء الاصطناعي وإدارة المرضى.",
+          title: 'نظام إدارة الرعاية الصحية',
+          description:
+            'منصة رعاية صحية شاملة مع تشخيص مدعوم بالذكاء الاصطناعي وإدارة المرضى.',
         },
         {
-          title: "تطبيق التكنولوجيا المالية",
-          description: "تطبيق مالي آمن مع معاملات فورية وتحليلات متقدمة.",
+          title: 'تطبيق التكنولوجيا المالية',
+          description: 'تطبيق مالي آمن مع معاملات فورية وتحليلات متقدمة.',
         },
         {
-          title: "المنصة التعليمية",
-          description: "نظام إدارة تعلم تفاعلي مع محتوى مخصص مدعوم بالذكاء الاصطناعي.",
+          title: 'المنصة التعليمية',
+          description:
+            'نظام إدارة تعلم تفاعلي مع محتوى مخصص مدعوم بالذكاء الاصطناعي.',
         },
         {
-          title: "إدارة اللوجستيات",
-          description: "حل لوجستي ذكي مع تتبع فوري وتحسين المسارات.",
+          title: 'إدارة اللوجستيات',
+          description: 'حل لوجستي ذكي مع تتبع فوري وتحسين المسارات.',
         },
         {
-          title: "منصة التواصل الاجتماعي",
-          description: "تطبيق شبكات اجتماعية حديث بميزات تفاعل متقدمة.",
+          title: 'منصة التواصل الاجتماعي',
+          description: 'تطبيق شبكات اجتماعية حديث بميزات تفاعل متقدمة.',
         },
       ],
     },
 
     // Testimonials Section
     testimonials: {
-      title: "آراء عملائنا",
-      subtitle: "لا تأخذ كلامنا فقط - استمع إلى بعض عملائنا الراضين حول تجربتهم في العمل معنا.",
+      title: 'آراء عملائنا',
+      subtitle:
+        'لا تأخذ كلامنا فقط - استمع إلى بعض عملائنا الراضين حول تجربتهم في العمل معنا.',
       items: [
         {
-          name: "أحمد الراشد",
-          position: "الرئيس التنفيذي، تك فيجن",
+          name: 'أحمد الراشد',
+          position: 'الرئيس التنفيذي، تك فيجن',
           content:
-            "قدمت ستايليرا تك منصة تجارة إلكترونية استثنائية فاقت توقعاتنا. اهتمامهم بالتفاصيل وخبرتهم التقنية متميزة.",
+            'قدمت ستايليرا تك منصة تجارة إلكترونية استثنائية فاقت توقعاتنا. اهتمامهم بالتفاصيل وخبرتهم التقنية متميزة.',
         },
         {
-          name: "سارة جونسون",
-          position: "المؤسسة، هيلث كير بلس",
+          name: 'سارة جونسون',
+          position: 'المؤسسة، هيلث كير بلس',
           content:
-            "نظام إدارة الرعاية الصحية الذي بنوه لنا ثورة في عملياتنا. ميزات الذكاء الاصطناعي دقيقة جداً وسهلة الاستخدام.",
+            'نظام إدارة الرعاية الصحية الذي بنوه لنا ثورة في عملياتنا. ميزات الذكاء الاصطناعي دقيقة جداً وسهلة الاستخدام.',
         },
         {
-          name: "محمد حسن",
-          position: "مدير التكنولوجيا، فاينانس فلو",
+          name: 'محمد حسن',
+          position: 'مدير التكنولوجيا، فاينانس فلو',
           content:
-            "تطبيق الخدمات المصرفية المحمول الذي طورته ستايليرا تك حصل على تقييمات ممتازة من المستخدمين. ميزات الأمان والأداء من الدرجة الأولى.",
+            'تطبيق الخدمات المصرفية المحمول الذي طورته ستايليرا تك حصل على تقييمات ممتازة من المستخدمين. ميزات الأمان والأداء من الدرجة الأولى.',
         },
         {
-          name: "ليزا تشين",
-          position: "المديرة، إيدو تك سوليوشنز",
+          name: 'ليزا تشين',
+          position: 'المديرة، إيدو تك سوليوشنز',
           content:
-            "المنصة التعليمية التي أنشأوها غيرت طريقة تقديمنا للتعلم الإلكتروني. ميزات الذكاء الاصطناعي المخصصة مذهلة.",
+            'المنصة التعليمية التي أنشأوها غيرت طريقة تقديمنا للتعلم الإلكتروني. ميزات الذكاء الاصطناعي المخصصة مذهلة.',
         },
       ],
     },
 
     // CTA Section
     cta: {
-      title: "هل أنت مستعد لبدء مشروعك؟",
-      subtitle: "دعنا نساعدك في تحويل أفكارك إلى واقع رقمي مبهر.",
-      startProject: "ابدأ مشروعك",
-      freeConsultation: "استشارة مجانية",
+      title: 'هل أنت مستعد لبدء مشروعك؟',
+      subtitle: 'دعنا نساعدك في تحويل أفكارك إلى واقع رقمي مبهر.',
+      startProject: 'ابدأ مشروعك',
+      freeConsultation: 'استشارة مجانية',
     },
 
     // Services
     services: {
-      title: "خدماتنا المتميزة",
-      subtitle: "نقدم حلول تقنية شاملة مصممة خصيصاً لاحتياجات عملك.",
+      title: 'خدماتنا المتميزة',
+      subtitle: 'نقدم حلول تقنية شاملة مصممة خصيصاً لاحتياجات عملك.',
       web: {
-        title: "تطوير المواقع الإلكترونية",
-        description: "مواقع ويب حديثة ومتجاوبة مبنية بأحدث التقنيات",
+        title: 'تطوير المواقع الإلكترونية',
+        description: 'مواقع ويب حديثة ومتجاوبة مبنية بأحدث التقنيات',
       },
       mobile: {
-        title: "تطبيقات الجوال",
-        description: "تطبيقات جوال أصلية ومتعددة المنصات لنظامي iOS و Android",
+        title: 'تطبيقات الجوال',
+        description: 'تطبيقات جوال أصلية ومتعددة المنصات لنظامي iOS و Android',
       },
       ai: {
-        title: "الذكاء الاصطناعي",
-        description: "حلول مدعومة بالذكاء الاصطناعي لأتمتة وتحسين عمليات عملك",
+        title: 'الذكاء الاصطناعي',
+        description: 'حلول مدعومة بالذكاء الاصطناعي لأتمتة وتحسين عمليات عملك',
       },
       design: {
-        title: "تصميم UI/UX",
-        description: "تصاميم جميلة تركز على المستخدم وتحقق التحويل والمشاركة",
+        title: 'تصميم UI/UX',
+        description: 'تصاميم جميلة تركز على المستخدم وتحقق التحويل والمشاركة',
+      },
+      learnMore: 'اعرف المزيد',
+      cta: {
+        title: 'هل لديك مشروع في الاعتبار؟',
+        subtitle:
+          'دعنا نساعدك في تحويل فكرتك إلى واقع رقمي مذهل. تواصل معنا اليوم لمناقشة مشروعك.',
+        button: 'ابدأ مشروعك',
       },
     },
 
     // About
     about: {
-      title: "من نحن",
+      title: 'من نحن',
       description:
-        "نحن فريق من المطورين والمصممين المتحمسين المكرسين لإنشاء حلول رقمية مبتكرة. تمتد خبرتنا عبر تقنيات الويب الحديثة وتطوير الجوال وتطبيقات الذكاء الاصطناعي المتطورة.",
+        'نحن فريق من المطورين والمصممين المتحمسين المكرسين لإنشاء حلول رقمية مبتكرة. تمتد خبرتنا عبر تقنيات الويب الحديثة وتطوير الجوال وتطبيقات الذكاء الاصطناعي المتطورة.',
     },
 
     // Contact
     contact: {
-      title: "تواصل معنا",
-      phone: "الهاتف",
-      email: "البريد الإلكتروني",
-      location: "الموقع",
+      title: 'تواصل معنا',
+      phone: 'الهاتف',
+      email: 'البريد الإلكتروني',
+      location: 'الموقع',
       form: {
-        name: "الاسم",
-        email: "البريد الإلكتروني",
-        message: "الرسالة",
-        submit: "إرسال الرسالة",
+        name: 'الاسم',
+        email: 'البريد الإلكتروني',
+        message: 'الرسالة',
+        submit: 'إرسال الرسالة',
       },
     },
 
     // Team
     team: {
-      title: "فريقنا",
-      subtitle: "تعرف على الأفراد الموهوبين الذين يجعلون نجاحنا ممكناً.",
+      title: 'فريقنا',
+      subtitle: 'تعرف على الأفراد الموهوبين الذين يجعلون نجاحنا ممكناً.',
     },
   },
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined
+)
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>("en")
+  const [language, setLanguage] = useState<Language>('en')
 
   useEffect(() => {
     // Set RTL direction for Arabic
-    document.documentElement.dir = language === "ar" ? "rtl" : "ltr"
+    document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr'
     document.documentElement.lang = language
   }, [language])
 
   const t = (key: string) => {
-    const keys = key.split(".")
+    const keys = key.split('.')
     let value = translations[language] as any
 
     for (const k of keys) {
-      if (value && typeof value === "object" && k in value) {
+      if (value && typeof value === 'object' && k in value) {
         value = value[k]
       } else {
         console.warn(`Translation key not found: ${key}`)
@@ -355,15 +389,19 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     return value
   }
 
-  const isRTL = language === "ar"
+  const isRTL = language === 'ar'
 
-  return <LanguageContext.Provider value={{ language, setLanguage, t, isRTL }}>{children}</LanguageContext.Provider>
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, t, isRTL }}>
+      {children}
+    </LanguageContext.Provider>
+  )
 }
 
 export function useLanguage() {
   const context = useContext(LanguageContext)
   if (context === undefined) {
-    throw new Error("useLanguage must be used within a LanguageProvider")
+    throw new Error('useLanguage must be used within a LanguageProvider')
   }
   return context
 }
