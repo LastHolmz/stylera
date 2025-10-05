@@ -34,24 +34,32 @@ const contactInfo = [
     title: 'Phone',
     value: '+218 92 8666 458',
     gradient: 'from-blue-500 to-cyan-500',
+    href: 'tel:+218928666458',
+    type: 'phone',
   },
   {
     icon: Mail,
     title: 'Email',
     value: 'contact@ebtkar.tech',
     gradient: 'from-purple-500 to-pink-500',
+    href: 'mailto:contact@ebtkar.tech',
+    type: 'email',
   },
   {
     icon: MapPin,
     title: 'Location',
     value: 'Tripoli, Libya',
     gradient: 'from-green-500 to-emerald-500',
+    href: 'https://www.google.com/maps/search/?api=1&query=Tripoli,Libya',
+    type: 'location',
   },
   {
     icon: FaWhatsapp,
     title: 'WhatsApp',
     value: '+218 92 8666 458',
     gradient: 'from-green-500 to-emerald-500',
+    href: 'https://wa.me/218928666458',
+    type: 'whatsapp',
   },
 ]
 
@@ -134,6 +142,13 @@ export default function ContactPage() {
     })
   }
 
+  const handleContactClick = (href: string, type: string) => {
+    window.open(
+      href,
+      type === 'whatsapp' || type === 'location' ? '_blank' : '_self'
+    )
+  }
+
   return (
     <div className='relative'>
       <ShaderBackground>
@@ -159,14 +174,15 @@ export default function ContactPage() {
         {/* Contact Information */}
         <section className='py-20 px-4'>
           <div className='max-w-6xl mx-auto'>
-            <div className='grid md:grid-cols-4 cursor-pointer gap-8 mb-16'>
+            <div className='grid md:grid-cols-4 gap-8 mb-16'>
               {contactInfo.map((info, index) => {
                 const Icon = info.icon
 
                 return (
                   <Card
                     key={index}
-                    className='bg-slate-800/50 border-slate-700 p-8 text-center hover:bg-slate-700/50 transition-all duration-300 group'
+                    onClick={() => handleContactClick(info.href, info.type)}
+                    className='bg-slate-800/50 border-slate-700 p-8 text-center hover:bg-slate-700/50 transition-all duration-300 group cursor-pointer transform hover:scale-105'
                   >
                     <div
                       className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${info.gradient} flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}
@@ -177,7 +193,9 @@ export default function ContactPage() {
                     <h3 className='text-xl font-bold text-white mb-3'>
                       {info.title}
                     </h3>
-                    <p className='text-slate-300 text-lg'>{info.value}</p>
+                    <p className='text-slate-300 text-lg group-hover:text-blue-400 transition-colors'>
+                      {info.value}
+                    </p>
                   </Card>
                 )
               })}
@@ -234,37 +252,64 @@ export default function ContactPage() {
                     StyleraTech Office
                   </h3>
                   <div className='space-y-4'>
-                    <div className='flex items-start'>
+                    <a
+                      href='https://www.google.com/maps/search/?api=1&query=Tripoli,Libya'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='flex items-start hover:bg-slate-700/50 p-3 rounded-lg transition-colors'
+                    >
                       <MapPin className='w-6 h-6 text-blue-400 mr-3 mt-1 flex-shrink-0' />
                       <div>
                         <p className='text-white font-semibold'>Address</p>
-                        <p className='text-slate-300'>Tripoli, Libya</p>
+                        <p className='text-slate-300 hover:text-blue-400 transition-colors'>
+                          Tripoli, Libya
+                        </p>
                       </div>
-                    </div>
-                    <div className='flex items-start'>
+                    </a>
+                    <a
+                      href='tel:+218928666458'
+                      className='flex items-start hover:bg-slate-700/50 p-3 rounded-lg transition-colors'
+                    >
                       <Phone className='w-6 h-6 text-green-400 mr-3 mt-1 flex-shrink-0' />
                       <div>
                         <p className='text-white font-semibold'>Phone</p>
-                        <p className='text-slate-300'>+218 92 8666 458</p>
+                        <p className='text-slate-300 hover:text-green-400 transition-colors'>
+                          +218 92 8666 458
+                        </p>
                       </div>
-                    </div>
-                    <div className='flex items-start'>
+                    </a>
+                    <a
+                      href='mailto:contact@ebtkar.tech'
+                      className='flex items-start hover:bg-slate-700/50 p-3 rounded-lg transition-colors'
+                    >
                       <Mail className='w-6 h-6 text-purple-400 mr-3 mt-1 flex-shrink-0' />
                       <div>
                         <p className='text-white font-semibold'>Email</p>
-                        <p className='text-slate-300'>contact@ebtkar.tech</p>
+                        <p className='text-slate-300 hover:text-purple-400 transition-colors'>
+                          contact@ebtkar.tech
+                        </p>
                       </div>
-                    </div>
+                    </a>
                   </div>
                 </Card>
               </div>
 
-              <div className='aspect-video bg-slate-800 rounded-2xl border border-slate-700 flex items-center justify-center'>
+              <div
+                onClick={() =>
+                  window.open(
+                    'https://www.google.com/maps/search/?api=1&query=Tripoli,Libya',
+                    '_blank'
+                  )
+                }
+                className='aspect-video bg-slate-800 rounded-2xl border border-slate-700 flex items-center justify-center cursor-pointer hover:bg-slate-700 transition-colors group'
+              >
                 <div className='text-center'>
-                  <MapPin className='w-16 h-16 text-slate-400 mx-auto mb-4' />
-                  <p className='text-slate-400'>Interactive Map</p>
+                  <MapPin className='w-16 h-16 text-slate-400 mx-auto mb-4 group-hover:text-blue-400 transition-colors' />
+                  <p className='text-slate-400 group-hover:text-blue-400 transition-colors'>
+                    Click to Open Map
+                  </p>
                   <p className='text-slate-500 text-sm'>
-                    Map will be available soon
+                    View our location on Google Maps
                   </p>
                 </div>
               </div>
@@ -317,26 +362,30 @@ export default function ContactPage() {
                   {/* WhatsApp Button */}
                   <Button
                     asChild
-                    className='bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-5 flex items-center justify-center'
+                    className='bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-6 flex items-center justify-center'
                   >
                     <a
                       href='https://wa.me/218928666458'
                       target='_blank'
                       rel='noopener noreferrer'
+                      className='flex items-center'
                     >
-                      Message us on WhatsApp
                       <FaWhatsapp className='w-5 h-5 mr-2' />
+                      Message us on WhatsApp
                     </a>
                   </Button>
 
                   {/* Email Button */}
                   <Button
                     asChild
-                    className='bg-slate-800 hover:bg-slate-700 border text-white text-lg px-8 py-5 flex items-center justify-center'
+                    className='bg-slate-800 hover:bg-slate-700 border text-white text-lg px-8 py-6 flex items-center justify-center'
                   >
-                    <a href='mailto:contact@ebtkar.tech'>
-                      Send an Email
+                    <a
+                      href='mailto:contact@ebtkar.tech'
+                      className='flex items-center'
+                    >
                       <Mail className='w-5 h-5 mr-2' />
+                      Send an Email
                     </a>
                   </Button>
                 </div>
@@ -399,7 +448,7 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={handleInputChange}
                       className='bg-slate-700 border-slate-600 text-white'
-                      placeholder='+966 50 123 4567'
+                      placeholder='+218 92 123 4567'
                     />
                   </div>
                   <div>
