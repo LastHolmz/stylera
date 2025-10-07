@@ -1,5 +1,6 @@
 'use client'
 
+import { join } from 'path'
 import type React from 'react'
 import { createContext, useContext, useState, useEffect } from 'react'
 
@@ -20,6 +21,7 @@ const translations = {
       services: 'Our Services',
       about: 'Who We Are',
       contact: 'Contact Us',
+      join: 'Join Our Team',
     },
 
     // Hero Section
@@ -421,6 +423,7 @@ const translations = {
       services: 'خدماتنا',
       about: 'من نحن',
       contact: 'اتصل بنا',
+      join: 'انضم الينا',
     },
 
     // Hero Section

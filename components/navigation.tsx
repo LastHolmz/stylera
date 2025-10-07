@@ -31,6 +31,7 @@ export default function Navigation() {
     { key: 'nav.services', href: '/services' },
     { key: 'nav.about', href: '/about' },
     { key: 'nav.contact', href: '/contact' },
+    { key: 'nav.join', href: '/join-our-team' },
   ]
 
   const isActive = (href: string) =>
