@@ -71,7 +71,7 @@ export default function Navigation() {
         <LanguageSwitcher />
         <Link
           href='/contact'
-          className='px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium text-sm transition-all duration-200 hover:bg-primary/90'
+          className='px-6 hidden lg:block py-2 rounded-full bg-primary text-primary-foreground font-medium text-sm transition-all duration-200 hover:bg-primary/90'
         >
           {t('hero.cta.primary')}
         </Link>
