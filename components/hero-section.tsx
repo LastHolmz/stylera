@@ -18,13 +18,13 @@ export default function HeroSection() {
             <span className='font-medium text-accent block'>
               {t('hero.title')}
             </span>
-            <span className='font-light tracking-tight text-white/90 text-4xl md:text-5xl lg:text-6xl block mt-2'>
+            <span className='font-light tracking-tight text-white/90 text-4xl md:text-5xl lg:text-6xl block '>
               {t('hero.subtitle')}
             </span>
           </h1>
 
           {/* Description */}
-          <p className='text-lg md:text-xl font-light text-white/70 mb-12 leading-relaxed max-w-2xl'>
+          <p className='text-lg md:text-xl font-light font-figtree text-white/70 mb-12 leading-relaxed max-w-2xl'>
             {t('hero.description')}
           </p>
 

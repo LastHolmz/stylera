@@ -144,7 +144,13 @@
 .font-arabic {
   font-family: var(--font-arabic), sans-serif;
 }
+.font-figtree {
+  font-family: var(--font-figtree), sans-serif;
+}
 
+.font-cairo {
+  font-family: var(--font-cairo), sans-serif;
+}
 /* Added RTL support styles */
 [dir='rtl'] {
   text-align: right;
