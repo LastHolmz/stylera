@@ -2,6 +2,7 @@
 
 import { useLanguage } from '@/contexts/language-context'
 import { Linkedin, Github, Twitter } from 'lucide-react'
+import Link from 'next/link'
 
 export default function TeamSection() {
   const { t, language } = useLanguage()
@@ -159,9 +160,11 @@ export default function TeamSection() {
                 ? 'نحن دائماً نبحث عن المواهب المتميزة للانضمام إلى فريقنا. إذا كنت شغوفاً بالتكنولوجيا والابتكار، فنحن نود أن نسمع منك'
                 : "We're always looking for talented individuals to join our team. If you're passionate about technology and innovation, we'd love to hear from you"}
             </p>
-            <button className='px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium text-base transition-all duration-300 hover:bg-primary/90 cursor-pointer'>
-              {language === 'ar' ? 'تقدم الآن' : 'Apply Now'}
-            </button>
+            <Link href='/join-our-team' className='inline-block'>
+              <button className='px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium text-base transition-all duration-300 hover:bg-primary/90 cursor-pointer'>
+                {language === 'ar' ? 'تقدم الآن' : 'Apply Now'}
+              </button>
+            </Link>
           </div>
         </div>
       </div>
