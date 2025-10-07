@@ -7,6 +7,7 @@ import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 
 export default function Navigation() {
   const { t, isRTL } = useLanguage()
@@ -30,6 +31,7 @@ export default function Navigation() {
     { key: 'nav.services', href: '/services' },
     { key: 'nav.about', href: '/about' },
     { key: 'nav.contact', href: '/contact' },
+    { key: 'nav.join', href: '/join-our-team' },
   ]
 
   const isActive = (href: string) =>
@@ -38,12 +40,14 @@ export default function Navigation() {
   return (
     <header className='relative z-50 flex items-center justify-between p-6'>
       {/* Logo */}
-      <Link
-        href='/'
-        className='text-white font-semibold text-xl tracking-tight hover:opacity-80 transition-opacity'
-      >
-        <span className='font-light'>Stylera</span>
-        <span className='text-accent'>Tech</span>
+      <Link href='/'>
+        <Image
+          src={'/styleraLOGO.PNG'}
+          alt='Logo'
+          width={200}
+          height={200}
+          className='w-40 md:w-48 lg:w-52 h-auto'
+        />
       </Link>
 
       {/* Desktop Nav */}
@@ -68,7 +72,7 @@ export default function Navigation() {
         <LanguageSwitcher />
         <Link
           href='/contact'
-          className='px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium text-sm transition-all duration-200 hover:bg-primary/90'
+          className='px-6 hidden lg:block py-2 rounded-full bg-primary text-primary-foreground font-medium text-sm transition-all duration-200 hover:bg-primary/90'
         >
           {t('hero.cta.primary')}
         </Link>
