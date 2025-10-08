@@ -84,7 +84,7 @@ export default function TechnologiesSection() {
       <div className='max-w-7xl mx-auto'>
         {/* Section Header */}
         <div className='text-center mb-16'>
-          <h2 className='text-4xl md:text-5xl font-bold text-white mb-6'>
+          <h2 className='text-4xl md:text-5xl font-bold text-accent mb-6'>
             {t('technologies.title')}
           </h2>
           <p className='text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed'>
@@ -104,7 +104,6 @@ export default function TechnologiesSection() {
                   {tech.icon}
                 </div>
                 <h3 className='text-white font-semibold mb-2'>{tech.name}</h3>
-                <p className='text-slate-400 text-sm'>{tech.category}</p>
               </div>
             </Card>
           ))}
