@@ -3,9 +3,9 @@
 import { PulsingBorder } from '@paper-design/shaders-react'
 import { motion } from 'framer-motion'
 
-export default function PulsingCircle() {
+export default function PulsingCirclePhone() {
   return (
-    <div className='absolute bottom-5 sm:bottom-8 end-3 sm:end-8 z-30 '>
+    <div className='absolute bottom-2 end-2 z-30 '>
       <div className='relative w-16 h-16 md:w-20 md:h-20 flex items-center justify-center'>
         {/* Pulsing Border Circle */}
         <PulsingBorder
@@ -32,8 +32,8 @@ export default function PulsingCircle() {
           rotation={0}
           frame={9161408.251009725}
           style={{
-            width: '60px',
-            height: '60px',
+            width: '50px',
+            height: '50px',
             borderRadius: '50%',
           }}
         />
