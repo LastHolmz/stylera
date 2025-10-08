@@ -31,9 +31,10 @@ export default function HowWeWork() {
       variants={defaultContainerVariants}
     >
       <Div className='max-w-6xl mx-auto'>
+        {/* Section Header */}
         <Div className='text-center mb-16' variants={itemVariants}>
           <H2
-            className='text-4xl md:text-5xl font-bold text-white mb-6'
+            className='text-4xl md:text-5xl font-bold text-accent mb-6'
             variants={textVariants}
           >
             {t('OurServices.howWeWorkTitle')}
@@ -46,8 +47,9 @@ export default function HowWeWork() {
           </P>
         </Div>
 
+        {/* Grid of Steps */}
         <Div
-          className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'
+          className='grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch'
           variants={defaultContainerVariants}
         >
           {steps.map((step: any, index: number) => {
@@ -57,21 +59,28 @@ export default function HowWeWork() {
 
             return (
               <Div key={index} variants={itemVariants}>
-                <Card className='bg-slate-800/50 border-slate-700 p-6 text-center hover:bg-slate-700/50 transition-all duration-300 group'>
-                  <div className='relative mb-6'>
-                    <div className='w-16 h-16 rounded-full bg-slate-700 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300'>
-                      <Icon className={`w-8 h-8 ${color}`} />
+                <Card className='h-full flex flex-col justify-between bg-slate-800/50 border-slate-700 p-6 text-center hover:bg-slate-700/50 transition-all duration-300 group'>
+                  {/* Icon + Step Number */}
+                  <div>
+                    <div className='relative mb-6'>
+                      <div className='w-16 h-16 rounded-full bg-slate-700 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300'>
+                        <Icon className={`w-8 h-8 ${color}`} />
+                      </div>
+                      <div className='absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold'>
+                        {stepNumber}
+                      </div>
                     </div>
-                    <div className='absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold'>
-                      {stepNumber}
-                    </div>
+
+                    {/* Title */}
+                    <h3 className='text-xl font-bold text-white mb-3'>
+                      {step.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className='text-slate-300 leading-relaxed'>
+                      {step.description}
+                    </p>
                   </div>
-                  <h3 className='text-xl font-bold text-white mb-3'>
-                    {step.title}
-                  </h3>
-                  <p className='text-slate-300 leading-relaxed'>
-                    {step.description}
-                  </p>
                 </Card>
               </Div>
             )

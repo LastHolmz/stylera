@@ -10,8 +10,18 @@ import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/contexts/language-context'
 import Navigation from '@/components/navigation'
-
-// Define available roles
+import {
+  Div,
+  H2,
+  P,
+  defaultContainerVariants,
+  itemVariants,
+  textVariants,
+  comeFromBottomItem,
+} from '@/constants/animation'
+import InViewSection from '@/components/ui/Custom-ui/in-view-section'
+import Footer from '@/components/footer'
+// Roles
 const roles = [
   'Frontend Developer',
   'Backend Developer',
@@ -25,7 +35,7 @@ export default function JoinOurTeamPage() {
   const { language } = useLanguage()
   const isArabic = language === 'ar'
 
-  // Localized validation schema
+  // Validation schema
   const applicationSchema = z.object({
     name: z
       .string()
@@ -53,41 +63,53 @@ export default function JoinOurTeamPage() {
     resolver: zodResolver(applicationSchema),
   })
 
-  // Local success state
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   async function onSubmit(data: ApplicationForm) {
-    // Simulate successful submission
     await new Promise((r) => setTimeout(r, 600))
     console.log('Form submitted:', data)
     setIsSubmitted(true)
     reset()
-
-    // Reset success message after 5 seconds
     setTimeout(() => setIsSubmitted(false), 5000)
   }
 
   return (
     <div className='relative z-10'>
       <Navigation />
-      <main className='container mx-auto px-6 py-20'>
-        <div className='max-w-3xl mx-auto bg-card/10 border border-border rounded-2xl p-10'>
-          <h1 className='text-3xl font-semibold text-accent mb-4 text-center'>
-            {isArabic ? 'انضم إلى فريقنا' : 'Join Our Team'}
-          </h1>
-          <p className='text-white/70 mb-8 text-center leading-relaxed'>
-            {isArabic
-              ? 'نبحث عن مطورين ومصممين موهوبين في مجالات الواجهة الأمامية والخلفية والتصميم وغير ذلك. قدم طلبك الآن.'
-              : "We're looking for talented developers and designers across frontend, backend, and UI/UX. Apply below!"}
-          </p>
 
+      <InViewSection
+        className='container mx-auto px-6 py-20'
+        variants={defaultContainerVariants}
+      >
+        <Div
+          className='max-w-3xl mx-auto bg-card/10 border border-border rounded-2xl p-10 backdrop-blur-md'
+          variants={defaultContainerVariants}
+        >
+          {/* Header */}
+          <Div className='text-center mb-8' variants={itemVariants}>
+            <H2
+              className='text-3xl font-semibold text-accent mb-4'
+              variants={textVariants}
+            >
+              {isArabic ? 'انضم إلى فريقنا' : 'Join Our Team'}
+            </H2>
+            <P
+              className='text-white/70 leading-relaxed'
+              variants={textVariants}
+            >
+              {isArabic
+                ? 'نبحث عن مطورين ومصممين موهوبين في مجالات الواجهة الأمامية والخلفية والتصميم وغير ذلك. قدم طلبك الآن.'
+                : "We're looking for talented developers and designers across frontend, backend, and UI/UX. Apply below!"}
+            </P>
+          </Div>
+
+          {/* Form */}
           <form
             onSubmit={handleSubmit(onSubmit)}
             className='space-y-6'
             dir={isArabic ? 'rtl' : 'ltr'}
           >
-            {/* Full Name */}
-            <div>
+            <Div variants={comeFromBottomItem}>
               <Label className='mb-2 block'>
                 {isArabic ? 'الاسم الكامل' : 'Full Name'}
               </Label>
@@ -102,10 +124,9 @@ export default function JoinOurTeamPage() {
                   {errors.name.message}
                 </p>
               )}
-            </div>
+            </Div>
 
-            {/* Email */}
-            <div>
+            <Div variants={comeFromBottomItem}>
               <Label className='mb-2 block'>
                 {isArabic ? 'البريد الإلكتروني' : 'Email'}
               </Label>
@@ -119,10 +140,9 @@ export default function JoinOurTeamPage() {
                   {errors.email.message}
                 </p>
               )}
-            </div>
+            </Div>
 
-            {/* Role */}
-            <div>
+            <Div variants={comeFromBottomItem}>
               <Label className='mb-2 block'>
                 {isArabic ? 'المسمى الوظيفي' : "Role you're applying for"}
               </Label>
@@ -144,10 +164,9 @@ export default function JoinOurTeamPage() {
                   {errors.role.message}
                 </p>
               )}
-            </div>
+            </Div>
 
-            {/* Cover Letter */}
-            <div>
+            <Div variants={comeFromBottomItem}>
               <Label className='mb-2 block'>
                 {isArabic
                   ? 'خطاب التقديم (اختياري)'
@@ -161,10 +180,12 @@ export default function JoinOurTeamPage() {
                     : 'Write a short introduction about yourself'
                 }
               />
-            </div>
+            </Div>
 
-            {/* Submit Button */}
-            <div className='flex flex-col sm:flex-row gap-3 items-center'>
+            <Div
+              className='flex flex-col sm:flex-row gap-3 items-center'
+              variants={comeFromBottomItem}
+            >
               <Button
                 type='submit'
                 variant='default'
@@ -181,16 +202,17 @@ export default function JoinOurTeamPage() {
               </Button>
 
               {(isSubmitted || isSubmitSuccessful) && (
-                <p className='text-green-400 text-sm'>
+                <P className='text-green-400 text-sm' variants={textVariants}>
                   {isArabic
                     ? 'تم إرسال الطلب بنجاح '
                     : 'Application submitted successfully '}
-                </p>
+                </P>
               )}
-            </div>
+            </Div>
           </form>
-        </div>
-      </main>
+        </Div>
+      </InViewSection>
+      <Footer />
     </div>
   )
 }

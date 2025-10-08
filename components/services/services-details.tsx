@@ -58,13 +58,13 @@ export default function DetailedServices() {
             className='text-4xl md:text-5xl font-bold text-accent mb-6'
             variants={textVariants}
           >
-            {t('OurServices.sectionTitle')}
+            {t('OurServices.title')}
           </H2>
           <P
-            className='text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto'
+            className='text-xl text-slate-300 leading-relaxed max-w-4xl mx-auto'
             variants={textVariants}
           >
-            {t('OurServices.sectionSubtitle')}
+            {t('OurServices.subtitle')}
           </P>
         </Div>
 
