@@ -169,32 +169,61 @@ const translations = {
       title: 'Our Distinguished Services',
       subtitle:
         'We provide comprehensive technology solutions tailored to your business needs.',
+
       web: {
         title: 'Web Development',
         description:
-          'Modern, responsive websites built with cutting-edge technologies.',
+          'Modern and fast websites built with the latest technologies.',
       },
+
       mobile: {
         title: 'Mobile Applications',
         description:
-          'Native and cross-platform mobile apps for iOS and Android.',
+          'Advanced mobile apps for iOS and Android with seamless performance.',
       },
+
       ai: {
         title: 'Artificial Intelligence',
         description:
-          'AI-powered solutions to automate and enhance your business processes.',
+          'Smart AI-powered solutions that automate and optimize your business.',
       },
+
+      data: {
+        title: 'Data Management',
+        description:
+          'Advanced systems for managing and analyzing your business data.',
+      },
+
+      security: {
+        title: 'Cyber Security',
+        description:
+          'Comprehensive protection for your systems and data against threats.',
+      },
+
       design: {
         title: 'UI/UX Design',
         description:
-          'Beautiful, user-centered designs that convert and engage.',
+          'Creative designs focused on usability and exceptional user experience.',
       },
-      pentest: {
-        title: 'Penetration Testing',
+
+      cloud: {
+        title: 'Cloud Computing',
         description:
-          'We identify vulnerabilities in your systems and strengthen your cybersecurity posture with real-world attack simulations.',
+          'Scalable and secure cloud solutions to power your digital growth.',
       },
-      learnMore: 'Learn More',
+
+      business: {
+        title: 'Business Analysis',
+        description:
+          'Advanced analytics to help you make smarter business decisions.',
+      },
+
+      chatbot: {
+        title: 'Chatbots',
+        description:
+          'Intelligent chatbots for customer support and automated interaction.',
+      },
+
       cta: {
         title: 'Have a project in mind?',
         subtitle:
@@ -515,29 +544,55 @@ const translations = {
     // Services
     services: {
       title: 'خدماتنا المتميزة',
-      subtitle: 'نقدم حلول تقنية شاملة مصممة خصيصاً لاحتياجات عملك.',
+      subtitle: 'نقدم حلولاً تقنية شاملة مصممة خصيصاً لتلبية احتياجات عملك.',
+
       web: {
         title: 'تطوير المواقع الإلكترونية',
-        description: 'مواقع ويب حديثة ومتجاوبة مبنية بأحدث التقنيات',
+        description: 'مواقع ويب حديثة وسريعة باستخدام أحدث التقنيات.',
       },
+
       mobile: {
         title: 'تطبيقات الجوال',
-        description: 'تطبيقات جوال أصلية ومتعددة المنصات لنظامي iOS و Android',
+        description:
+          'تطبيقات جوال متقدمة لأنظمة iOS و Android بأداء سلس ومتميز.',
       },
+
       ai: {
         title: 'الذكاء الاصطناعي',
-        description: 'حلول مدعومة بالذكاء الاصطناعي لأتمتة وتحسين عمليات عملك',
+        description:
+          'حلول ذكية مدعومة بالذكاء الاصطناعي لأتمتة وتحسين الأعمال.',
       },
+
+      data: {
+        title: 'إدارة البيانات',
+        description: 'أنظمة متقدمة لإدارة وتحليل بيانات عملك بكفاءة عالية.',
+      },
+
+      security: {
+        title: 'الأمن السيبراني',
+        description: 'حماية شاملة للأنظمة والبيانات ضد التهديدات الرقمية.',
+      },
+
       design: {
         title: 'تصميم UI/UX',
-        description: 'تصاميم جميلة تركز على المستخدم وتحقق التحويل والمشاركة',
+        description: 'تصميمات إبداعية تركز على سهولة الاستخدام وتجربة مميزة.',
       },
-      pentest: {
-        title: 'اختبار الاختراق',
-        description:
-          'نقوم بتحديد الثغرات في أنظمتك وتعزيز مستوى الأمان السيبراني لديك من خلال محاكاة هجمات واقعية.',
+
+      cloud: {
+        title: 'الحوسبة السحابية',
+        description: 'حلول سحابية آمنة وقابلة للتوسع لدعم نموك الرقمي.',
       },
-      learnMore: 'اعرف المزيد',
+
+      business: {
+        title: 'تحليل الأعمال',
+        description: 'تحليلات متقدمة لمساعدتك في اتخاذ قرارات استراتيجية أفضل.',
+      },
+
+      chatbot: {
+        title: 'روبوتات المحادثة',
+        description: 'روبوتات ذكية لخدمة العملاء والتفاعل الآلي بكفاءة.',
+      },
+
       cta: {
         title: 'هل لديك مشروع في الاعتبار؟',
         subtitle:
@@ -545,6 +600,7 @@ const translations = {
         button: 'ابدأ مشروعك',
       },
     },
+
     OurServices: {
       title: 'خدماتنا',
       subtitle: 'نقدم حلولاً تقنية متقدمة مصممة خصيصاً لتلبية احتياجاتك.',

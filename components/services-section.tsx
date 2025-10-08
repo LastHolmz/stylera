@@ -7,6 +7,10 @@ import {
   Brain,
   Palette,
   Shield,
+  Database,
+  Cloud,
+  BarChart3,
+  MessageCircle,
   ArrowRight,
 } from 'lucide-react'
 import Link from 'next/link'
@@ -34,16 +38,40 @@ export default function ServicesSection() {
       gradient: 'from-green-500 to-emerald-500',
     },
     {
+      icon: Database,
+      titleKey: 'services.data.title',
+      descriptionKey: 'services.data.description',
+      gradient: 'from-amber-500 to-yellow-500',
+    },
+    {
+      icon: Shield,
+      titleKey: 'services.security.title',
+      descriptionKey: 'services.security.description',
+      gradient: 'from-red-500 to-rose-500',
+    },
+    {
       icon: Palette,
       titleKey: 'services.design.title',
       descriptionKey: 'services.design.description',
       gradient: 'from-orange-500 to-red-500',
     },
     {
-      icon: Shield,
-      titleKey: 'services.pentest.title',
-      descriptionKey: 'services.pentest.description',
-      gradient: 'from-indigo-500 to-blue-700',
+      icon: Cloud,
+      titleKey: 'services.cloud.title',
+      descriptionKey: 'services.cloud.description',
+      gradient: 'from-sky-500 to-indigo-500',
+    },
+    {
+      icon: BarChart3,
+      titleKey: 'services.business.title',
+      descriptionKey: 'services.business.description',
+      gradient: 'from-fuchsia-500 to-pink-500',
+    },
+    {
+      icon: MessageCircle,
+      titleKey: 'services.chatbot.title',
+      descriptionKey: 'services.chatbot.description',
+      gradient: 'from-green-400 to-teal-500',
     },
   ]
 
@@ -61,7 +89,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Services Grid */}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
           {services.map((service) => {
             const Icon = service.icon
             return (
