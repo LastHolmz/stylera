@@ -37,13 +37,11 @@ export default function ServicesSection() {
     <section id='services' className='py-24 relative'>
       <div className='container mx-auto px-6'>
         {/* Section Header */}
-        <div className='max-w-3xl mx-auto mb-20 text-start'>
-          <h2 className='text-4xl md:text-5xl font-light text-white mb-6'>
-            <span className='font-medium ltr:instrument text-accent'>
-              {t('services.title')}
-            </span>
+        <div className='mx-auto mb-20 text-start'>
+          <h2 className='text-4xl text-center md:text-5xl mb-6 font-medium ltr:instrument text-accent'>
+            {t('services.title')}
           </h2>
-          <p className='text-lg text-white/70 font-light leading-relaxed'>
+          <p className='text-lg text-center max-w-2xl mx-auto text-white/70 font-light leading-relaxed'>
             {t('services.subtitle')}
           </p>
         </div>
