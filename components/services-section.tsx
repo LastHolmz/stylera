@@ -14,6 +14,15 @@ import {
   ArrowRight,
 } from 'lucide-react'
 import Link from 'next/link'
+import {
+  Div,
+  H2,
+  P,
+  defaultContainerVariants,
+  itemVariants,
+  textVariants,
+} from '@/constants/animation'
+import InViewSection from './ui/Custom-ui/in-view-section'
 
 export default function ServicesSection() {
   const { t } = useLanguage()
@@ -76,25 +85,35 @@ export default function ServicesSection() {
   ]
 
   return (
-    <section id='services' className='py-24 relative'>
-      <div className='container mx-auto px-4 xl:px-0'>
+    <InViewSection id='services' className='py-24 relative'>
+      <Div className='container mx-auto px-4 xl:px-0' variants={undefined}>
         {/* Section Header */}
-        <div className=' mx-auto mb-20 text-start'>
-          <h2 className='text-4xl text-center md:text-5xl mb-6 font-medium ltr:instrument text-accent'>
+        <Div className='mx-auto mb-20 text-start' variants={itemVariants}>
+          <H2
+            className='text-4xl text-center md:text-5xl mb-6 font-medium ltr:instrument text-accent'
+            variants={textVariants}
+          >
             {t('services.title')}
-          </h2>
-          <p className='text-lg text-center max-w-2xl mx-auto text-white/70 font-light leading-relaxed'>
+          </H2>
+          <P
+            className='text-lg text-center max-w-2xl mx-auto text-white/70 font-light leading-relaxed'
+            variants={textVariants}
+          >
             {t('services.subtitle')}
-          </p>
-        </div>
+          </P>
+        </Div>
 
         {/* Services Grid */}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+        <Div
+          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
+          variants={defaultContainerVariants}
+        >
           {services.map((service) => {
             const Icon = service.icon
             return (
-              <div
+              <Div
                 key={service.titleKey}
+                variants={itemVariants}
                 className='group relative bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 hover:bg-card/70 transition-all duration-300 hover:scale-105 hover:shadow-2xl'
               >
                 {/* Icon */}
@@ -116,20 +135,26 @@ export default function ServicesSection() {
 
                 {/* Hover Overlay */}
                 <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none' />
-              </div>
+              </Div>
             )
           })}
-        </div>
+        </Div>
 
         {/* CTA Section */}
-        <div className='mt-20 text-center'>
-          <div className='max-w-2xl mx-auto'>
-            <h3 className='text-2xl md:text-3xl font-light text-white mb-6'>
+        <Div className='mt-20 text-center' variants={itemVariants}>
+          <Div className='max-w-2xl mx-auto'>
+            <H2
+              className='text-2xl md:text-3xl font-light text-white mb-6'
+              variants={textVariants}
+            >
               {t('services.cta.title')}
-            </h3>
-            <p className='text-white/70 font-light mb-8 leading-relaxed'>
+            </H2>
+            <P
+              className='text-white/70 font-light mb-8 leading-relaxed'
+              variants={textVariants}
+            >
               {t('services.cta.subtitle')}
-            </p>
+            </P>
             <Link
               href='/contact'
               className='group px-8 py-4 w-fit rounded-full bg-primary text-primary-foreground font-medium text-base transition-all duration-300 hover:bg-primary/90 cursor-pointer flex items-center gap-3 hover:gap-4 mx-auto'
@@ -140,9 +165,9 @@ export default function ServicesSection() {
                 className='transition-all duration-300 rtl:rotate-180'
               />
             </Link>
-          </div>
-        </div>
-      </div>
-    </section>
+          </Div>
+        </Div>
+      </Div>
+    </InViewSection>
   )
 }

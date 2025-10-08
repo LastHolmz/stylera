@@ -67,7 +67,11 @@ export default function HeroSection() {
                 className='group py-3 px-6 md:px-8 md:py-4 rounded-full bg-primary text-primary-foreground font-medium text-sm sm:text-base transition-all duration-300 hover:bg-primary/80 flex items-center gap-3'
               >
                 {t('hero.cta.primary')}
-                {isRTL ? <ArrowLeft size={20} /> : <ArrowRight size={20} />}
+                {isRTL ? (
+                  <ArrowLeft size={20} className='hidden sm:block' />
+                ) : (
+                  <ArrowRight size={20} className='hidden sm:block' />
+                )}
               </Link>
             </Div>
 

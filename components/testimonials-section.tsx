@@ -4,13 +4,12 @@ import { useLanguage } from '@/contexts/language-context'
 import { Card } from '@/components/ui/card'
 import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
-import Image from 'next/image'
 
 const testimonials = [
-  { id: 1, avatar: '/images/296fe121-5dfa-43f4-98b5-db50019738a7.jpg' },
-  { id: 2, avatar: '/images/296fe121-5dfa-43f4-98b5-db50019738a7.jpg' },
-  { id: 3, avatar: '/images/296fe121-5dfa-43f4-98b5-db50019738a7.jpg' },
-  { id: 4, avatar: '/images/296fe121-5dfa-43f4-98b5-db50019738a7.jpg' },
+  { id: 1, avatar: '/client-1.jpg' },
+  { id: 2, avatar: '/client-2.jpg' },
+  { id: 3, avatar: '/client-3.jpg' },
+  { id: 4, avatar: '/client-4.jpg' },
 ]
 
 export default function TestimonialsSection() {
@@ -48,10 +47,8 @@ export default function TestimonialsSection() {
               >
                 {/* Avatar */}
                 <div className='flex-shrink-0'>
-                  <Image
-                    src={testimonial.avatar}
-                    width={160}
-                    height={160}
+                  <img
+                    src={`/placeholder.svg?height=120&width=120&query=portrait professional`}
                     alt={t(`testimonials.items.${index}.name`)}
                     className='w-28 h-28 rounded-full object-cover border-4 border-accent shadow-lg'
                   />
@@ -60,13 +57,13 @@ export default function TestimonialsSection() {
                 {/* Content */}
                 <Card className='flex-1 bg-slate-800/60 border-slate-700 p-8 hover:bg-slate-700/60 transition-all duration-300 relative'>
                   {/* Decorative quote mark */}
-                  <span className='absolute top-2 left-3 text-accent text-6xl opacity-20 font-serif select-none'>
+                  <span className='absolute top-2 left-3 sm:top-2 sm:left-4 text-accent text-6xl opacity-20 font-serif select-none'>
                     “
                   </span>
 
-                  <span className='relative text-slate-200 text-lg md:text-xl leading-relaxed mb-6 z-10'>
+                  <blockquote className='relative text-slate-200 text-lg md:text-xl leading-relaxed mb-6 z-10'>
                     {t(`testimonials.items.${index}.content`)}
-                  </span>
+                  </blockquote>
 
                   <div className='flex items-center justify-between flex-wrap gap-3'>
                     <div>
