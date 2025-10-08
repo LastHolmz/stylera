@@ -3,6 +3,15 @@
 import { useLanguage } from '@/contexts/language-context'
 import { Linkedin, Github, Twitter } from 'lucide-react'
 import Link from 'next/link'
+import InViewSection from './ui/Custom-ui/in-view-section'
+import {
+  Div,
+  H2,
+  P,
+  defaultContainerVariants,
+  itemVariants,
+  textVariants,
+} from '@/constants/animation'
 
 export default function TeamSection() {
   const { t, language } = useLanguage()
@@ -72,24 +81,36 @@ export default function TeamSection() {
   ]
 
   return (
-    <section className='py-24 relative bg-card/10'>
-      <div className='container mx-auto px-6'>
+    <InViewSection
+      className='py-24 relative bg-card/10'
+      variants={defaultContainerVariants}
+    >
+      <Div className='container mx-auto px-6'>
         {/* Section Header */}
-        <div className={`max-w-3xl mx-auto mb-20 text-center`}>
-          <h2 className='text-4xl md:text-5xl font-light text-white mb-6'>
+        <Div
+          className={`max-w-3xl mx-auto mb-20 text-center`}
+          variants={itemVariants}
+        >
+          <H2
+            className='text-4xl md:text-5xl font-light text-white mb-6'
+            variants={textVariants}
+          >
             <span className='font-medium ltr:instrument text-accent'>
               {t('team.title')}
             </span>
-          </h2>
-          <p className='text-lg text-white/70 font-light leading-relaxed'>
+          </H2>
+          <P
+            className='text-lg text-white/70 font-light leading-relaxed'
+            variants={textVariants}
+          >
             {language === 'ar'
               ? 'تعرف على فريقنا المتميز من المطورين والمصممين المتحمسين لإنشاء حلول رقمية استثنائية'
               : 'Meet our exceptional team of developers and designers passionate about creating outstanding digital solutions'}
-          </p>
-        </div>
+          </P>
+        </Div>
 
         {/* Team Grid */}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+        <Div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
           {teamMembers.map((member, index) => (
             <div
               key={index}
@@ -147,7 +168,7 @@ export default function TeamSection() {
               </div>
             </div>
           ))}
-        </div>
+        </Div>
 
         {/* Join Team CTA */}
         <div className='mt-20 text-center'>
@@ -167,7 +188,7 @@ export default function TeamSection() {
             </Link>
           </div>
         </div>
-      </div>
-    </section>
+      </Div>
+    </InViewSection>
   )
 }

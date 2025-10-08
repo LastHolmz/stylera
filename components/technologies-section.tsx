@@ -12,6 +12,15 @@ import {
   SiTensorflow,
   SiReact,
 } from 'react-icons/si'
+import {
+  Div,
+  H2,
+  P,
+  defaultContainerVariants,
+  itemVariants,
+  textVariants,
+} from '@/constants/animation'
+import InViewSection from './ui/Custom-ui/in-view-section'
 
 const technologies = [
   {
@@ -80,36 +89,40 @@ export default function TechnologiesSection() {
   const { t } = useLanguage()
 
   return (
-    <section className='py-20 px-4'>
-      <div className='max-w-7xl mx-auto'>
+    <InViewSection className='py-20 px-4' variants={defaultContainerVariants}>
+      <Div className='max-w-7xl mx-auto'>
         {/* Section Header */}
-        <div className='text-center mb-16'>
-          <h2 className='text-4xl md:text-5xl font-bold text-white mb-6'>
+        <Div className='text-center mb-16' variants={itemVariants}>
+          <H2
+            className='text-4xl md:text-5xl font-bold text-accent mb-6'
+            variants={textVariants}
+          >
             {t('technologies.title')}
-          </h2>
-          <p className='text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed'>
+          </H2>
+          <P
+            className='text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed'
+            variants={textVariants}
+          >
             {t('technologies.subtitle')}
-          </p>
-        </div>
+          </P>
+        </Div>
 
         {/* Tech Grid */}
-        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6'>
+        <Div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6'>
           {technologies.map((tech, index) => (
-            <Card
-              key={index}
-              className='bg-slate-800/50 border-slate-700 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 group'
-            >
-              <div className='p-6 text-center flex flex-col items-center'>
-                <div className='text-5xl mb-4 group-hover:scale-110 transition-transform duration-300'>
-                  {tech.icon}
+            <Div key={index} variants={itemVariants}>
+              <Card className='bg-slate-800/50 border-slate-700 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 group'>
+                <div className='p-6 text-center flex flex-col items-center'>
+                  <div className='text-5xl mb-4 group-hover:scale-110 transition-transform duration-300'>
+                    {tech.icon}
+                  </div>
+                  <h3 className='text-white font-semibold mb-2'>{tech.name}</h3>
                 </div>
-                <h3 className='text-white font-semibold mb-2'>{tech.name}</h3>
-                <p className='text-slate-400 text-sm'>{tech.category}</p>
-              </div>
-            </Card>
+              </Card>
+            </Div>
           ))}
-        </div>
-      </div>
-    </section>
+        </Div>
+      </Div>
+    </InViewSection>
   )
 }

@@ -46,12 +46,12 @@ export default function Navigation() {
           alt='Logo'
           width={200}
           height={200}
-          className='w-40 md:w-48 lg:w-52 h-auto'
+          className='w-40 lg:w-48 xl:w-52 h-auto'
         />
       </Link>
 
       {/* Desktop Nav */}
-      <nav className='hidden md:flex items-center space-x-2'>
+      <nav className='hidden lg:flex items-center space-x-2'>
         {navItems.map((item) => (
           <Link
             key={item.key}
@@ -68,11 +68,11 @@ export default function Navigation() {
       </nav>
 
       {/* Desktop Extras */}
-      <div className='hidden md:flex items-center gap-4'>
+      <div className='hidden lg:flex items-center gap-4'>
         <LanguageSwitcher />
         <Link
           href='/contact'
-          className='px-6 hidden lg:block py-2 rounded-full bg-primary text-primary-foreground font-medium text-sm transition-all duration-200 hover:bg-primary/90'
+          className='px-6 hidden xl:block py-2 rounded-full bg-primary text-primary-foreground font-medium text-sm transition-all duration-200 hover:bg-primary/90'
         >
           {t('hero.cta.primary')}
         </Link>
@@ -80,7 +80,7 @@ export default function Navigation() {
 
       {/* Mobile Menu Button */}
       <button
-        className='md:hidden text-white p-2 z-[60]'
+        className='lg:hidden text-white p-2 z-[60]'
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
         {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -94,7 +94,7 @@ export default function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25 }}
-            className='fixed inset-0 bg-black/90 backdrop-blur-md flex flex-col justify-center items-center space-y-6 md:hidden'
+            className='fixed inset-0 bg-black/90 backdrop-blur-md flex flex-col justify-center items-center space-y-6 lg:hidden'
           >
             {navItems.map((item) => (
               <Link
