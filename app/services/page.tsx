@@ -20,17 +20,31 @@ import {
   Rocket,
   MessageCircle,
   ArrowLeft,
+  Cloud,
+  BarChart3,
 } from 'lucide-react'
 import Link from 'next/link'
 import { FaWhatsapp } from 'react-icons/fa'
 
+// ✅ Updated: Include all 9 services
 const services = [
   { key: 'web', icon: Code, gradient: 'from-blue-500 to-cyan-500' },
   { key: 'mobile', icon: Smartphone, gradient: 'from-purple-500 to-pink-500' },
   { key: 'ai', icon: Brain, gradient: 'from-green-500 to-emerald-500' },
-  { key: 'design', icon: Palette, gradient: 'from-orange-500 to-red-500' },
-  { key: 'security', icon: Shield, gradient: 'from-red-500 to-rose-500' },
   { key: 'data', icon: Database, gradient: 'from-amber-500 to-yellow-500' },
+  { key: 'security', icon: Shield, gradient: 'from-red-500 to-rose-500' },
+  { key: 'design', icon: Palette, gradient: 'from-orange-500 to-red-500' },
+  { key: 'cloud', icon: Cloud, gradient: 'from-sky-500 to-indigo-500' },
+  {
+    key: 'business',
+    icon: BarChart3,
+    gradient: 'from-fuchsia-500 to-pink-500',
+  },
+  {
+    key: 'chatbot',
+    icon: MessageCircle,
+    gradient: 'from-green-400 to-teal-500',
+  },
 ]
 
 // icons for methodology steps (keep same order as translation array)
@@ -44,7 +58,6 @@ const stepColors = [
 
 export default function ServicesPage() {
   const { t, isRTL } = useLanguage()
-
   const steps = t('OurServices.steps') || []
 
   return (
@@ -66,10 +79,11 @@ export default function ServicesPage() {
           </section>
         </div>
       </ShaderBackground>
+
       <div className='bg-background'>
-        {/* Detailed Services Section */}
+        {/* ✅ Detailed Services Section */}
         <section className='py-20 px-4'>
-          <div className='max-w-7xl mx-auto'>
+          <div className='container mx-auto'>
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-12'>
               {services.map(({ key, icon: Icon, gradient }, index) => {
                 const title = t(`OurServices.${key}.title`)
@@ -81,12 +95,14 @@ export default function ServicesPage() {
                     key={index}
                     className='flex flex-col bg-slate-800/50 border-slate-700 p-8 hover:bg-slate-700/50 transition-all duration-300 group h-full'
                   >
+                    {/* Icon */}
                     <div
                       className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
                     >
                       <Icon className='w-8 h-8 text-white' />
                     </div>
 
+                    {/* Content */}
                     <h3 className='text-2xl font-bold text-white mb-4'>
                       {title}
                     </h3>
@@ -103,11 +119,11 @@ export default function ServicesPage() {
                       ))}
                     </ul>
 
-                    {/* Push button to bottom */}
+                    {/* CTA */}
                     <div className='mt-auto'>
-                      <Button
-                        variant='outline'
-                        className='w-full border-slate-600 text-white hover:bg-slate-800 px-6 py-3 text-lg group bg-transparent'
+                      <Link
+                        href='https://wa.me/218928666458'
+                        className='w-full border-slate-600 justify-center flex items-center gap-2 border rounded-lg text-white hover:bg-slate-800 px-6 py-2 text-lg group bg-transparent'
                       >
                         {t('OurServices.requestQuote')}
                         {isRTL ? (
@@ -115,7 +131,7 @@ export default function ServicesPage() {
                         ) : (
                           <ArrowRight className='w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform' />
                         )}
-                      </Button>
+                      </Link>
                     </div>
                   </Card>
                 )
@@ -124,7 +140,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* How We Work Section */}
+        {/* ✅ How We Work Section */}
         <section className='py-20 px-4 bg-slate-900/50'>
           <div className='max-w-6xl mx-auto'>
             <div className='text-center mb-16'>
@@ -169,7 +185,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Start Your Project Section */}
+        {/* ✅ CTA Section */}
         <section className='py-20 px-4'>
           <div className='max-w-4xl mx-auto text-center'>
             <div className='bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-3xl p-12 border border-slate-700'>
@@ -189,13 +205,14 @@ export default function ServicesPage() {
                     } group-hover:translate-x-1 transition-transform`}
                   />
                 </Button>
+
                 <Link href='https://wa.me/218928666458'>
                   <Button
                     variant='outline'
                     className='border-slate-600 text-white hover:bg-slate-800 px-8 py-4.5 text-lg group bg-transparent cursor-pointer'
                   >
                     {t('cta.freeConsultation')}
-                    <FaWhatsapp className={`w-5 h-5 text-green-500 me-1`} />
+                    <FaWhatsapp className='w-5 h-5 text-green-500 me-1' />
                   </Button>
                 </Link>
               </div>
