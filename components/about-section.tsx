@@ -50,12 +50,8 @@ export default function AboutSection() {
     <section id='about' className='py-24 relative bg-card/20'>
       <div className='container mx-auto px-6'>
         {/* Section Header */}
-        <div
-          className={`max-w-4xl mx-auto mb-20 ${
-            language === 'ar' ? 'text-right' : 'text-left'
-          }`}
-        >
-          <h2 className='text-4xl md:text-5xl font-light text-white mb-8'>
+        <div className={`max-w-4xl mx-auto mb-20 text-center`}>
+          <h2 className='text-4xl text-center md:text-5xl font-light text-white mb-8'>
             <span className='font-medium ltr:instrument text-accent'>
               {t('about.title')}
             </span>
@@ -157,7 +153,7 @@ export default function AboutSection() {
             </div>
             <div>
               <div className='text-4xl md:text-5xl font-bold text-white mb-2'>
-                5+
+                3+
               </div>
               <div className='text-white/70 font-light'>
                 {language === 'ar' ? 'سنوات خبرة' : 'Years Experience'}

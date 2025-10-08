@@ -84,7 +84,7 @@ export default function HeroSection() {
             </div>
             <div>
               <div className='text-3xl text-center sm:text-start font-semibold text-white mb-1'>
-                5+
+                3+
               </div>
               <div className='text-sm  text-center sm:text-start text-white/60 font-light'>
                 {t('hero.stats.experience')}
