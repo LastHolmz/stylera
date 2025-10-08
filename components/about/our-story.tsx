@@ -21,7 +21,7 @@ export default function OurStory() {
       >
         {/* Text */}
         <Div variants={itemVariants}>
-          <H2 className='text-4xl md:text-5xl font-bold text-white mb-8'>
+          <H2 className='text-4xl md:text-5xl font-bold text-accent mb-8'>
             {t('aboutPage.story.title')}
           </H2>
           <div className='space-y-6 text-lg text-slate-300 leading-relaxed'>

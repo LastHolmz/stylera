@@ -33,7 +33,7 @@ export default function Timeline() {
         variants={itemVariants}
       >
         <H2
-          className='text-4xl md:text-5xl font-bold text-white mb-6'
+          className='text-4xl md:text-5xl font-bold text-accent mb-6'
           variants={textVariants}
         >
           {t('aboutPage.timeline.title')}

@@ -20,6 +20,7 @@ import {
   textVariants,
 } from '@/constants/animation'
 import InViewSection from '@/components/ui/Custom-ui/in-view-section'
+import Link from 'next/link'
 
 export default function FaqSection() {
   const { t } = useLanguage()
@@ -34,7 +35,7 @@ export default function FaqSection() {
             <HelpCircle className='w-8 h-8 text-white' />
           </div>
           <H2
-            className='text-4xl md:text-5xl font-bold text-white mb-6'
+            className='text-4xl md:text-5xl font-bold text-accent mb-6'
             variants={textVariants}
           >
             {t('contactPage.faq.title')}
@@ -80,24 +81,28 @@ export default function FaqSection() {
                 asChild
                 className='bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-6 flex items-center justify-center'
               >
-                <a
+                <Link
+                  className='text-sm md:text-base'
                   href='https://wa.me/218928666458'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
                   <FaWhatsapp className='w-5 h-5 me-2' />
                   {t('contactPage.faq.cta.whatsappButton')}
-                </a>
+                </Link>
               </Button>
 
               <Button
                 asChild
                 className='bg-slate-800 hover:bg-slate-700 border text-white text-lg px-8 py-6 flex items-center justify-center'
               >
-                <a href='mailto:contact@ebtkar.tech'>
+                <Link
+                  href='mailto:contact@ebtkar.tech'
+                  className='text-sm md:text-base'
+                >
                   <Mail className='w-5 h-5 me-2' />
                   {t('contactPage.faq.cta.emailButton')}
-                </a>
+                </Link>
               </Button>
             </div>
           </Card>

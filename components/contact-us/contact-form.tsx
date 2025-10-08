@@ -69,7 +69,7 @@ export default function ContactForm() {
     >
       <Div className='max-w-4xl mx-auto' variants={itemVariants}>
         <Div className='text-center mb-16' variants={textVariants}>
-          <H2 className='text-4xl md:text-5xl font-bold text-white mb-6'>
+          <H2 className='text-4xl md:text-5xl font-bold text-accent mb-6'>
             {t('contactPage.form.title')}
           </H2>
           <P className='text-xl text-slate-300 leading-relaxed'>

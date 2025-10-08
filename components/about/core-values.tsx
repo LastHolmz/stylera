@@ -34,7 +34,7 @@ export default function CoreValues() {
         variants={itemVariants}
       >
         <H2
-          className='text-4xl md:text-5xl font-bold text-white mb-6'
+          className='text-4xl md:text-5xl font-bold text-accent mb-6'
           variants={textVariants}
         >
           {t('aboutPage.values.title')}
@@ -47,7 +47,6 @@ export default function CoreValues() {
         </P>
       </Div>
 
-      {/*  Grid with equal-height cards */}
       <Div
         className='grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto items-stretch'
         variants={defaultContainerVariants}
