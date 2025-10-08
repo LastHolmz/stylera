@@ -72,7 +72,7 @@ export default function JoinOurTeamPage() {
       <Navigation />
       <main className='container mx-auto px-6 py-20'>
         <div className='max-w-3xl mx-auto bg-card/10 border border-border rounded-2xl p-10'>
-          <h1 className='text-3xl font-semibold text-white mb-4 text-center'>
+          <h1 className='text-3xl font-semibold text-accent mb-4 text-center'>
             {isArabic ? 'انضم إلى فريقنا' : 'Join Our Team'}
           </h1>
           <p className='text-white/70 mb-8 text-center leading-relaxed'>

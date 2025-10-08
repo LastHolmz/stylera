@@ -47,7 +47,7 @@ export default function AboutPage() {
           {/* Hero Section */}
           <section className='pt-32 pb-20 px-4 text-center'>
             <div className='max-w-4xl mx-auto'>
-              <h1 className='text-5xl md:text-7xl font-bold text-white mb-6 leading-tight'>
+              <h1 className='text-5xl md:text-7xl font-bold text-accent mb-6 leading-tight'>
                 {t('aboutPage.title')}
               </h1>
               <p className='text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto'>

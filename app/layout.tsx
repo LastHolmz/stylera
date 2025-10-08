@@ -46,15 +46,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='en'>
-      <body
-        className={`${nasalization.variable} ${geDinar.variable} ${figtree.variable} ${cairo.variable} antialiased`}
-      >
-        <LanguageProvider>
-          <FontDirectionWrapper>{children}</FontDirectionWrapper>
-          <Toaster position='bottom-right' />
-        </LanguageProvider>
-      </body>
-    </html>
+    <LanguageProvider>
+      <FontDirectionWrapper>
+        <html suppressHydrationWarning>
+          <body
+            className={`${nasalization.variable} ${geDinar.variable} ${figtree.variable} ${cairo.variable} antialiased`}
+          >
+            {children}
+            <Toaster position='bottom-right' />
+          </body>
+        </html>
+      </FontDirectionWrapper>
+    </LanguageProvider>
   )
 }
