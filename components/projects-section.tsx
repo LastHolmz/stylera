@@ -27,7 +27,7 @@ export default function ProjectsSection() {
       <div className='max-w-7xl mx-auto'>
         {/* Section Header */}
         <div className='text-center mb-16'>
-          <h2 className='text-4xl md:text-5xl font-bold text-white mb-6'>
+          <h2 className='text-4xl md:text-5xl font-bold text-accent mb-6'>
             {t('projects.title')}
           </h2>
           <p className='text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed'>
@@ -42,7 +42,7 @@ export default function ProjectsSection() {
               key={project.id}
               className='bg-slate-800/50 border-slate-700 overflow-hidden hover:bg-slate-700/50 transition-all duration-300 group'
             >
-              {/* ✅ Image */}
+              {/*  Image */}
               <div className='aspect-video relative overflow-hidden'>
                 <Image
                   src={project.image}
@@ -55,7 +55,7 @@ export default function ProjectsSection() {
                 <div className='absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-300' />
               </div>
 
-              {/* ✅ Content */}
+              {/*  Content */}
               <div className='p-6'>
                 <div className='flex items-center justify-between mb-3'>
                   <span className='text-blue-400 text-sm font-medium'>
@@ -126,10 +126,12 @@ export default function ProjectsSection() {
         </div>
 
         {/* CTA */}
-        <div className='text-center mt-12'>
-          <Button className='bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-5 text-lg'>
-            {t('projects.viewAll')}
-          </Button>
+        <div className='text-center mt-12 '>
+          <Link href='/projects'>
+            <Button className='bg-gradient-to-r cursor-pointer from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-5.5 text-lg'>
+              {t('projects.viewAll')}
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
