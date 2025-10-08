@@ -4,6 +4,7 @@ import type React from 'react'
 import { useLanguage } from '@/contexts/language-context'
 import { Phone, Mail, MapPin, Send, Clock } from 'lucide-react'
 import { useState } from 'react'
+import { toast } from 'sonner'
 
 export default function ContactSection() {
   const { t, language } = useLanguage()
@@ -20,10 +21,11 @@ export default function ContactSection() {
     await new Promise((resolve) => setTimeout(resolve, 2000))
     setFormData({ name: '', email: '', message: '' })
     setIsSubmitting(false)
-    alert(
+
+    toast.success(
       language === 'ar'
         ? 'تم إرسال رسالتك بنجاح!'
-        : 'Message sent successfully!'
+        : 'Message sent successfully !'
     )
   }
 

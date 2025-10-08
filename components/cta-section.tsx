@@ -21,14 +21,16 @@ export default function CTASection() {
           </p>
 
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-            <Button className='bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg group'>
-              {t('cta.startProject')}
-              <ArrowRight
-                className={`w-5 h-5 ${
-                  isRTL ? 'mr-2 rotate-180' : 'ml-2'
-                } group-hover:translate-x-1 transition-transform`}
-              />
-            </Button>
+            <Link href='/contact'>
+              <Button className='bg-gradient-to-r cursor-pointer from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg group'>
+                {t('cta.startProject')}
+                <ArrowRight
+                  className={`w-5 h-5 ${
+                    isRTL ? 'mr-2 rotate-180' : 'ml-2'
+                  } group-hover:translate-x-1 transition-transform`}
+                />
+              </Button>
+            </Link>
             <Link href='https://wa.me/218928666458'>
               <Button
                 variant='outline'

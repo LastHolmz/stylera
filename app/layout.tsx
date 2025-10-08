@@ -1,10 +1,11 @@
 import localFont from 'next/font/local'
 import type React from 'react'
 import type { Metadata } from 'next'
-import { GeistMono } from 'geist/font/mono'
+// import { GeistMono } from 'geist/font/mono'
 import { Figtree, Cairo } from 'next/font/google'
 import { LanguageProvider } from '@/contexts/language-context'
 import FontDirectionWrapper from '@/contexts/FontWrapper'
+import { Toaster } from 'sonner'
 import './globals.css'
 
 const nasalization = localFont({
@@ -51,6 +52,7 @@ export default function RootLayout({
       >
         <LanguageProvider>
           <FontDirectionWrapper>{children}</FontDirectionWrapper>
+          <Toaster position='bottom-right' />
         </LanguageProvider>
       </body>
     </html>
