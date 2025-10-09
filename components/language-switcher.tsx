@@ -8,15 +8,13 @@ export default function LanguageSwitcher() {
   const pathname = usePathname()
   const params = useParams()
 
-  // Detect current locale from URL
   const currentLocale = (params?.locale as string) || 'en'
 
-  // Define opposite locale
-  const nextLocale = currentLocale === 'ar' ? 'en' : 'ar'
+  const pathWithoutLocale = pathname.replace(`/${currentLocale}`, '') || ''
 
-  // Remove current locale from path (to rebuild properly)
-  const restOfPath = pathname.replace(`/${currentLocale}`, '')
-  const switchHref = `/${nextLocale}${restOfPath || ''}`
+  const getLocaleHref = (locale: string) => {
+    return `/${locale}${pathWithoutLocale}`
+  }
 
   return (
     <div className='flex items-center gap-1 bg-white/5 backdrop-blur-sm rounded-full p-1'>
@@ -30,7 +28,7 @@ export default function LanguageSwitcher() {
             : 'text-white/80 hover:text-white hover:bg-white/10'
         }`}
       >
-        <Link href={switchHref.replace(`/${nextLocale}`, '/en')}>EN</Link>
+        <Link href={getLocaleHref('en')}>EN</Link>
       </Button>
 
       <Button
@@ -43,7 +41,7 @@ export default function LanguageSwitcher() {
             : 'text-white/80 hover:text-white hover:bg-white/10'
         }`}
       >
-        <Link href={switchHref.replace(`/${nextLocale}`, '/ar')}>AR</Link>
+        <Link href={getLocaleHref('ar')}>AR</Link>
       </Button>
     </div>
   )

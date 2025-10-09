@@ -4,7 +4,7 @@ import { match as matchLocale } from '@formatjs/intl-localematcher'
 import Negotiator from 'negotiator'
 
 let defaultLocale = 'en'
-let locales = ['en', 'es'] // add your supported locales
+let locales = ['en', 'ar'] // ← Change 'es' to 'ar'
 
 function getLocale(request: NextRequest): string {
   const negotiatorHeaders: Record<string, string> = {}
@@ -40,9 +40,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    // Skip all internal paths (_next, api)
-    '/((?!api|_next/static|_next/image|favicon.ico|.*\\.).*)',
-    // Optional: only match routes without file extensions
-  ],
+  matcher: ['/((?!api|_next|.*\\..*).*)'],
 }
