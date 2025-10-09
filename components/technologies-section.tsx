@@ -1,6 +1,5 @@
 'use client'
 
-import { useLanguage } from '@/contexts/language-context'
 import { Card } from '@/components/ui/card'
 import { FaReact, FaNodeJs, FaPython, FaAws, FaDocker } from 'react-icons/fa'
 import {
@@ -21,6 +20,10 @@ import {
   textVariants,
 } from '@/constants/animation'
 import InViewSection from './ui/Custom-ui/in-view-section'
+
+interface TechnologiesSectionProps {
+  dictionary?: Dictionary['technologies']
+}
 
 const technologies = [
   {
@@ -85,8 +88,10 @@ const technologies = [
   },
 ]
 
-export default function TechnologiesSection() {
-  const { t } = useLanguage()
+export default function TechnologiesSection({
+  dictionary,
+}: TechnologiesSectionProps) {
+  if (!dictionary) return null
 
   return (
     <InViewSection className='py-20 px-4' variants={defaultContainerVariants}>
@@ -97,18 +102,21 @@ export default function TechnologiesSection() {
             className='text-4xl md:text-5xl font-bold text-accent mb-6'
             variants={textVariants}
           >
-            {t('technologies.title')}
+            {dictionary.title}
           </H2>
           <P
             className='text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed'
             variants={textVariants}
           >
-            {t('technologies.subtitle')}
+            {dictionary.subtitle}
           </P>
         </Div>
 
-        {/* Tech Grid */}
-        <Div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6'>
+        {/* Technologies Grid */}
+        <Div
+          className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6'
+          variants={defaultContainerVariants}
+        >
           {technologies.map((tech, index) => (
             <Div key={index} variants={itemVariants}>
               <Card className='bg-slate-800/50 border-slate-700 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 group'>
@@ -117,6 +125,7 @@ export default function TechnologiesSection() {
                     {tech.icon}
                   </div>
                   <h3 className='text-white font-semibold mb-2'>{tech.name}</h3>
+                  <p className='text-white/50 text-sm'>{tech.category}</p>
                 </div>
               </Card>
             </Div>

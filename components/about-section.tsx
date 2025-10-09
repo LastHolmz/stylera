@@ -1,6 +1,5 @@
 'use client'
 
-import { useLanguage } from '@/contexts/language-context'
 import { Target, Users, Lightbulb, Award } from 'lucide-react'
 import {
   Div,
@@ -12,48 +11,23 @@ import {
 } from '@/constants/animation'
 import InViewSection from './ui/Custom-ui/in-view-section'
 
-export default function AboutSection() {
-  const { t, language } = useLanguage()
+interface AboutSectionProps {
+  dictionary?: Dictionary['whoWeAre']
+  isRTL?: boolean
+}
 
-  const values = [
-    {
-      icon: Target,
-      titleKey: language === 'ar' ? 'الدقة والجودة' : 'Precision & Quality',
-      descriptionKey:
-        language === 'ar'
-          ? 'نلتزم بأعلى معايير الجودة في كل مشروع نعمل عليه'
-          : 'We maintain the highest quality standards in every project we undertake',
-    },
-    {
-      icon: Users,
-      titleKey:
-        language === 'ar' ? 'التعاون والشراكة' : 'Collaboration & Partnership',
-      descriptionKey:
-        language === 'ar'
-          ? 'نعمل كشركاء حقيقيين مع عملائنا لتحقيق أهدافهم'
-          : 'We work as true partners with our clients to achieve their goals',
-    },
-    {
-      icon: Lightbulb,
-      titleKey:
-        language === 'ar' ? 'الابتكار والإبداع' : 'Innovation & Creativity',
-      descriptionKey:
-        language === 'ar'
-          ? 'نستخدم أحدث التقنيات والحلول المبتكرة في مشاريعنا'
-          : 'We leverage cutting-edge technologies and innovative solutions',
-    },
-    {
-      icon: Award,
-      titleKey:
-        language === 'ar'
-          ? 'التميز والاحترافية'
-          : 'Excellence & Professionalism',
-      descriptionKey:
-        language === 'ar'
-          ? 'نسعى للتميز في كل جانب من جوانب عملنا'
-          : 'We strive for excellence in every aspect of our work',
-    },
-  ]
+export default function AboutSection({ dictionary, isRTL }: AboutSectionProps) {
+  if (!dictionary) return null
+
+  const icons = [Target, Users, Lightbulb, Award]
+
+  // Convert the values record into an array for rendering
+  const values = Object.entries(dictionary.values?.items || {}).map(
+    ([, value], index) => ({
+      ...value,
+      icon: icons[index % icons.length],
+    })
+  )
 
   return (
     <InViewSection
@@ -72,67 +46,65 @@ export default function AboutSection() {
             variants={textVariants}
           >
             <span className='font-medium ltr:instrument text-accent'>
-              {t('about.title')}
+              {dictionary.title}
             </span>
           </H2>
+
           <P
             className='text-xl md:text-2xl text-white/80 font-light leading-relaxed mb-8'
             variants={textVariants}
           >
-            {t('about.description')}
+            {dictionary.subtitle}
           </P>
-          <P
-            className='text-lg text-white/70 font-light leading-relaxed'
-            variants={textVariants}
-          >
-            {language === 'ar'
-              ? 'منذ تأسيسنا، ساعدنا العشرات من الشركات والمؤسسات على تحقيق التحول الرقمي وبناء حضور قوي على الإنترنت. نحن نؤمن بقوة التكنولوجيا في تغيير الأعمال وتحسين حياة الناس.'
-              : "Since our founding, we've helped dozens of companies and organizations achieve digital transformation and build a strong online presence. We believe in the power of technology to transform businesses and improve people's lives."}
-          </P>
+
+          {/* Story Paragraphs */}
+          {dictionary.story?.paragraphs?.map((para, i) => (
+            <P
+              key={i}
+              className='text-lg text-white/70 font-light leading-relaxed mb-4'
+              variants={textVariants}
+            >
+              {para}
+            </P>
+          ))}
         </Div>
 
         {/* Mission & Vision */}
         <Div className='grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20'>
           <Div
             className={`bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-sm border border-border rounded-2xl p-8 ${
-              language === 'ar' ? 'text-right' : 'text-left'
+              isRTL ? 'text-right' : 'text-left'
             }`}
             variants={itemVariants}
           >
             <h3 className='text-2xl font-semibold text-white mb-6'>
-              {language === 'ar' ? 'رؤيتنا' : 'Our Vision'}
+              {dictionary.vision.title}
             </h3>
             <p className='text-white/80 font-light leading-relaxed'>
-              {language === 'ar'
-                ? 'أن نكون الشركة الرائدة في مجال تطوير البرمجيات والحلول التقنية في المنطقة، ونساهم في بناء مستقبل رقمي أفضل للجميع.'
-                : 'To be the leading software development and technology solutions company in the region, contributing to building a better digital future for everyone.'}
+              {dictionary.vision.text}
             </p>
           </Div>
 
           <Div
             className={`bg-gradient-to-br from-accent/10 to-primary/10 backdrop-blur-sm border border-border rounded-2xl p-8 ${
-              language === 'ar' ? 'text-right' : 'text-left'
+              isRTL ? 'text-right' : 'text-left'
             }`}
             variants={itemVariants}
           >
             <h3 className='text-2xl font-semibold text-white mb-6'>
-              {language === 'ar' ? 'مهمتنا' : 'Our Mission'}
+              {dictionary.mission.title}
             </h3>
             <p className='text-white/80 font-light leading-relaxed'>
-              {language === 'ar'
-                ? 'لتقديم حلول تقنية مبتكرة وعالية الجودة تساعد عملائنا على تحقيق أهدافهم التجارية والنمو في العصر الرقمي.'
-                : 'To deliver innovative, high-quality technical solutions that help our clients achieve their business goals and grow in the digital age.'}
+              {dictionary.mission.text}
             </p>
           </Div>
         </Div>
 
         {/* Values */}
-        <Div
-          className={`mb-20 ${language === 'ar' ? 'text-right' : 'text-left'}`}
-        >
+        <Div className={`mb-20 ${isRTL ? 'text-right' : 'text-left'}`}>
           <h3 className='text-3xl font-light text-white mb-12 text-center'>
             <span className='font-medium ltr:instrument text-accent'>
-              {language === 'ar' ? 'قيمنا الأساسية' : 'Our Core Values'}
+              {dictionary.values.title}
             </span>
           </h3>
 
@@ -149,10 +121,10 @@ export default function AboutSection() {
                     <Icon className='w-full h-full text-white' />
                   </div>
                   <h4 className='text-lg select-none font-semibold text-white mb-3'>
-                    {value.titleKey}
+                    {value.title}
                   </h4>
                   <p className='text-white/70 select-none font-light leading-relaxed text-sm'>
-                    {value.descriptionKey}
+                    {value.description}
                   </p>
                 </Div>
               )
@@ -160,44 +132,22 @@ export default function AboutSection() {
           </Div>
         </Div>
 
-        {/* Stats */}
+        {/* Timeline */}
         <Div
           className='bg-gradient-to-r from-primary/5 to-accent/5 backdrop-blur-sm border border-border rounded-2xl p-12'
           variants={itemVariants}
         >
-          <div className='grid grid-cols-2 md:grid-cols-4 gap-8 text-center'>
-            <div>
-              <div className='text-4xl md:text-5xl font-bold text-white mb-2'>
-                50+
-              </div>
-              <div className='text-white/70 font-light'>
-                {language === 'ar' ? 'مشاريع مكتملة' : 'Projects Completed'}
-              </div>
-            </div>
-            <div>
-              <div className='text-4xl md:text-5xl font-bold text-white mb-2'>
-                25+
-              </div>
-              <div className='text-white/70 font-light'>
-                {language === 'ar' ? 'عملاء سعداء' : 'Happy Clients'}
-              </div>
-            </div>
-            <div>
-              <div className='text-4xl md:text-5xl font-bold text-white mb-2'>
-                3+
-              </div>
-              <div className='text-white/70 font-light'>
-                {language === 'ar' ? 'سنوات خبرة' : 'Years Experience'}
-              </div>
-            </div>
-            <div>
-              <div className='text-4xl md:text-5xl font-bold text-white mb-2'>
-                100%
-              </div>
-              <div className='text-white/70 font-light'>
-                {language === 'ar' ? 'رضا العملاء' : 'Client Satisfaction'}
-              </div>
-            </div>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-8 text-center'>
+            {Object.entries(dictionary.timeline?.items || {}).map(
+              ([year, text]) => (
+                <div key={year}>
+                  <div className='text-4xl md:text-5xl font-bold text-white mb-2'>
+                    {year}
+                  </div>
+                  <div className='text-white/70 font-light'>{text}</div>
+                </div>
+              )
+            )}
           </div>
         </Div>
       </Div>

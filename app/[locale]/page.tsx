@@ -1,5 +1,4 @@
-'use client'
-
+// app/[locale]/portfolio/page.tsx
 import Navigation from '@/components/navigation'
 import HeroSection from '@/components/hero-section'
 import ServicesSection from '@/components/services-section'
@@ -16,14 +15,22 @@ import PulsingCirclePhone from '@/components/pulsing-circle-phone'
 import ShaderBackground from '@/components/shader-background'
 import WhatsAppButton from '@/components/whats-app'
 import LiveChatMock from '@/components/livechat'
+import { getDictionary } from '@/get-dictionary'
+import { Locale } from '@/i18n-config'
 
-export default function StyleraTechPortfolio() {
+export default async function StyleraTechPortfolio({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>
+}) {
+  const { locale } = await params
+  const dictionary = await getDictionary(locale)
+
   return (
     <div className='relative'>
       <ShaderBackground>
-        <Navigation />
-        <HeroSection />
-
+        <Navigation dictionary={dictionary.nav} />
+        <HeroSection dictionary={dictionary.homeHero} />
         <div>
           <div className='hidden md:block'>
             <PulsingCircle />
@@ -35,19 +42,20 @@ export default function StyleraTechPortfolio() {
       </ShaderBackground>
 
       <div className='bg-background'>
-        <ServicesSection />
-        <TechnologiesSection />
-        <ProjectsSection />
-        <TestimonialsSection />
-        <AboutSection />
-        <TeamSection />
-        <CTASection />
-        <ContactSection />
-        <Footer />
+        <ServicesSection dictionary={dictionary.services} />
+        <TechnologiesSection dictionary={dictionary.technologies} />
+        <ProjectsSection dictionary={dictionary.projects} />
+        <TestimonialsSection dictionary={dictionary.testimonials} />
+        <AboutSection dictionary={dictionary.whoWeAre} />
+
+        <TeamSection dictionary={dictionary.teamSection} />
+        <CTASection dictionary={dictionary.cta} />
+        <ContactSection dictionary={dictionary.contactUs} />
+        <Footer dictionary={dictionary.footer} />
       </div>
 
       {/* Floating Buttons */}
-      <div className='fixed bottom-6 right-6 flex  items-end gap-3 z-50'>
+      <div className='fixed bottom-6 right-6 flex items-end gap-3 z-50'>
         <LiveChatMock />
         <WhatsAppButton />
       </div>

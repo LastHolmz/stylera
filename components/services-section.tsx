@@ -1,6 +1,5 @@
 'use client'
 
-import { useLanguage } from '@/contexts/language-context'
 import {
   Code,
   Smartphone,
@@ -24,62 +23,63 @@ import {
 } from '@/constants/animation'
 import InViewSection from './ui/Custom-ui/in-view-section'
 
-export default function ServicesSection() {
-  const { t } = useLanguage()
+interface ServicesSectionProps {
+  dictionary?: Dictionary['services']
+  locale?: string
+  isRTL?: boolean
+}
+
+export default function ServicesSection({
+  dictionary,
+  locale,
+  isRTL,
+}: ServicesSectionProps) {
+  if (!dictionary) return null
 
   const services = [
     {
       icon: Code,
-      titleKey: 'services.web.title',
-      descriptionKey: 'services.web.description',
+      key: 'web',
       gradient: 'from-blue-500 to-cyan-500',
     },
     {
       icon: Smartphone,
-      titleKey: 'services.mobile.title',
-      descriptionKey: 'services.mobile.description',
+      key: 'mobile',
       gradient: 'from-purple-500 to-pink-500',
     },
     {
       icon: Brain,
-      titleKey: 'services.ai.title',
-      descriptionKey: 'services.ai.description',
+      key: 'ai',
       gradient: 'from-green-500 to-emerald-500',
     },
     {
       icon: Database,
-      titleKey: 'services.data.title',
-      descriptionKey: 'services.data.description',
+      key: 'data',
       gradient: 'from-amber-500 to-yellow-500',
     },
     {
       icon: Shield,
-      titleKey: 'services.security.title',
-      descriptionKey: 'services.security.description',
+      key: 'security',
       gradient: 'from-red-500 to-rose-500',
     },
     {
       icon: Palette,
-      titleKey: 'services.design.title',
-      descriptionKey: 'services.design.description',
+      key: 'design',
       gradient: 'from-orange-500 to-red-500',
     },
     {
       icon: Cloud,
-      titleKey: 'services.cloud.title',
-      descriptionKey: 'services.cloud.description',
+      key: 'cloud',
       gradient: 'from-sky-500 to-indigo-500',
     },
     {
       icon: BarChart3,
-      titleKey: 'services.business.title',
-      descriptionKey: 'services.business.description',
+      key: 'business',
       gradient: 'from-fuchsia-500 to-pink-500',
     },
     {
       icon: MessageCircle,
-      titleKey: 'services.chatbot.title',
-      descriptionKey: 'services.chatbot.description',
+      key: 'chatbot',
       gradient: 'from-green-400 to-teal-500',
     },
   ]
@@ -93,13 +93,13 @@ export default function ServicesSection() {
             className='text-4xl text-center md:text-5xl mb-6 font-medium ltr:instrument text-accent'
             variants={textVariants}
           >
-            {t('services.title')}
+            {dictionary.title}
           </H2>
           <P
             className='text-lg text-center max-w-2xl mx-auto text-white/70 font-light leading-relaxed'
             variants={textVariants}
           >
-            {t('services.subtitle')}
+            {dictionary.subtitle}
           </P>
         </Div>
 
@@ -110,9 +110,10 @@ export default function ServicesSection() {
         >
           {services.map((service) => {
             const Icon = service.icon
+            const serviceData = dictionary[service.key] || {}
             return (
               <Div
-                key={service.titleKey}
+                key={service.key}
                 variants={itemVariants}
                 className='group relative bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 hover:bg-card/70 transition-all duration-300 hover:scale-105 hover:shadow-2xl'
               >
@@ -126,10 +127,10 @@ export default function ServicesSection() {
                 {/* Content */}
                 <div className='text-start select-none'>
                   <h3 className='text-xl font-semibold text-white mb-4 group-hover:text-accent transition-colors duration-300'>
-                    {t(service.titleKey)}
+                    {serviceData.title}
                   </h3>
                   <p className='text-white/70 font-light leading-relaxed mb-6'>
-                    {t(service.descriptionKey)}
+                    {serviceData.description}
                   </p>
                 </div>
 
@@ -141,32 +142,36 @@ export default function ServicesSection() {
         </Div>
 
         {/* CTA Section */}
-        <Div className='mt-20 text-center' variants={itemVariants}>
-          <Div className='max-w-2xl mx-auto'>
-            <H2
-              className='text-2xl md:text-3xl font-light text-white mb-6'
-              variants={textVariants}
-            >
-              {t('services.cta.title')}
-            </H2>
-            <P
-              className='text-white/70 font-light mb-8 leading-relaxed'
-              variants={textVariants}
-            >
-              {t('services.cta.subtitle')}
-            </P>
-            <Link
-              href='/contact'
-              className='group px-8 py-4 w-fit rounded-full bg-primary text-primary-foreground font-medium text-base transition-all duration-300 hover:bg-primary/90 cursor-pointer flex items-center gap-3 hover:gap-4 mx-auto'
-            >
-              {t('services.cta.button')}
-              <ArrowRight
-                size={20}
-                className='transition-all duration-300 rtl:rotate-180'
-              />
-            </Link>
+        {dictionary.cta && (
+          <Div className='mt-20 text-center' variants={itemVariants}>
+            <Div className='max-w-2xl mx-auto'>
+              <H2
+                className='text-2xl md:text-3xl font-light text-white mb-6'
+                variants={textVariants}
+              >
+                {dictionary.cta.title}
+              </H2>
+              <P
+                className='text-white/70 font-light mb-8 leading-relaxed'
+                variants={textVariants}
+              >
+                {dictionary.cta.subtitle}
+              </P>
+              <Link
+                href={`/${locale}/contact`}
+                className='group px-8 py-4 w-fit rounded-full bg-primary text-primary-foreground font-medium text-base transition-all duration-300 hover:bg-primary/90 cursor-pointer flex items-center gap-3 hover:gap-4 mx-auto'
+              >
+                {dictionary.cta.button}
+                <ArrowRight
+                  size={20}
+                  className={`transition-all duration-300 ${
+                    isRTL ? 'rotate-180' : ''
+                  }`}
+                />
+              </Link>
+            </Div>
           </Div>
-        </Div>
+        )}
       </Div>
     </InViewSection>
   )

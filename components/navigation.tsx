@@ -1,68 +1,68 @@
 'use client'
 
-import { useLanguage } from '@/contexts/language-context'
-import LanguageSwitcher from './language-switcher'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useParams } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
+import LanguageSwitcher from './language-switcher'
 
-export default function Navigation() {
-  const { t, isRTL } = useLanguage()
+interface NavigationProps {
+  dictionary?: Dictionary['nav']
+}
+
+export default function Navigation({ dictionary }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
+  const { locale } = useParams() as { locale: string }
 
-  // Disable body scroll when menu is open
+  // Disable body scroll when mobile menu is open
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'auto'
-    }
+    document.body.style.overflow = isMenuOpen ? 'hidden' : 'auto'
     return () => {
       document.body.style.overflow = 'auto'
     }
   }, [isMenuOpen])
 
+  // Build nav items dynamically from dictionary
   const navItems = [
-    { key: 'nav.home', href: '/' },
-    { key: 'nav.services', href: '/services' },
-    { key: 'nav.about', href: '/about' },
-    { key: 'nav.contact', href: '/contact' },
-    { key: 'nav.join', href: '/join-our-team' },
+    { key: 'home', href: '/' },
+    { key: 'services', href: '/services' },
+    { key: 'about', href: '/about' },
+    { key: 'contact', href: '/contact' },
+    { key: 'join', href: '/join-our-team' },
   ]
 
   const isActive = (href: string) =>
-    href === '/' ? pathname === '/' : pathname.startsWith(href)
+    href === '/' ? pathname === `/${locale}` : pathname === `/${locale}${href}`
 
   return (
     <header className='relative z-50 flex items-center justify-between p-6'>
       {/* Logo */}
-      <Link href='/'>
+      <Link href={`/${locale}`}>
         <Image
-          src={'/styleraLOGO.PNG'}
-          alt='Logo'
+          src='/styleraLOGO.PNG'
+          alt='StyleraTech Logo'
           width={200}
           height={200}
           className='w-40 lg:w-48 xl:w-52 h-auto'
         />
       </Link>
 
-      {/* Desktop Nav */}
+      {/* Desktop Navigation */}
       <nav className='hidden lg:flex items-center space-x-2'>
         {navItems.map((item) => (
           <Link
             key={item.key}
-            href={item.href}
+            href={`/${locale}${item.href === '/' ? '' : item.href}`}
             className={`text-sm font-light px-4 py-2 rounded-full transition-all duration-200 ${
               isActive(item.href)
                 ? 'text-white bg-white/10'
                 : 'text-white/80 hover:text-white hover:bg-white/10'
             }`}
           >
-            {t(item.key)}
+            {dictionary?.[item.key as keyof typeof dictionary] ?? item.key}
           </Link>
         ))}
       </nav>
@@ -71,10 +71,10 @@ export default function Navigation() {
       <div className='hidden lg:flex items-center gap-4'>
         <LanguageSwitcher />
         <Link
-          href='/contact'
+          href={`/${locale}/contact`}
           className='px-6 hidden xl:block py-2 rounded-full bg-primary text-primary-foreground font-medium text-sm transition-all duration-200 hover:bg-primary/90'
         >
-          {t('hero.cta.primary')}
+          {locale === 'ar' ? 'ابدأ الآن' : 'Get Started'}
         </Link>
       </div>
 
@@ -82,6 +82,7 @@ export default function Navigation() {
       <button
         className='lg:hidden text-white p-2 z-[60]'
         onClick={() => setIsMenuOpen(!isMenuOpen)}
+        aria-label='Toggle menu'
       >
         {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
       </button>
@@ -99,7 +100,7 @@ export default function Navigation() {
             {navItems.map((item) => (
               <Link
                 key={item.key}
-                href={item.href}
+                href={`/${locale}${item.href === '/' ? '' : item.href}`}
                 className={`text-xl font-light transition-all duration-200 ${
                   isActive(item.href)
                     ? 'text-accent'
@@ -107,19 +108,19 @@ export default function Navigation() {
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                {t(item.key)}
+                {dictionary?.[item.key as keyof typeof dictionary] ?? item.key}
               </Link>
             ))}
 
-            {/* Lang + CTA column */}
+            {/* Language Switcher + CTA */}
             <div className='flex flex-col items-center gap-4 mt-10'>
               <LanguageSwitcher />
               <Link
-                href='/contact'
+                href={`/${locale}/contact`}
                 className='px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium text-base hover:bg-primary/90 transition-all'
                 onClick={() => setIsMenuOpen(false)}
               >
-                {t('hero.cta.primary')}
+                {locale === 'ar' ? 'ابدأ الآن' : 'Get Started'}
               </Link>
             </div>
           </motion.div>

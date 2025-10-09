@@ -1,13 +1,21 @@
 'use client'
 
 import type React from 'react'
-import { useLanguage } from '@/contexts/language-context'
-import { Phone, Mail, MapPin, Send, Clock } from 'lucide-react'
 import { useState } from 'react'
+import { Phone, Mail, MapPin, Send, Clock } from 'lucide-react'
 import { toast } from 'sonner'
 
-export default function ContactSection() {
-  const { t, language } = useLanguage()
+interface ContactSectionProps {
+  dictionary?: Dictionary['contactUs']
+  isRTL?: boolean
+}
+
+export default function ContactSection({
+  dictionary,
+  isRTL,
+}: ContactSectionProps) {
+  if (!dictionary) return null
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,11 +30,7 @@ export default function ContactSection() {
     setFormData({ name: '', email: '', message: '' })
     setIsSubmitting(false)
 
-    toast.success(
-      language === 'ar'
-        ? 'تم إرسال رسالتك بنجاح!'
-        : 'Message sent successfully !'
-    )
+    toast.success(dictionary.form.successMessage)
   }
 
   const handleInputChange = (
@@ -41,20 +45,20 @@ export default function ContactSection() {
   const contactInfo = [
     {
       icon: Phone,
-      label: t('contact.phone'),
+      label: dictionary.phone,
       value: '+218 92 8666 458',
       href: 'tel:+218928666458',
     },
     {
       icon: Mail,
-      label: t('contact.email'),
-      value: 'contact@ebtkar.tech',
-      href: 'mailto:contact@ebtkar.tech',
+      label: dictionary.email,
+      value: 'contact@styleratech.com',
+      href: 'mailto:contact@styleratech.com',
     },
     {
       icon: MapPin,
-      label: t('contact.location'),
-      value: language === 'ar' ? 'ليبيا، طرابلس' : 'Tripoli, Libya',
+      label: dictionary.location,
+      value: 'Tripoli, Libya',
       href: '#',
     },
   ]
@@ -68,14 +72,10 @@ export default function ContactSection() {
         {/* Header */}
         <div className='max-w-3xl mx-auto mb-20 text-center'>
           <h2 className='text-4xl md:text-5xl font-light text-white mb-6'>
-            <span className='font-medium text-accent'>
-              {t('contact.title')}
-            </span>
+            <span className='font-medium text-accent'>{dictionary.title}</span>
           </h2>
           <p className='text-lg text-white/70 font-light leading-relaxed'>
-            {language === 'ar'
-              ? 'نحن هنا لمساعدتك في تحقيق أهدافك الرقمية. تواصل معنا اليوم ودعنا نناقش مشروعك القادم'
-              : "We're here to help you achieve your digital goals. Get in touch today and let's discuss your next project"}
+            {dictionary.subtitle}
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export default function ContactSection() {
           {/* Contact Info */}
           <div>
             <h3 className='text-2xl font-semibold text-white mb-8'>
-              {language === 'ar' ? 'معلومات التواصل' : 'Get in Touch'}
+              {dictionary.locationSection.title}
             </h3>
 
             <div className='space-y-6 mb-12'>
@@ -109,23 +109,19 @@ export default function ContactSection() {
               })}
             </div>
 
-            {/* Hours */}
+            {/* Business Hours */}
             <div className='bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-sm border border-border rounded-2xl p-6'>
               <div className='flex items-center gap-3 mb-4'>
                 <Clock className='w-5 h-5 text-accent' />
                 <h4 className='text-white font-semibold'>
-                  {language === 'ar' ? 'ساعات العمل' : 'Business Hours'}
+                  {dictionary.businessHours.title}
                 </h4>
               </div>
               <p className='text-white/80 font-light mb-2'>
-                {language === 'ar'
-                  ? 'الأحد - الخميس: 9:00 ص - 6:00 م'
-                  : 'Sunday - Thursday: 9:00 AM - 6:00 PM'}
+                {dictionary.businessHours.weekdaysTime}
               </p>
               <p className='text-white/80 font-light'>
-                {language === 'ar'
-                  ? 'الجمعة - السبت: مغلق'
-                  : 'Friday - Saturday: Closed'}
+                {dictionary.businessHours.weekendTime}
               </p>
             </div>
           </div>
@@ -133,16 +129,18 @@ export default function ContactSection() {
           {/* Contact Form */}
           <div className='bg-card/30 backdrop-blur-sm border border-border rounded-2xl p-8'>
             <h3 className='text-2xl font-semibold text-white mb-8'>
-              {language === 'ar' ? 'أرسل لنا رسالة' : 'Send us a Message'}
+              {dictionary.form.title}
             </h3>
+            <p className='text-white/70 mb-6'>{dictionary.form.subtitle}</p>
 
             <form onSubmit={handleSubmit} className='space-y-6'>
+              {/* Name */}
               <div>
                 <label
                   htmlFor='name'
                   className='block text-white/80 text-sm font-medium mb-2'
                 >
-                  {t('contact.form.name')}
+                  {dictionary.form.name}
                 </label>
                 <input
                   type='text'
@@ -151,17 +149,18 @@ export default function ContactSection() {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
+                  placeholder={dictionary.form.placeholders.name}
                   className='w-full px-4 py-3 bg-input border border-border rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200'
-                  placeholder={t('contact.form.name')}
                 />
               </div>
 
+              {/* Email */}
               <div>
                 <label
                   htmlFor='email'
                   className='block text-white/80 text-sm font-medium mb-2'
                 >
-                  {t('contact.form.email')}
+                  {dictionary.form.email}
                 </label>
                 <input
                   type='email'
@@ -170,17 +169,18 @@ export default function ContactSection() {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
+                  placeholder={dictionary.form.placeholders.email}
                   className='w-full px-4 py-3 bg-input border border-border rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200'
-                  placeholder={t('contact.form.email')}
                 />
               </div>
 
+              {/* Message */}
               <div>
                 <label
                   htmlFor='message'
                   className='block text-white/80 text-sm font-medium mb-2'
                 >
-                  {t('contact.form.message')}
+                  {dictionary.form.message}
                 </label>
                 <textarea
                   id='message'
@@ -189,8 +189,8 @@ export default function ContactSection() {
                   onChange={handleInputChange}
                   required
                   rows={5}
+                  placeholder={dictionary.form.messagePlaceholder}
                   className='w-full px-4 py-3 bg-input border border-border rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 resize-none'
-                  placeholder={t('contact.form.message')}
                 />
               </div>
 
@@ -202,11 +202,11 @@ export default function ContactSection() {
                 {isSubmitting ? (
                   <>
                     <div className='w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin' />
-                    {language === 'ar' ? 'جاري الإرسال...' : 'Sending...'}
+                    {dictionary.form.sending}
                   </>
                 ) : (
                   <>
-                    {t('contact.form.submit')}
+                    {dictionary.form.submit}
                     <Send size={18} />
                   </>
                 )}

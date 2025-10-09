@@ -1,11 +1,15 @@
 'use client'
 
-import { useLanguage } from '@/contexts/language-context'
 import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-react'
 import Image from 'next/image'
 
-export default function Footer() {
-  const { language } = useLanguage()
+interface FooterProps {
+  dictionary?: Dictionary['footer']
+}
+
+export default function Footer({ dictionary }: FooterProps) {
+  if (!dictionary) return null
+
   const currentYear = new Date().getFullYear()
 
   return (
@@ -13,43 +17,42 @@ export default function Footer() {
       <div className='container mx-auto px-6 py-12'>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
           {/* Company Info */}
-          <div
-            className={`md:col-span-2 ${
-              language === 'ar' ? 'text-right' : 'text-left'
-            }`}
-          >
+          <div className='md:col-span-2 text-left'>
             <div className='text-white font-semibold text-2xl tracking-tight mb-4'>
               <Image
                 src='/styleraLOGO.PNG'
                 alt='StyleraTech'
                 width={200}
                 height={200}
-              ></Image>
+                priority
+              />
             </div>
+
             <p className='text-white/70 font-light leading-relaxed mb-6 max-w-md'>
-              {language === 'ar'
-                ? 'شركة متخصصة في تطوير البرمجيات والحلول التقنية المتقدمة. نساعد الشركات على تحقيق أهدافها الرقمية.'
-                : 'StyleraTech is a software development company specializing in modern web technologies and advanced IT solutions. We help businesses achieve their digital goals.'}
+              {dictionary.description}
             </p>
-            <div
-              className={`flex gap-4 ${
-                language === 'ar' ? 'justify-end md:justify-start' : ''
-              }`}
-            >
+
+            <div className='flex gap-4'>
               <a
-                href='#'
+                href='https://linkedin.com/company/styleratech'
+                target='_blank'
+                rel='noopener noreferrer'
                 className='w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-primary transition-all duration-300'
               >
                 <Linkedin size={20} />
               </a>
               <a
-                href='#'
+                href='https://github.com/styleratech'
+                target='_blank'
+                rel='noopener noreferrer'
                 className='w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-primary transition-all duration-300'
               >
                 <Github size={20} />
               </a>
               <a
-                href='#'
+                href='https://twitter.com/styleratech'
+                target='_blank'
+                rel='noopener noreferrer'
                 className='w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-primary transition-all duration-300'
               >
                 <Twitter size={20} />
@@ -58,9 +61,9 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div className={`${language === 'ar' ? 'text-right' : 'text-left'}`}>
+          <div className='text-left'>
             <h4 className='text-white font-semibold mb-4'>
-              {language === 'ar' ? 'روابط سريعة' : 'Quick Links'}
+              {dictionary.quickLinks}
             </h4>
             <ul className='space-y-2'>
               <li>
@@ -68,7 +71,7 @@ export default function Footer() {
                   href='#home'
                   className='text-white/70 hover:text-white transition-colors duration-300'
                 >
-                  {language === 'ar' ? 'الرئيسية' : 'Home'}
+                  {dictionary.links.home}
                 </a>
               </li>
               <li>
@@ -76,7 +79,7 @@ export default function Footer() {
                   href='#services'
                   className='text-white/70 hover:text-white transition-colors duration-300'
                 >
-                  {language === 'ar' ? 'الخدمات' : 'Services'}
+                  {dictionary.links.services}
                 </a>
               </li>
               <li>
@@ -84,7 +87,7 @@ export default function Footer() {
                   href='#about'
                   className='text-white/70 hover:text-white transition-colors duration-300'
                 >
-                  {language === 'ar' ? 'من نحن' : 'About'}
+                  {dictionary.links.about}
                 </a>
               </li>
               <li>
@@ -92,26 +95,19 @@ export default function Footer() {
                   href='#contact'
                   className='text-white/70 hover:text-white transition-colors duration-300'
                 >
-                  {language === 'ar' ? 'اتصل بنا' : 'Contact'}
+                  {dictionary.links.contact}
                 </a>
               </li>
             </ul>
           </div>
 
           {/* Contact Info */}
-          <div className={`${language === 'ar' ? 'text-right' : 'text-left'}`}>
+          <div className='text-left'>
             <h4 className='text-white font-semibold mb-4'>
-              {language === 'ar' ? 'تواصل معنا' : 'Contact Info'}
+              {dictionary.contactInfo}
             </h4>
-            <ul
-              className={`space-y-3 flex flex-col justify-center items-start text-sm`}
-            >
-              {/*  WhatsApp Link */}
-              <li
-                className={`flex items-center gap-3 text-white/70 ${
-                  language === 'ar' ? 'flex-row-reverse' : ''
-                }`}
-              >
+            <ul className='space-y-3 text-sm'>
+              <li className='flex items-center gap-3 text-white/70'>
                 <a
                   href='https://wa.me/218928666458'
                   target='_blank'
@@ -123,63 +119,42 @@ export default function Footer() {
                 </a>
               </li>
 
-              {/*  Email Link */}
-              <li
-                className={`flex items-center gap-3 text-white/70 ${
-                  language === 'ar' ? 'flex-row-reverse' : ''
-                }`}
-              >
+              <li className='flex items-center gap-3 text-white/70'>
                 <a
-                  href='mailto:contact@ebtkar.tech'
+                  href='mailto:contact@styleratech.com'
                   className='flex items-center gap-3 hover:text-blue-400 transition-colors duration-300'
                 >
                   <Mail size={16} />
-                  <span>contact@ebtkar.tech</span>
+                  <span>contact@styleratech.com</span>
                 </a>
               </li>
 
-              {/* Location */}
-              <li
-                className={`flex items-center gap-3 text-white/70 ${
-                  language === 'ar' ? 'flex-row-reverse' : ''
-                }`}
-              >
+              <li className='flex items-center gap-3 text-white/70'>
                 <MapPin size={16} />
-                <span>
-                  {language === 'ar' ? 'ليبيا، طرابلس' : 'Tripoli, Libya'}
-                </span>
+                <span>{dictionary.address}</span>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div
-          className={`mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 ${
-            language === 'ar' ? 'md:flex-row-reverse' : ''
-          }`}
-        >
+        <div className='mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4'>
           <p className='text-white/60 text-xs font-semibold sm:text-sm'>
-            {language === 'ar'
-              ? `© ${currentYear} ستايليرا تك. جميع الحقوق محفوظة.`
-              : `© ${currentYear} StyleraTech. All rights reserved.`}
+            © {currentYear} StyleraTech. {dictionary.rights}
           </p>
-          <div
-            className={`flex gap-6 ${
-              language === 'ar' ? 'flex-row-reverse' : ''
-            }`}
-          >
+
+          <div className='flex gap-6'>
             <a
               href='#'
               className='text-white/60 hover:text-white text-sm transition-colors duration-300'
             >
-              {language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}
+              {dictionary.privacy}
             </a>
             <a
               href='#'
               className='text-white/60 hover:text-white text-sm transition-colors duration-300'
             >
-              {language === 'ar' ? 'شروط الخدمة' : 'Terms of Service'}
+              {dictionary.terms}
             </a>
           </div>
         </div>

@@ -1,6 +1,5 @@
 'use client'
 
-import { useLanguage } from '@/contexts/language-context'
 import { ArrowRight, ArrowLeft, Play } from 'lucide-react'
 import Link from 'next/link'
 import {
@@ -14,8 +13,18 @@ import {
   comeFromBottomItem,
 } from '@/constants/animation'
 
-export default function HeroSection() {
-  const { t, isRTL } = useLanguage()
+interface HeroSectionProps {
+  dictionary?: Dictionary['homeHero']
+  isRTL?: boolean
+  locale?: string
+}
+
+export default function HeroSection({
+  dictionary,
+  isRTL,
+  locale,
+}: HeroSectionProps) {
+  if (!dictionary) return null
 
   return (
     <section
@@ -38,13 +47,13 @@ export default function HeroSection() {
               variants={comeFromBottomItem}
               className='font-medium text-accent block'
             >
-              {t('hero.title')}
+              {dictionary.title}
             </Span>
             <Span
               variants={comeFromBottomItem}
               className='font-light tracking-tight text-white/90 text-2xl sm:text-4xl md:text-5xl lg:text-6xl block'
             >
-              {t('hero.subtitle')}
+              {dictionary.subtitle}
             </Span>
           </H1>
 
@@ -53,7 +62,7 @@ export default function HeroSection() {
             variants={textVariants}
             className='text-lg md:text-xl text-white/70 mb-10 md:mb-12 leading-relaxed max-w-2xl mx-auto sm:mx-0 text-center sm:text-start'
           >
-            {t('hero.description')}
+            {dictionary.description}
           </P>
 
           {/* CTA Buttons */}
@@ -63,10 +72,10 @@ export default function HeroSection() {
           >
             <Div variants={itemVariants}>
               <Link
-                href='/contact'
+                href={`/${locale}/contact`}
                 className='group py-3 px-6 md:px-8 md:py-4 rounded-full bg-primary text-primary-foreground font-medium text-sm sm:text-base transition-all duration-300 hover:bg-primary/80 flex items-center gap-3'
               >
-                {t('hero.cta.primary')}
+                {dictionary.cta.primary}
                 {isRTL ? (
                   <ArrowLeft size={20} className='hidden sm:block' />
                 ) : (
@@ -77,18 +86,18 @@ export default function HeroSection() {
 
             <Div variants={itemVariants}>
               <Link
-                href='/services'
+                href={`/${locale}/services`}
                 className='group py-3 px-6 md:px-8 md:py-4 rounded-full bg-transparent border border-white/30 text-white font-medium text-sm sm:text-base transition-all duration-300 hover:bg-white/10 hover:border-white/50 flex items-center gap-3'
               >
                 {isRTL ? (
                   <>
-                    {t('hero.cta.secondary')}
+                    {dictionary.cta.secondary}
                     <Play size={18} className='rotate-180 hidden sm:block' />
                   </>
                 ) : (
                   <>
                     <Play size={18} className='hidden sm:block' />
-                    {t('hero.cta.secondary')}
+                    {dictionary.cta.secondary}
                   </>
                 )}
               </Link>
@@ -101,9 +110,9 @@ export default function HeroSection() {
             variants={defaultContainerVariants}
           >
             {[
-              { number: '50+', label: t('hero.stats.projects') },
-              { number: '3+', label: t('hero.stats.experience') },
-              { number: '100%', label: t('hero.stats.clients') },
+              { number: '50+', label: dictionary.stats.projects },
+              { number: '3+', label: dictionary.stats.experience },
+              { number: '100%', label: dictionary.stats.clients },
             ].map((stat, i) => (
               <Div key={i} variants={itemVariants}>
                 <div className='text-3xl text-center sm:text-start font-semibold text-white mb-1'>
