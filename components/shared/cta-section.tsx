@@ -6,11 +6,8 @@ import Link from 'next/link'
 import { FaWhatsapp } from 'react-icons/fa'
 import {
   Div,
-  H2,
-  P,
   defaultContainerVariants,
   itemVariants,
-  textVariants,
 } from '@/constants/animation'
 import InViewSection from '../ui/Custom-ui/framer-motion/in-view-section'
 
@@ -31,26 +28,17 @@ export default function CTASection({ dictionary, isRTL }: CTASectionProps) {
           variants={itemVariants}
         >
           {/* Title */}
-          <H2
-            className='text-4xl md:text-5xl font-bold text-white mb-6 leading-tight'
-            variants={textVariants}
-          >
+          <h2 className='text-4xl md:text-5xl font-bold text-white mb-6 leading-tight'>
             {dictionary.title}
-          </H2>
+          </h2>
 
           {/* Subtitle */}
-          <P
-            className='text-xl text-slate-300 mb-8 leading-relaxed max-w-2xl mx-auto'
-            variants={textVariants}
-          >
+          <p className='text-xl text-slate-300 mb-8 leading-relaxed max-w-2xl mx-auto'>
             {dictionary.subtitle}
-          </P>
+          </p>
 
           {/* Buttons */}
-          <Div
-            className='flex flex-col sm:flex-row gap-4 justify-center'
-            variants={defaultContainerVariants}
-          >
+          <Div className='flex flex-col sm:flex-row gap-4 justify-center'>
             {/* Start Project */}
             <Div variants={itemVariants}>
               <Link href='/contact'>
@@ -58,8 +46,8 @@ export default function CTASection({ dictionary, isRTL }: CTASectionProps) {
                   {dictionary.startProject}
                   <ArrowRight
                     className={`w-5 h-5 ${
-                      isRTL ? 'mr-2 rotate-180' : 'ml-2'
-                    } group-hover:translate-x-1 transition-transform`}
+                      isRTL ? 'mr-1.5 rotate-180' : 'ml-1.5'
+                    }`}
                   />
                 </Button>
               </Link>
@@ -77,11 +65,7 @@ export default function CTASection({ dictionary, isRTL }: CTASectionProps) {
                   className='border-slate-600 text-white hover:bg-slate-800 px-8 py-4.5 text-lg group bg-transparent cursor-pointer transition-colors'
                 >
                   {dictionary.freeConsultation}
-                  <FaWhatsapp
-                    className={`w-5 h-5 text-green-500 ${
-                      isRTL ? 'mr-1' : 'ml-1'
-                    }`}
-                  />
+                  <FaWhatsapp className={`w-5 h-5 text-green-500 ms-1.5`} />
                 </Button>
               </Link>
             </Div>

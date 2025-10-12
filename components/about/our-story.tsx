@@ -42,6 +42,8 @@ export default function OurStory({ dictionary }: OurStoryProps) {
         <Div className='relative' variants={itemVariants}>
           <div className='aspect-square bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-3xl border border-slate-700 flex items-center justify-center overflow-hidden'>
             <Image
+              width={800}
+              height={800}
               src='/modern-tech-team-working-together-in-office.webp'
               alt='Our Story'
               className='w-full h-full object-cover rounded-3xl'
