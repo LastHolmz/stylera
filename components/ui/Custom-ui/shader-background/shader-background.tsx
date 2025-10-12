@@ -1,7 +1,7 @@
 'use client'
 
 import type React from 'react'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useMemo } from 'react'
 import { MeshGradient } from '@paper-design/shaders-react'
 
 interface ShaderBackgroundProps {
@@ -11,6 +11,19 @@ interface ShaderBackgroundProps {
 export default function ShaderBackground({ children }: ShaderBackgroundProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [isActive, setIsActive] = useState(false)
+  const [mounted, setMounted] = useState(false) //  used for lazy mount
+
+  //  Memoize the color array so it doesn’t trigger re-renders
+  const colors = useMemo(
+    () => ['#1e1d56', '#473367', '#7c3f98', '#46469d', '#3057a7'],
+    []
+  )
+
+  useEffect(() => {
+    // Lazy mount shader after page load
+    const timeout = setTimeout(() => setMounted(true), 800) // delay in ms
+    return () => clearTimeout(timeout)
+  }, [])
 
   useEffect(() => {
     const handleMouseEnter = () => setIsActive(true)
@@ -80,11 +93,13 @@ export default function ShaderBackground({ children }: ShaderBackgroundProps) {
       </svg> */}
 
       {/* Background Shaders */}
-      <MeshGradient
-        className='absolute inset-0 w-full h-full'
-        colors={['#1e1d56', '#473367', '#7c3f98', '#46469d', '#3057a7']}
-        speed={isActive ? 0.25 : 0}
-      />
+      {mounted && (
+        <MeshGradient
+          className='absolute inset-0 w-full h-full'
+          colors={colors}
+          speed={isActive ? 0.25 : 0}
+        />
+      )}
       {/* <MeshGradient
         className='absolute inset-0 w-full h-full opacity-60'
         colors={['#1e1d56', '#473367', '#7c3f98', '#000000']}
