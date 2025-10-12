@@ -1,5 +1,4 @@
-import Navigation from '@/components/navigation'
-import Footer from '@/components/footer'
+import Navigation from '@/components/layout/navigation'
 import ShaderBackground from '@/components/shader-background'
 import ContactHero from '@/components/contact-us/contact-hero'
 import ContactInfo from '@/components/contact-us/contact-info'

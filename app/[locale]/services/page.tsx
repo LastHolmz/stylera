@@ -1,5 +1,4 @@
-import Navigation from '@/components/navigation'
-import Footer from '@/components/footer'
+import Navigation from '@/components/layout/navigation'
 import ShaderBackground from '@/components/shader-background'
 import ServicesHeroSection from '@/components/services/services-hero-section'
 import DetailedServices from '@/components/services/services-details'

@@ -1,9 +1,8 @@
-import Navigation from '@/components/navigation'
-import Footer from '@/components/footer'
-import ShaderBackground from '@/components/shader-background'
+import Navigation from '@/components/layout/navigation'
 import JoinOurTeamPage from '@/components/join-our-team/join-our-team'
 import { getDictionary } from '@/get-dictionary'
 import { Locale } from '@/i18n-config'
+// import ShaderBackground from '@/components/shader-background'
 
 export default async function JoinTeamRoute({
   params,

@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { usePathname, useParams } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
-import LanguageSwitcher from './language-switcher'
+import LanguageSwitcher from './components/language-switcher'
 
 interface NavigationProps {
   dictionary?: Dictionary['nav']

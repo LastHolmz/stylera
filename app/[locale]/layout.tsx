@@ -1,5 +1,5 @@
-import Navbar from '@/components/navigation'
-import Footer from '@/components/footer'
+import Navbar from '@/components/layout/navigation'
+import Footer from '@/components/layout/footer'
 import { Figtree, Cairo } from 'next/font/google'
 import { Toaster } from 'sonner'
 import './globals.css'
