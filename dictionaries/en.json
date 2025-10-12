@@ -417,5 +417,40 @@
     "rights": "All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
+  },
+
+  "HomeWhoWeAre": {
+    "about": {
+      "title": "Who We Are",
+      "description": "We are a team of passionate developers and designers dedicated to creating innovative digital solutions. Our expertise spans modern web technologies, mobile development, and cutting-edge AI implementations.",
+      "more": "Since our founding, we've helped dozens of companies and organizations achieve digital transformation and build a strong online presence. We believe in the power of technology to transform businesses and improve people's lives."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "To be the leading software development and technology solutions company in the region, contributing to building a better digital future for everyone."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To deliver innovative, high-quality technical solutions that help our clients achieve their business goals and grow in the digital age."
+    },
+    "coreValues": {
+      "title": "Our Core Values",
+      "values": {
+        "Precision & Quality title": "Precision & Quality",
+        "Precision & Quality description": "We maintain the highest quality standards in every project we undertake.",
+        "Collaboration & Partnership title": "Collaboration & Partnership",
+        "Collaboration & Partnership description": "We work as true partners with our clients to achieve their goals.",
+        "Innovation & Creativity title": "Innovation & Creativity",
+        "Innovation & Creativity description": "We leverage cutting-edge technologies and innovative solutions.",
+        "Excellence & Professionalism title": "Excellence & Professionalism",
+        "Excellence & Professionalism description": "We strive for excellence in every aspect of our work."
+      }
+    },
+    "stats": {
+      "projectsCompleted": "Projects Completed",
+      "happyClients": "Happy Clients",
+      "yearsExperience": "Years Experience",
+      "clientSatisfaction": "Client Satisfaction"
+    }
   }
 }

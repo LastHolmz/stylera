@@ -198,4 +198,31 @@ interface Dictionary {
     privacy: string
     terms: string
   }
+  HomeWhoWeAre?: {
+    about: {
+      title: string
+      description: string
+      more: string
+    }
+    vision: {
+      title: string
+      description: string
+    }
+    mission: {
+      title: string
+      description: string
+    }
+    coreValues: {
+      title: string
+      values: {
+        [key: string]: string
+      }
+    }
+    stats: {
+      projectsCompleted: string
+      happyClients: string
+      yearsExperience: string
+      clientSatisfaction: string
+    }
+  }
 }

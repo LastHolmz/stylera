@@ -12,22 +12,41 @@ import {
 import InViewSection from './ui/Custom-ui/in-view-section'
 
 interface AboutSectionProps {
-  dictionary?: Dictionary['whoWeAre']
+  dictionary?: Dictionary['HomeWhoWeAre']
   isRTL?: boolean
 }
 
 export default function AboutSection({ dictionary, isRTL }: AboutSectionProps) {
   if (!dictionary) return null
 
-  const icons = [Target, Users, Lightbulb, Award]
-
-  // Convert the values record into an array for rendering
-  const values = Object.entries(dictionary.values?.items || {}).map(
-    ([, value], index) => ({
-      ...value,
-      icon: icons[index % icons.length],
-    })
-  )
+  const values = [
+    {
+      icon: Target,
+      title: dictionary.coreValues.values['Precision & Quality title'],
+      description:
+        dictionary.coreValues.values['Precision & Quality description'],
+    },
+    {
+      icon: Users,
+      title: dictionary.coreValues.values['Collaboration & Partnership title'],
+      description:
+        dictionary.coreValues.values['Collaboration & Partnership description'],
+    },
+    {
+      icon: Lightbulb,
+      title: dictionary.coreValues.values['Innovation & Creativity title'],
+      description:
+        dictionary.coreValues.values['Innovation & Creativity description'],
+    },
+    {
+      icon: Award,
+      title: dictionary.coreValues.values['Excellence & Professionalism title'],
+      description:
+        dictionary.coreValues.values[
+          'Excellence & Professionalism description'
+        ],
+    },
+  ]
 
   return (
     <InViewSection
@@ -46,27 +65,21 @@ export default function AboutSection({ dictionary, isRTL }: AboutSectionProps) {
             variants={textVariants}
           >
             <span className='font-medium ltr:instrument text-accent'>
-              {dictionary.title}
+              {dictionary.about.title}
             </span>
           </H2>
-
           <P
             className='text-xl md:text-2xl text-white/80 font-light leading-relaxed mb-8'
             variants={textVariants}
           >
-            {dictionary.subtitle}
+            {dictionary.about.description}
           </P>
-
-          {/* Story Paragraphs */}
-          {dictionary.story?.paragraphs?.map((para, i) => (
-            <P
-              key={i}
-              className='text-lg text-white/70 font-light leading-relaxed mb-4'
-              variants={textVariants}
-            >
-              {para}
-            </P>
-          ))}
+          <P
+            className='text-lg text-white/70 font-light leading-relaxed'
+            variants={textVariants}
+          >
+            {dictionary.about.more}
+          </P>
         </Div>
 
         {/* Mission & Vision */}
@@ -81,7 +94,7 @@ export default function AboutSection({ dictionary, isRTL }: AboutSectionProps) {
               {dictionary.vision.title}
             </h3>
             <p className='text-white/80 font-light leading-relaxed'>
-              {dictionary.vision.text}
+              {dictionary.vision.description}
             </p>
           </Div>
 
@@ -95,16 +108,16 @@ export default function AboutSection({ dictionary, isRTL }: AboutSectionProps) {
               {dictionary.mission.title}
             </h3>
             <p className='text-white/80 font-light leading-relaxed'>
-              {dictionary.mission.text}
+              {dictionary.mission.description}
             </p>
           </Div>
         </Div>
 
-        {/* Values */}
-        <Div className={`mb-20 ${isRTL ? 'text-right' : 'text-left'}`}>
+        {/* Core Values */}
+        <Div className={`${isRTL ? 'text-right' : 'text-left'} mb-20`}>
           <h3 className='text-3xl font-light text-white mb-12 text-center'>
             <span className='font-medium ltr:instrument text-accent'>
-              {dictionary.values.title}
+              {dictionary.coreValues.title}
             </span>
           </h3>
 
@@ -132,22 +145,44 @@ export default function AboutSection({ dictionary, isRTL }: AboutSectionProps) {
           </Div>
         </Div>
 
-        {/* Timeline */}
+        {/* Stats */}
         <Div
           className='bg-gradient-to-r from-primary/5 to-accent/5 backdrop-blur-sm border border-border rounded-2xl p-12'
           variants={itemVariants}
         >
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-8 text-center'>
-            {Object.entries(dictionary.timeline?.items || {}).map(
-              ([year, text]) => (
-                <div key={year}>
-                  <div className='text-4xl md:text-5xl font-bold text-white mb-2'>
-                    {year}
-                  </div>
-                  <div className='text-white/70 font-light'>{text}</div>
-                </div>
-              )
-            )}
+          <div className='grid grid-cols-2 md:grid-cols-4 gap-8 text-center'>
+            <div>
+              <div className='text-4xl md:text-5xl font-bold text-white mb-2'>
+                50+
+              </div>
+              <div className='text-white/70 font-light'>
+                {dictionary.stats.projectsCompleted}
+              </div>
+            </div>
+            <div>
+              <div className='text-4xl md:text-5xl font-bold text-white mb-2'>
+                25+
+              </div>
+              <div className='text-white/70 font-light'>
+                {dictionary.stats.happyClients}
+              </div>
+            </div>
+            <div>
+              <div className='text-4xl md:text-5xl font-bold text-white mb-2'>
+                3+
+              </div>
+              <div className='text-white/70 font-light'>
+                {dictionary.stats.yearsExperience}
+              </div>
+            </div>
+            <div>
+              <div className='text-4xl md:text-5xl font-bold text-white mb-2'>
+                100%
+              </div>
+              <div className='text-white/70 font-light'>
+                {dictionary.stats.clientSatisfaction}
+              </div>
+            </div>
           </div>
         </Div>
       </Div>
