@@ -36,7 +36,7 @@ export default function ShaderBackground({ children }: ShaderBackgroundProps) {
       className='min-h-screen bg-[#1e1d56] relative overflow-hidden'
     >
       {/* SVG Filters */}
-      <svg className='absolute inset-0 w-0 h-0'>
+      {/* <svg className='absolute inset-0 w-0 h-0'>
         <defs>
           <filter
             id='glass-effect'
@@ -77,19 +77,19 @@ export default function ShaderBackground({ children }: ShaderBackgroundProps) {
             <feComposite in='SourceGraphic' in2='gooey' operator='atop' />
           </filter>
         </defs>
-      </svg>
+      </svg> */}
 
       {/* Background Shaders */}
       <MeshGradient
         className='absolute inset-0 w-full h-full'
         colors={['#1e1d56', '#473367', '#7c3f98', '#46469d', '#3057a7']}
-        speed={0.25}
+        speed={isActive ? 0.25 : 0}
       />
-      <MeshGradient
+      {/* <MeshGradient
         className='absolute inset-0 w-full h-full opacity-60'
         colors={['#1e1d56', '#473367', '#7c3f98', '#000000']}
         speed={0.18}
-      />
+      /> */}
 
       {children}
     </div>
