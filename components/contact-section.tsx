@@ -4,6 +4,7 @@ import type React from 'react'
 import { useState } from 'react'
 import { Phone, Mail, MapPin, Send, Clock } from 'lucide-react'
 import { toast } from 'sonner'
+import Link from 'next/link'
 
 interface ContactSectionProps {
   dictionary?: Dictionary['contactUs']
@@ -90,7 +91,7 @@ export default function ContactSection({
               {contactInfo.map((info, index) => {
                 const Icon = info.icon
                 return (
-                  <a
+                  <Link
                     key={index}
                     href={info.href}
                     className='flex items-center gap-4 p-4 rounded-xl bg-card/30 backdrop-blur-sm border border-border hover:bg-card/50 transition-all duration-300 group'
@@ -102,9 +103,11 @@ export default function ContactSection({
                       <div className='text-white/60 text-sm font-light'>
                         {info.label}
                       </div>
-                      <div className='text-white font-medium'>{info.value}</div>
+                      <div className='text-white font-medium' dir='ltr'>
+                        {info.value}
+                      </div>
                     </div>
-                  </a>
+                  </Link>
                 )
               })}
             </div>

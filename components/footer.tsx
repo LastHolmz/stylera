@@ -61,7 +61,7 @@ export default function Footer({ dictionary }: FooterProps) {
           </div>
 
           {/* Quick Links */}
-          <div className='text-left'>
+          <div>
             <h4 className='text-white font-semibold mb-4'>
               {dictionary.quickLinks}
             </h4>
@@ -102,7 +102,7 @@ export default function Footer({ dictionary }: FooterProps) {
           </div>
 
           {/* Contact Info */}
-          <div className='text-left'>
+          <div>
             <h4 className='text-white font-semibold mb-4'>
               {dictionary.contactInfo}
             </h4>
@@ -115,7 +115,7 @@ export default function Footer({ dictionary }: FooterProps) {
                   className='flex items-center gap-3 hover:text-green-400 transition-colors duration-300'
                 >
                   <Phone size={16} />
-                  <span>+218 92 8666 458</span>
+                  <span dir='ltr'>+218 92 8666 458</span>
                 </a>
               </li>
 

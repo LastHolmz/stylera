@@ -85,9 +85,7 @@ export default function AboutSection({ dictionary, isRTL }: AboutSectionProps) {
         {/* Mission & Vision */}
         <Div className='grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20'>
           <Div
-            className={`bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-sm border border-border rounded-2xl p-8 ${
-              isRTL ? 'text-right' : 'text-left'
-            }`}
+            className={`bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-sm border border-border rounded-2xl p-8`}
             variants={itemVariants}
           >
             <h3 className='text-2xl font-semibold text-white mb-6'>
@@ -99,9 +97,7 @@ export default function AboutSection({ dictionary, isRTL }: AboutSectionProps) {
           </Div>
 
           <Div
-            className={`bg-gradient-to-br from-accent/10 to-primary/10 backdrop-blur-sm border border-border rounded-2xl p-8 ${
-              isRTL ? 'text-right' : 'text-left'
-            }`}
+            className={`bg-gradient-to-br from-accent/10 to-primary/10 backdrop-blur-sm border border-border rounded-2xl p-8`}
             variants={itemVariants}
           >
             <h3 className='text-2xl font-semibold text-white mb-6'>
@@ -114,7 +110,7 @@ export default function AboutSection({ dictionary, isRTL }: AboutSectionProps) {
         </Div>
 
         {/* Core Values */}
-        <Div className={`${isRTL ? 'text-right' : 'text-left'} mb-20`}>
+        <Div className={`mb-20`}>
           <h3 className='text-3xl font-light text-white mb-12 text-center'>
             <span className='font-medium ltr:instrument text-accent'>
               {dictionary.coreValues.title}

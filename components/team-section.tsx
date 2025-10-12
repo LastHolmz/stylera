@@ -70,7 +70,7 @@ export default function TeamSection({ dictionary }: TeamSectionProps) {
               </div>
 
               {/* Member Info */}
-              <div className='flex flex-col flex-1 text-left'>
+              <div className='flex flex-col flex-1'>
                 <h3 className='text-xl font-semibold text-white mb-2 group-hover:text-accent transition-colors duration-300 ease-out'>
                   {member.name}
                 </h3>
