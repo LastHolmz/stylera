@@ -26,27 +26,18 @@ export default function LocationSection({ dictionary }: LocationSectionProps) {
       className='py-20 px-4 bg-slate-900/50'
       variants={defaultContainerVariants}
     >
-      <Div className='max-w-6xl mx-auto' variants={defaultContainerVariants}>
+      <div className='max-w-6xl mx-auto'>
         {/* Header */}
         <Div className='text-center mb-16' variants={itemVariants}>
-          <H2
-            className='text-4xl md:text-5xl font-bold text-white mb-6'
-            variants={textVariants}
-          >
+          <h2 className='text-4xl md:text-5xl font-bold text-accent mb-6'>
             {t.title}
-          </H2>
-          <P
-            className='text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed'
-            variants={textVariants}
-          >
+          </h2>
+          <p className='text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed'>
             {t.subtitle}
-          </P>
+          </p>
         </Div>
 
-        <Div
-          className='grid lg:grid-cols-2 gap-12 items-center'
-          variants={defaultContainerVariants}
-        >
+        <div className='grid lg:grid-cols-2 gap-12 items-center'>
           {/* Info Card */}
           <Div variants={itemVariants}>
             <Card className='bg-slate-800/50 border-slate-700 p-8'>
@@ -128,8 +119,8 @@ export default function LocationSection({ dictionary }: LocationSectionProps) {
               <p className='text-slate-500 text-sm'>{t.mapSubtext}</p>
             </div>
           </Div>
-        </Div>
-      </Div>
+        </div>
+      </div>
     </InViewSection>
   )
 }

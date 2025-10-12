@@ -153,13 +153,13 @@ export default function ProjectsSection({
         </Div>
 
         {/* CTA */}
-        <Div className='text-center mt-12' variants={itemVariants}>
+        <div className='text-center mt-12'>
           <Link href={`/${locale}/projects`}>
             <Button className='bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-5.5 text-lg cursor-pointer'>
               {dictionary.viewAll}
             </Button>
           </Link>
-        </Div>
+        </div>
       </Div>
     </InViewSection>
   )
