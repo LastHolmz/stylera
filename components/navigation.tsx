@@ -29,7 +29,7 @@ export default function Navigation({ dictionary }: NavigationProps) {
   const navItems = [
     { key: 'home', href: '/' },
     { key: 'services', href: '/services' },
-    { key: 'about', href: '/about' },
+    { key: 'about', href: '/who-we-are' },
     { key: 'contact', href: '/contact' },
     { key: 'join', href: '/join-our-team' },
   ]
