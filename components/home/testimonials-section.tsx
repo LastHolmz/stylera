@@ -11,10 +11,10 @@ interface TestimonialsSectionProps {
 }
 
 const avatars = [
-  '/images/296fe121-5dfa-43f4-98b5-db50019738a7.jpg',
-  '/images/296fe121-5dfa-43f4-98b5-db50019738a7.jpg',
-  '/images/296fe121-5dfa-43f4-98b5-db50019738a7.jpg',
-  '/images/296fe121-5dfa-43f4-98b5-db50019738a7.jpg',
+  '/images/person.webp',
+  '/images/person.webp',
+  '/images/person.webp',
+  '/images/person.webp',
 ]
 
 export default function TestimonialsSection({

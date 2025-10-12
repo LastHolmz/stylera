@@ -21,7 +21,7 @@ export default function Footer({ dictionary }: FooterProps) {
           <div className='md:col-span-2'>
             <div className='text-white font-semibold text-2xl tracking-tight mb-4'>
               <Image
-                src='/styleraLOGO.PNG'
+                src='/styleraLOGO.webp'
                 alt='StyleraTech'
                 width={200}
                 height={200}

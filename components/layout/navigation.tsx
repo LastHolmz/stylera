@@ -42,7 +42,7 @@ export default function Navigation({ dictionary }: NavigationProps) {
       {/* Logo */}
       <Link href={`/${locale}`}>
         <Image
-          src='/styleraLOGO.PNG'
+          src='/styleraLOGO.webp'
           alt='StyleraTech Logo'
           width={200}
           height={50}

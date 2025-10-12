@@ -24,7 +24,7 @@ interface ProjectsSectionProps {
 const projects = [
   {
     id: 1,
-    image: '/ar-en-Logo.png',
+    image: '/ar-en-Logo.webp',
     key: 'mset', // matches dictionary.projects.items.mset
     category: 'Education',
     technologies: ['React', 'Next.js', 'MongoDB'],
