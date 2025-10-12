@@ -3,7 +3,6 @@
 import { Card } from '@/components/ui/card'
 import { Phone, Mail, MapPin } from 'lucide-react'
 import { FaWhatsapp } from 'react-icons/fa'
-import { useLanguage } from '@/contexts/language-context'
 import {
   Div,
   defaultContainerVariants,
@@ -11,13 +10,17 @@ import {
 } from '@/constants/animation'
 import InViewSection from '@/components/ui/Custom-ui/in-view-section'
 
-export default function ContactInfo() {
-  const { t } = useLanguage()
+interface ContactInfoProps {
+  dictionary: Dictionary['contactUs']
+}
+
+export default function ContactInfo({ dictionary }: ContactInfoProps) {
+  if (!dictionary) return null
 
   const contactInfo = [
     {
       icon: Phone,
-      title: t('contactPage.phone'),
+      title: dictionary.phone,
       value: '+218 92 8666 458',
       gradient: 'from-blue-500 to-cyan-500',
       href: 'tel:+218928666458',
@@ -25,7 +28,7 @@ export default function ContactInfo() {
     },
     {
       icon: Mail,
-      title: t('contactPage.email'),
+      title: dictionary.email,
       value: 'contact@ebtkar.tech',
       gradient: 'from-purple-500 to-pink-500',
       href: 'mailto:contact@ebtkar.tech',
@@ -33,7 +36,7 @@ export default function ContactInfo() {
     },
     {
       icon: MapPin,
-      title: t('contactPage.location'),
+      title: dictionary.location,
       value: 'Tripoli, Libya',
       gradient: 'from-green-500 to-emerald-500',
       href: 'https://www.google.com/maps/search/?api=1&query=Tripoli,Libya',
@@ -41,7 +44,7 @@ export default function ContactInfo() {
     },
     {
       icon: FaWhatsapp,
-      title: t('contactPage.whatsapp'),
+      title: dictionary.whatsapp,
       value: '+218 92 8666 458',
       gradient: 'from-green-500 to-emerald-500',
       href: 'https://wa.me/218928666458',
@@ -78,10 +81,7 @@ export default function ContactInfo() {
                 <h3 className='text-xl font-bold text-white mb-3'>
                   {info.title}
                 </h3>
-                <p
-                  className='text-slate-300 text-lg group-hover:text-blue-400 transition-colors'
-                  dir='ltr'
-                >
+                <p className='text-slate-300 text-lg group-hover:text-blue-400 transition-colors'>
                   {info.value}
                 </p>
               </Card>

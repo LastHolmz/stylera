@@ -2,7 +2,6 @@
 
 import { Card } from '@/components/ui/card'
 import { MapPin, Phone, Mail } from 'lucide-react'
-import { useLanguage } from '@/contexts/language-context'
 import {
   Div,
   H2,
@@ -13,8 +12,14 @@ import {
 } from '@/constants/animation'
 import InViewSection from '@/components/ui/Custom-ui/in-view-section'
 
-export default function LocationSection() {
-  const { t } = useLanguage()
+interface LocationSectionProps {
+  dictionary: Dictionary['contactUs']
+}
+
+export default function LocationSection({ dictionary }: LocationSectionProps) {
+  if (!dictionary) return null
+
+  const t = dictionary.locationSection
 
   return (
     <InViewSection
@@ -28,13 +33,13 @@ export default function LocationSection() {
             className='text-4xl md:text-5xl font-bold text-white mb-6'
             variants={textVariants}
           >
-            {t('contactPage.locationSection.title')}
+            {t.title}
           </H2>
           <P
             className='text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed'
             variants={textVariants}
           >
-            {t('contactPage.locationSection.subtitle')}
+            {t.subtitle}
           </P>
         </Div>
 
@@ -46,10 +51,11 @@ export default function LocationSection() {
           <Div variants={itemVariants}>
             <Card className='bg-slate-800/50 border-slate-700 p-8'>
               <h3 className='text-2xl font-bold text-white mb-6'>
-                {t('contactPage.locationSection.officeTitle')}
+                {t.officeTitle}
               </h3>
 
               <div className='space-y-4'>
+                {/* Address */}
                 <a
                   href='https://www.google.com/maps/search/?api=1&query=Tripoli,Libya'
                   target='_blank'
@@ -58,15 +64,14 @@ export default function LocationSection() {
                 >
                   <MapPin className='w-6 h-6 text-blue-400 me-3 mt-1 flex-shrink-0' />
                   <div>
-                    <p className='text-white font-semibold'>
-                      {t('contactPage.locationSection.address')}
-                    </p>
+                    <p className='text-white font-semibold'>{t.address}</p>
                     <p className='text-slate-300 hover:text-blue-400 transition-colors'>
                       Tripoli, Libya
                     </p>
                   </div>
                 </a>
 
+                {/* Phone */}
                 <a
                   href='tel:+218928666458'
                   className='flex items-start hover:bg-slate-700/50 p-3 rounded-lg transition-colors'
@@ -74,7 +79,7 @@ export default function LocationSection() {
                   <Phone className='w-6 h-6 text-green-400 me-3 mt-1 flex-shrink-0' />
                   <div>
                     <p className='text-white font-semibold'>
-                      {t('contactPage.phone')}
+                      {dictionary.phone}
                     </p>
                     <p
                       className='text-slate-300 hover:text-green-400 transition-colors'
@@ -85,6 +90,7 @@ export default function LocationSection() {
                   </div>
                 </a>
 
+                {/* Email */}
                 <a
                   href='mailto:contact@ebtkar.tech'
                   className='flex items-start hover:bg-slate-700/50 p-3 rounded-lg transition-colors'
@@ -92,7 +98,7 @@ export default function LocationSection() {
                   <Mail className='w-6 h-6 text-purple-400 me-3 mt-1 flex-shrink-0' />
                   <div>
                     <p className='text-white font-semibold'>
-                      {t('contactPage.email')}
+                      {dictionary.email}
                     </p>
                     <p className='text-slate-300 hover:text-purple-400 transition-colors'>
                       contact@ebtkar.tech
@@ -117,11 +123,9 @@ export default function LocationSection() {
             <div className='text-center'>
               <MapPin className='w-16 h-16 text-slate-400 mx-auto mb-4 group-hover:text-blue-400 transition-colors' />
               <p className='text-slate-400 group-hover:text-blue-400 transition-colors'>
-                {t('contactPage.locationSection.mapPlaceholder')}
+                {t.mapPlaceholder}
               </p>
-              <p className='text-slate-500 text-sm'>
-                {t('contactPage.locationSection.mapSubtext')}
-              </p>
+              <p className='text-slate-500 text-sm'>{t.mapSubtext}</p>
             </div>
           </Div>
         </Div>

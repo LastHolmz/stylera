@@ -165,6 +165,16 @@ interface Dictionary {
     faq: {
       title: string
       subtitle: string
+      questions: {
+        question: string
+        answer: string
+      }[]
+      cta: {
+        title: string
+        subtitle: string
+        whatsappButton: string
+        emailButton: string
+      }
     }
     form: {
       title: string
