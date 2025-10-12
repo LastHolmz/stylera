@@ -12,7 +12,6 @@ import {
   itemVariants,
   textVariants,
 } from '@/constants/animation'
-
 interface TeamSectionProps {
   dictionary?: Dictionary['teamSection']
 }
