@@ -36,8 +36,6 @@ export default async function ContactPage({
         <FaqSection dictionary={contact} />
         <ContactForm dictionary={contact} />
       </div>
-
-      <Footer dictionary={dictionary.footer} />
     </div>
   )
 }

@@ -2,6 +2,7 @@
 
 import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface FooterProps {
   dictionary?: Dictionary['footer']
@@ -15,9 +16,9 @@ export default function Footer({ dictionary }: FooterProps) {
   return (
     <footer className='bg-card/20 border-t border-border'>
       <div className='container mx-auto px-6 py-12'>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8'>
           {/* Company Info */}
-          <div className='md:col-span-2 text-left'>
+          <div className='md:col-span-2'>
             <div className='text-white font-semibold text-2xl tracking-tight mb-4'>
               <Image
                 src='/styleraLOGO.PNG'
@@ -33,30 +34,30 @@ export default function Footer({ dictionary }: FooterProps) {
             </p>
 
             <div className='flex gap-4'>
-              <a
+              <Link
                 href='https://linkedin.com/company/styleratech'
                 target='_blank'
                 rel='noopener noreferrer'
                 className='w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-primary transition-all duration-300'
               >
                 <Linkedin size={20} />
-              </a>
-              <a
+              </Link>
+              <Link
                 href='https://github.com/styleratech'
                 target='_blank'
                 rel='noopener noreferrer'
                 className='w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-primary transition-all duration-300'
               >
                 <Github size={20} />
-              </a>
-              <a
+              </Link>
+              <Link
                 href='https://twitter.com/styleratech'
                 target='_blank'
                 rel='noopener noreferrer'
                 className='w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-primary transition-all duration-300'
               >
                 <Twitter size={20} />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -67,36 +68,36 @@ export default function Footer({ dictionary }: FooterProps) {
             </h4>
             <ul className='space-y-2'>
               <li>
-                <a
+                <Link
                   href='#home'
                   className='text-white/70 hover:text-white transition-colors duration-300'
                 >
                   {dictionary.links.home}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href='#services'
                   className='text-white/70 hover:text-white transition-colors duration-300'
                 >
                   {dictionary.links.services}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href='#about'
                   className='text-white/70 hover:text-white transition-colors duration-300'
                 >
                   {dictionary.links.about}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href='#contact'
                   className='text-white/70 hover:text-white transition-colors duration-300'
                 >
                   {dictionary.links.contact}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -106,9 +107,9 @@ export default function Footer({ dictionary }: FooterProps) {
             <h4 className='text-white font-semibold mb-4'>
               {dictionary.contactInfo}
             </h4>
-            <ul className='space-y-3 text-sm'>
+            <ul className='space-y-3'>
               <li className='flex items-center gap-3 text-white/70'>
-                <a
+                <Link
                   href='https://wa.me/218928666458'
                   target='_blank'
                   rel='noopener noreferrer'
@@ -116,17 +117,17 @@ export default function Footer({ dictionary }: FooterProps) {
                 >
                   <Phone size={16} />
                   <span dir='ltr'>+218 92 8666 458</span>
-                </a>
+                </Link>
               </li>
 
               <li className='flex items-center gap-3 text-white/70'>
-                <a
+                <Link
                   href='mailto:contact@styleratech.com'
                   className='flex items-center gap-3 hover:text-blue-400 transition-colors duration-300'
                 >
                   <Mail size={16} />
                   <span>contact@styleratech.com</span>
-                </a>
+                </Link>
               </li>
 
               <li className='flex items-center gap-3 text-white/70'>
@@ -139,23 +140,26 @@ export default function Footer({ dictionary }: FooterProps) {
 
         {/* Bottom Bar */}
         <div className='mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4'>
-          <p className='text-white/60 text-xs font-semibold sm:text-sm'>
+          <p
+            className='text-white/60 text-xs font-semibold sm:text-sm'
+            dir='ltr'
+          >
             © {currentYear} StyleraTech. {dictionary.rights}
           </p>
 
           <div className='flex gap-6'>
-            <a
+            <Link
               href='#'
               className='text-white/60 hover:text-white text-sm transition-colors duration-300'
             >
               {dictionary.privacy}
-            </a>
-            <a
+            </Link>
+            <Link
               href='#'
               className='text-white/60 hover:text-white text-sm transition-colors duration-300'
             >
               {dictionary.terms}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

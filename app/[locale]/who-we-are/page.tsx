@@ -37,8 +37,6 @@ export default async function AboutPage({
         <Timeline dictionary={whoWeAre} />
         <TeamSection dictionary={dictionary.teamSection} />
       </div>
-
-      <Footer dictionary={dictionary.footer} />
     </div>
   )
 }

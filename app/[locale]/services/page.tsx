@@ -31,8 +31,6 @@ export default async function ServicesPage({
         <HowWeWork dictionary={dictionary.OurServicesPage} />
         <CTASection dictionary={dictionary.OurServicesPage} isRTL={isRTL} />
       </div>
-
-      <Footer dictionary={dictionary.footer} />
     </div>
   )
 }

@@ -24,8 +24,6 @@ export default async function JoinTeamRoute({
         }}
         isRTL={isRTL}
       />
-
-      <Footer dictionary={dictionary.footer} />
     </div>
   )
 }

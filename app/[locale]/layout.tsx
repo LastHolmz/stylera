@@ -56,9 +56,8 @@ export default async function LocaleLayout({
       dir={locale === 'ar' ? 'rtl' : 'ltr'}
       lang={locale}
     >
-      {/* <Navbar dictionary={dictionary.nav} /> */}
       {children}
-      {/* <Footer dictionary={dictionary.footer} /> */}
+      <Footer dictionary={dictionary.footer} />
     </div>
   )
 }
