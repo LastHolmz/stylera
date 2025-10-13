@@ -520,5 +520,28 @@
     "uiux": "UI/UX Designer",
     "mobile": "Mobile Developer",
     "other": "Other"
+  },
+  "allProjects": {
+    "title": "EMPOWER YOUR BUSINESS WITH INNOVATIVE TECH SOLUTIONS FROM",
+    "brand": "STYLERATECH",
+    "description": "Explore our innovative projects at Styleratech, where cutting-edge technology meets creative solutions. Join us on our journey to transform ideas into reality!",
+    "cta": {
+      "consultation": "Get free consultation",
+      "viewProjects": "View projects",
+      "startProject": "Start a project"
+    },
+    "searchPlaceholder": "web development",
+    "selectCategory": "Category",
+    "contactForm": {
+      "heading": "Get in Touch",
+      "subheading": "Leave your info and we’ll get back to you soon.",
+      "nameLabel": "Name",
+      "namePlaceholder": "Enter your full name",
+      "phoneLabel": "Phone Number",
+      "phonePlaceholder": "Enter your phone number",
+      "sendButton": "Send"
+    },
+    "footerTitle": "Building connections that last.",
+    "footerSubtitle": "Reach out and let’s create something extraordinary together."
   }
 }

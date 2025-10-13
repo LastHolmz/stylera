@@ -516,5 +516,28 @@
     "uiux": "مصمم UI/UX",
     "mobile": "مطور تطبيقات جوال",
     "other": "أخرى"
+  },
+  "allProjects": {
+    "title": "نمِّ عملك بحلول تقنية مبتكرة من",
+    "brand": "ستايلرتك",
+    "description": "استكشف مشاريعنا المبتكرة في ستايلرتك، حيث تلتقي التكنولوجيا المتطورة مع الإبداع. انضم إلينا في رحلتنا لتحويل الأفكار إلى واقع!",
+    "cta": {
+      "consultation": "احصل على استشارة مجانية",
+      "viewProjects": "عرض المشاريع",
+      "startProject": "ابدأ مشروعك"
+    },
+    "searchPlaceholder": "تطوير المواقع",
+    "selectCategory": "الفئة",
+    "contactForm": {
+      "heading": "تواصل معنا",
+      "subheading": "اترك معلوماتك وسنعاود الاتصال بك قريبًا.",
+      "nameLabel": "الاسم",
+      "namePlaceholder": "أدخل اسمك الكامل",
+      "phoneLabel": "رقم الهاتف",
+      "phonePlaceholder": "أدخل رقم هاتفك",
+      "sendButton": "إرسال"
+    },
+    "footerTitle": "نبني علاقات تدوم.",
+    "footerSubtitle": "تواصل معنا ولنُبدع معًا شيئًا استثنائيًا."
   }
 }
