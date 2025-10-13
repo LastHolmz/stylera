@@ -55,6 +55,36 @@ const AppointmentsSchedule = () => {
 
         {/* Layout */}
         <div className='grid grid-cols-1 md:grid-cols-2 rounded-3xl overflow-hidden shadow-xl'>
+          {/* Left Side – Calendar */}
+          <div className='p-8 bg-gray-200 backdrop-blur-md '>
+            <h3 className='text-xl font-semibold text-black mb-2'>
+              Select a Date
+            </h3>
+            <p className='text-[#4A5565] mb-6'>
+              Choose an available date from the calendar
+            </p>
+
+            <div className='flex justify-center'>
+              <Calendar
+                mode='single'
+                selected={selectedDate}
+                onSelect={setSelectedDate}
+                className='rounded-md border-0 bg-white text-slate-900'
+              />
+            </div>
+
+            {selectedDate && (
+              <div className='mt-6 p-3 flex items-center justify-center rounded-xl shadow-md bg-white text-black gap-2'>
+                <CalendarDays className='w-5 h-5' />
+                {selectedDate.toLocaleDateString('en-US', {
+                  weekday: 'long',
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </div>
+            )}
+          </div>
           {/* Right Side – Time Slots + Platform */}
           <div className='p-8 bg-gradient-to-br to-[#9C27B04D]/30 from-[#05A3BE33]/50'>
             <h3 className='text-xl font-semibold text-white mb-2'>
@@ -81,14 +111,14 @@ const AppointmentsSchedule = () => {
 
             {/* Platform Selection */}
             <h4 className='text-white mb-3 font-semibold'>Select Platform</h4>
-            <div className='flex flex-col gap-3'>
+            <div className='flex flex-col gap-3 '>
               {platforms.map((p) => (
                 <button
                   key={p.name}
                   onClick={() => setSelectedPlatform(p.name)}
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl border transition-all duration-300 ${
                     selectedPlatform === p.name
-                      ? 'bg-cyan-500/10 border-cyan-400 text-white'
+                      ? 'bg-cyan-500/10 border-cyan-400 text-white '
                       : 'bg-white/10 border-white/10 text-white/80 hover:bg-cyan-600/20'
                   }`}
                 >
@@ -97,36 +127,6 @@ const AppointmentsSchedule = () => {
                 </button>
               ))}
             </div>
-          </div>
-          {/* Left Side – Calendar */}
-          <div className='p-8 bg-gray-200 backdrop-blur-md '>
-            <h3 className='text-xl font-semibold text-black mb-2  text-end'>
-              Select a Date
-            </h3>
-            <p className='text-[#4A5565] mb-6 text-end'>
-              Choose an available date from the calendar
-            </p>
-
-            <div className='flex justify-center'>
-              <Calendar
-                mode='single'
-                selected={selectedDate}
-                onSelect={setSelectedDate}
-                className='rounded-md border-0 bg-white text-slate-900'
-              />
-            </div>
-
-            {selectedDate && (
-              <div className='mt-6 p-3 rounded-xl shadow-md bg-white text-black flex items-center justify-end gap-2'>
-                <CalendarDays className='w-5 h-5 text-cyan-400' />
-                {selectedDate.toLocaleDateString('en-US', {
-                  weekday: 'long',
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </div>
-            )}
           </div>
         </div>
       </div>
