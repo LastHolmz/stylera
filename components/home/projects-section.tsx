@@ -41,25 +41,19 @@ export default function ProjectsSection({
 
   return (
     <InViewSection className='py-20 px-4' variants={defaultContainerVariants}>
-      <Div className='max-w-7xl mx-auto'>
+      <div className='max-w-7xl mx-auto'>
         {/* Section Header */}
         <Div className='text-center mb-16' variants={itemVariants}>
-          <H2
-            className='text-4xl md:text-5xl font-bold text-accent mb-6'
-            variants={textVariants}
-          >
+          <h2 className='text-4xl md:text-5xl font-bold text-accent mb-6'>
             {dictionary.title}
-          </H2>
-          <P
-            className='text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed'
-            variants={textVariants}
-          >
+          </h2>
+          <p className='text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed'>
             {dictionary.subtitle}
-          </P>
+          </p>
         </Div>
 
         {/* Projects Grid */}
-        <Div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
+        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
           {projects.map((project) => {
             const item = dictionary.items?.[project.key]
             if (!item) return null
@@ -150,7 +144,7 @@ export default function ProjectsSection({
               </Div>
             )
           })}
-        </Div>
+        </div>
 
         {/* CTA */}
         <div className='text-center mt-12'>
@@ -160,7 +154,7 @@ export default function ProjectsSection({
             </Button>
           </Link>
         </div>
-      </Div>
+      </div>
     </InViewSection>
   )
 }
