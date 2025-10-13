@@ -5,6 +5,7 @@ import { Calendar } from '@/components/ui/calendar'
 import { motion } from 'framer-motion'
 import { CalendarDays, Video, PhoneCall } from 'lucide-react'
 import ConfirmBookingDialog from './_components/confirm-dialog'
+import { toast } from 'sonner'
 
 const AppointmentsSchedule = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date())
@@ -57,6 +58,10 @@ const AppointmentsSchedule = () => {
       time: selectedTime,
       platform: selectedPlatform,
       ...data,
+    })
+    toast.success('Booking confirmed successfully!', {
+      description: `You’ll receive your ${selectedPlatform} invite soon.`,
+      duration: 4000,
     })
   }
 
