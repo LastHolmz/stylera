@@ -6,6 +6,7 @@ import BusinessHours from '@/components/contact-us/business-hours'
 import LocationSection from '@/components/contact-us/location'
 import FaqSection from '@/components/contact-us/faq'
 import ContactForm from '@/components/contact-us/contact-form'
+import AppointmentsSchedule from '@/components/contact-us/appointments'
 import { getDictionary } from '@/get-dictionary'
 import { Locale } from '@/i18n-config'
 
@@ -34,6 +35,7 @@ export default async function ContactPage({
         <LocationSection dictionary={contact} />
         <FaqSection dictionary={contact} />
         <ContactForm dictionary={contact} />
+        <AppointmentsSchedule />
       </div>
     </div>
   )
