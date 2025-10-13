@@ -257,4 +257,41 @@ interface Dictionary {
       clientSatisfaction: string
     }
   }
+  allProjects?: {
+    title: string
+    brand: string
+    description: string
+    featuredTitle: string
+    featuredSubtitle: string
+    cta: {
+      consultation: string
+      viewProjects: string
+      startProject: string
+    }
+    searchPlaceholder: string
+    selectCategory: string
+    projects: Record<
+      string,
+      {
+        title: string
+        description: string
+        category: string
+        image: string
+        technologies: string[]
+        github?: string
+        live?: string
+      }
+    >
+    contactForm: {
+      heading: string
+      subheading: string
+      nameLabel: string
+      namePlaceholder: string
+      phoneLabel: string
+      phonePlaceholder: string
+      sendButton: string
+    }
+    footerTitle: string
+    footerSubtitle: string
+  }
 }
