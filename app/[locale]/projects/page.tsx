@@ -7,6 +7,7 @@ import CTASection from '@/components/services/services-cta-section'
 import { getDictionary } from '@/get-dictionary'
 import { Locale } from '@/i18n-config'
 import AllProjects from '@/components/projects/projects'
+import ProjectsContactForm from '@/components/projects/_components/contact-form'
 
 export default async function ProjectsPage({
   params,
@@ -28,6 +29,7 @@ export default async function ProjectsPage({
 
       <div className='bg-background'>
         <AllProjects dictionary={dictionary.allProjects} isRTL={isRTL} />
+        <ProjectsContactForm dictionary={dictionary.allProjects} />
       </div>
     </div>
   )
