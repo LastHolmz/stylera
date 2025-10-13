@@ -5,6 +5,24 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import ContactImage from '@/public/images/contactImage.png'
 import { Send } from 'lucide-react'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { toast } from 'sonner'
+
+//  Validation Schema
+const contactSchema = z.object({
+  name: z
+    .string()
+    .min(3, 'Name must be at least 3 characters')
+    .max(50, 'Name too long'),
+  phone: z
+    .string()
+    .min(8, 'Phone number too short')
+    .regex(/^[0-9+\-\s()]*$/, 'Invalid phone number format'),
+})
+
+type ContactFormData = z.infer<typeof contactSchema>
 
 interface ProjectsContactFormProps {
   dictionary: Dictionary['allProjects']
@@ -15,6 +33,22 @@ export default function ProjectsContactForm({
   dictionary,
   isRTL,
 }: ProjectsContactFormProps) {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+  })
+
+  //  Handle form submission
+  const onSubmit = async (data: ContactFormData) => {
+    console.log('Form Data:', data)
+    toast.success('Your message has been sent successfully!')
+    reset()
+  }
+
   if (!dictionary) return null
 
   return (
@@ -67,7 +101,10 @@ export default function ProjectsContactForm({
             {dictionary.contactForm.subheading}
           </p>
 
-          <form className='flex flex-col gap-8'>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className='flex flex-col gap-8'
+          >
             {/* Name Input */}
             <div>
               <label
@@ -80,8 +117,16 @@ export default function ProjectsContactForm({
                 id='name'
                 type='text'
                 placeholder={dictionary.contactForm.namePlaceholder}
-                className='bg-slate-800 border-slate-700 text-white placeholder:text-slate-400 h-12 rounded-lg'
+                {...register('name')}
+                className={`bg-slate-800 border-slate-700 text-white placeholder:text-slate-400 h-12 rounded-lg ${
+                  errors.name ? 'border-red-500' : ''
+                }`}
               />
+              {errors.name && (
+                <p className='text-red-500 text-sm mt-1'>
+                  {errors.name.message}
+                </p>
+              )}
             </div>
 
             {/* Phone Input */}
@@ -96,14 +141,26 @@ export default function ProjectsContactForm({
                 id='phone'
                 type='tel'
                 placeholder={dictionary.contactForm.phonePlaceholder}
-                className='bg-slate-800 border-slate-700 text-white placeholder:text-slate-400 h-12 rounded-lg'
+                {...register('phone')}
+                className={`bg-slate-800 border-slate-700 text-white placeholder:text-slate-400 h-12 rounded-lg ${
+                  errors.phone ? 'border-red-500' : ''
+                }`}
               />
+              {errors.phone && (
+                <p className='text-red-500 text-sm mt-1'>
+                  {errors.phone.message}
+                </p>
+              )}
             </div>
 
             {/* Send Button */}
-            <Button className='bg-cyan-600 hover:bg-cyan-700 text-white flex items-center justify-center gap-2 py-6 text-lg rounded-xl shadow-md'>
+            <Button
+              type='submit'
+              disabled={isSubmitting}
+              className='bg-cyan-600 hover:bg-cyan-700 text-white flex items-center justify-center gap-2 py-6 text-lg rounded-xl shadow-md disabled:opacity-70'
+            >
               <Send className='h-5 w-5' />
-              {dictionary.contactForm.sendButton}
+              {isSubmitting ? 'Sending...' : dictionary.contactForm.sendButton}
             </Button>
           </form>
         </div>
