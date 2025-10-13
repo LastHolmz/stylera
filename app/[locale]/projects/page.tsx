@@ -1,6 +1,6 @@
 import Navigation from '@/components/layout/navigation'
 import ShaderBackground from '@/components/ui/Custom-ui/shader-background/shader-background'
-import ServicesHeroSection from '@/components/services/services-hero-section'
+import ProjectsHeroSection from '@/components/projects/_components/projects-hero-section'
 import DetailedServices from '@/components/services/services-details'
 import HowWeWork from '@/components/services/how-we-work'
 import CTASection from '@/components/services/services-cta-section'
@@ -21,15 +21,11 @@ export default async function ProjectsPage({
       <ShaderBackground>
         <div className='relative z-10'>
           <Navigation dictionary={dictionary.nav} />
-          <ServicesHeroSection dictionary={dictionary.OurServicesPage} />
+          <ProjectsHeroSection dictionary={dictionary.allProjects} />
         </div>
       </ShaderBackground>
 
-      <div className='bg-background'>
-        <DetailedServices dictionary={dictionary.OurServicesPage} />
-        <HowWeWork dictionary={dictionary.OurServicesPage} />
-        <CTASection dictionary={dictionary.OurServicesPage} isRTL={isRTL} />
-      </div>
+      <div className='bg-background'></div>
     </div>
   )
 }
