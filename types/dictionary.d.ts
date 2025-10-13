@@ -270,6 +270,18 @@ interface Dictionary {
     }
     searchPlaceholder: string
     selectCategory: string
+    projects: Record<
+      string,
+      {
+        title: string
+        description: string
+        category: string
+        image: string
+        technologies: string[]
+        github?: string
+        live?: string
+      }
+    >
     contactForm: {
       heading: string
       subheading: string

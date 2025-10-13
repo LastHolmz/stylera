@@ -34,22 +34,9 @@ interface AllProjectsProps {
   isRTL?: boolean
 }
 
-const projects = [
-  {
-    id: 1,
-    title: 'MSET Learning Platform',
-    description:
-      'MSET is an educational platform providing learning tools and resources for students and institutions, built with scalability and a seamless UX in mind.',
-    category: 'Education',
-    image: '/ar-en-Logo.webp',
-    technologies: ['React', 'Next.js', 'MongoDB', 'Node.js'],
-    github: '',
-    live: 'https://mset.ly/en',
-  },
-]
-
 export default function AllProjects({ dictionary, isRTL }: AllProjectsProps) {
   if (!dictionary) return null
+  const projects = Object.values(dictionary.projects || {})
 
   return (
     <InViewSection className='py-24 px-4' variants={defaultContainerVariants}>
@@ -90,7 +77,13 @@ export default function AllProjects({ dictionary, isRTL }: AllProjectsProps) {
                 <SelectValue placeholder={dictionary.selectCategory} />
               </SelectTrigger>
               <SelectContent className='bg-slate-800 text-slate-200 border-slate-700'>
-                <SelectItem value='education'>Education</SelectItem>
+                {Array.from(new Set(projects.map((p) => p.category))).map(
+                  (category) => (
+                    <SelectItem key={category} value={category}>
+                      {category}
+                    </SelectItem>
+                  )
+                )}
               </SelectContent>
             </Select>
           </div>
@@ -111,9 +104,9 @@ export default function AllProjects({ dictionary, isRTL }: AllProjectsProps) {
 
         {/* Projects Grid */}
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center'>
-          {projects.map((p) => (
+          {projects.map((p, index) => (
             <Card
-              key={p.id}
+              key={index}
               className='bg-slate-800/60 border-slate-700 overflow-hidden hover:bg-slate-700/60 transition-all duration-300 group'
             >
               {/* Image */}

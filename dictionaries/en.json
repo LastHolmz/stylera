@@ -534,6 +534,17 @@
     },
     "searchPlaceholder": "web development",
     "selectCategory": "Category",
+    "projects": {
+      "mset": {
+        "title": "MSET Learning Platform",
+        "description": "MSET is an educational platform providing learning tools and resources for students and institutions, built with scalability and a seamless UX in mind.",
+        "category": "Education",
+        "image": "/ar-en-Logo.webp",
+        "technologies": ["React", "Next.js", "MongoDB", "Node.js"],
+        "github": "",
+        "live": "https://mset.ly/en"
+      }
+    },
     "contactForm": {
       "heading": "Get in Touch",
       "subheading": "Leave your info and we’ll get back to you soon.",
