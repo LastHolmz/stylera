@@ -19,7 +19,7 @@ import {
   PaginationPrevious,
 } from '@/components/ui/pagination'
 import Image from 'next/image'
-import { ExternalLink, Search } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ExternalLink, Search } from 'lucide-react'
 import { FaGithub } from 'react-icons/fa'
 import InViewSection from '@/components/ui/Custom-ui/framer-motion/in-view-section'
 import {
@@ -27,6 +27,7 @@ import {
   itemVariants,
   defaultContainerVariants,
 } from '@/constants/animation'
+import Link from 'next/link'
 
 interface AllProjectsProps {
   dictionary?: Dictionary['allProjects']
@@ -65,31 +66,47 @@ export default function AllProjects({ dictionary, isRTL }: AllProjectsProps) {
 
         {/* Filters */}
         <div
-          className={`flex flex-col md:flex-row justify-center items-center gap-4 mb-12 ${
+          className={`flex flex-col md:flex-row justify-between items-center gap-4 mb-12 ${
             isRTL ? 'flex-row-reverse' : ''
           }`}
         >
-          <div className='relative w-full md:w-64'>
-            <Search className='absolute left-3 top-2 text-slate-400 h-5 w-5' />
-            <Input
-              type='text'
-              placeholder={dictionary.searchPlaceholder}
-              className='pl-10 bg-slate-800 border-slate-700 text-slate-200 placeholder:text-slate-400'
-            />
+          {/* : Search + Select */}
+          <div
+            className={`flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto ${
+              isRTL ? 'flex-row-reverse' : ''
+            }`}
+          >
+            <div className='relative w-full sm:w-64'>
+              <Search className='absolute left-3 top-2 text-slate-400 h-5 w-5' />
+              <Input
+                type='text'
+                placeholder={dictionary.searchPlaceholder}
+                className='pl-10 bg-slate-800 border-slate-700 text-slate-200 placeholder:text-slate-400'
+              />
+            </div>
+
+            <Select>
+              <SelectTrigger className='w-full sm:w-48 bg-slate-800 border-slate-700 text-slate-200'>
+                <SelectValue placeholder={dictionary.selectCategory} />
+              </SelectTrigger>
+              <SelectContent className='bg-slate-800 text-slate-200 border-slate-700'>
+                <SelectItem value='education'>Education</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
-          <Select>
-            <SelectTrigger className='w-full md:w-48 bg-slate-800 border-slate-700 text-slate-200'>
-              <SelectValue placeholder={dictionary.selectCategory} />
-            </SelectTrigger>
-            <SelectContent className='bg-slate-800 text-slate-200 border-slate-700'>
-              <SelectItem value='education'>Education</SelectItem>
-            </SelectContent>
-          </Select>
-
-          <Button className='bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-6 py-5 text-lg'>
+          {/*  CTA Button */}
+          <Link
+            href='/contact'
+            className='bg-gradient-to-r cursor-pointer from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-2 py-2 flex rounded-sm items-center gap-1 text-lg'
+          >
             {dictionary.cta.startProject}
-          </Button>
+            {isRTL ? (
+              <ArrowLeft size={18} className='mt-0.5' />
+            ) : (
+              <ArrowRight size={18} className='mt-0.5' />
+            )}
+          </Link>
         </div>
 
         {/* Projects Grid */}
@@ -175,10 +192,10 @@ export default function AllProjects({ dictionary, isRTL }: AllProjectsProps) {
 
         {/* Pagination */}
         <div className='mt-12 flex justify-center'>
-          <Pagination>
+          <Pagination isRTL={isRTL}>
             <PaginationContent>
               <PaginationItem>
-                <PaginationPrevious href='#' />
+                <PaginationPrevious href='#' isRTL={isRTL} />
               </PaginationItem>
               <PaginationItem>
                 <PaginationLink href='#' isActive>
@@ -186,7 +203,7 @@ export default function AllProjects({ dictionary, isRTL }: AllProjectsProps) {
                 </PaginationLink>
               </PaginationItem>
               <PaginationItem>
-                <PaginationNext href='#' />
+                <PaginationNext href='#' isRTL={isRTL} />
               </PaginationItem>
             </PaginationContent>
           </Pagination>

@@ -27,7 +27,7 @@ export default async function ProjectsPage({
       </ShaderBackground>
 
       <div className='bg-background'>
-        <AllProjects dictionary={dictionary.allProjects} />
+        <AllProjects dictionary={dictionary.allProjects} isRTL={isRTL} />
       </div>
     </div>
   )
