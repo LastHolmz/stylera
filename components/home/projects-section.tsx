@@ -25,7 +25,7 @@ const projects = [
   {
     id: 1,
     image: '/ar-en-Logo.webp',
-    key: 'mset', // matches dictionary.projects.items.mset
+    key: 'mset',
     category: 'Education',
     technologies: ['React', 'Next.js', 'MongoDB'],
     liveLink: 'https://mset.ly/en',
