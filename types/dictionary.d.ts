@@ -132,7 +132,11 @@ interface Dictionary {
     uiux: string
     mobile: string
     other: string
+    dialogButton: string
+    dialogDescription: string
+    dialogConfirm: string
   }
+
   cta?: {
     title: string
     subtitle: string

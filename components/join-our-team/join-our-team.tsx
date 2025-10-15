@@ -36,7 +36,9 @@ export default function JoinOurTeam({
   if (!dictionary) return null
 
   const team = dictionary.teamSection?.team
+  const dialog = dictionary.ApplyForm
   if (!team) return null
+  if (!dialog) return null
 
   const [open, setOpen] = useState(false)
 
@@ -48,9 +50,7 @@ export default function JoinOurTeam({
       >
         {/* Header */}
         <Div
-          className={`max-w-3xl mx-auto mb-12 ${
-            isRTL ? 'text-right' : 'text-center'
-          }`}
+          className={`max-w-3xl mx-auto mb-12 text-center`}
           variants={itemVariants}
         >
           <H2
@@ -88,26 +88,34 @@ export default function JoinOurTeam({
                 className='border-accent cursor-pointer text-accent hover:bg-accent hover:text-white transition-all duration-200 mt-6 flex items-center gap-2 mx-auto'
               >
                 <Sparkles className='w-5 h-5' />
-                {isRTL
-                  ? 'لست متأكدًا إذا كنت يجب أن تتقدم؟ 🤔'
-                  : 'Not sure if you should apply? 🤔'}
+                {dialog.dialogButton}
               </Button>
             </DialogTrigger>
-            <DialogContent className='bg-card/90 border-border text-center max-w-md'>
+            <DialogContent
+              isRTL={isRTL}
+              className={`bg-card/90 border-border max-w-md font-[cairo] ${
+                isRTL ? 'text-right' : 'text-center'
+              }`}
+              dir={isRTL ? 'rtl' : 'ltr'}
+            >
               <DialogHeader>
-                <DialogTitle></DialogTitle>
-                <DialogDescription className='text-white/80 text-base leading-relaxed'>
-                  {isRTL
-                    ? 'إرين ييغر أنقذ 20٪ من البشرية بفضل الرَمبلينغ... تعتقد أن هذا القرار كان صائباً؟ إذاً نحن في انتظارك ❤️'
-                    : 'Eren Yeager saved 20% of humanity with his Rumbling... think that was the right decision? Then we’re waiting for you ❤️'}
+                <DialogTitle className='sr-only'></DialogTitle>
+                <DialogDescription
+                  className={`text-white/80 text-base leading-relaxed ${
+                    isRTL ? 'text-center' : 'text-center'
+                  }`}
+                >
+                  {dialog.dialogDescription}
                 </DialogDescription>
               </DialogHeader>
-              <Button
-                onClick={() => setOpen(false)}
-                className='mt-4 bg-accent text-white cursor-pointer hover:bg-accent/90'
-              >
-                {isRTL ? 'تمام، سأفعل ذلك!' : 'Alright, I’m in! 🚀'}
-              </Button>
+              <div className={`${isRTL ? 'text-center' : 'text-center'}`}>
+                <Button
+                  onClick={() => setOpen(false)}
+                  className='mt-4 bg-accent text-white cursor-pointer hover:bg-accent/90'
+                >
+                  {dialog.dialogConfirm}
+                </Button>
+              </div>
             </DialogContent>
           </Dialog>
         </Div>
