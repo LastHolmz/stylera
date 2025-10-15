@@ -4,7 +4,7 @@ import { getDictionary } from '@/get-dictionary'
 import { Locale } from '@/i18n-config'
 // import ShaderBackground from '@/components/shader-background'
 
-export default async function JoinTeamRoute({
+export default async function JoinTeam({
   params,
 }: {
   params: Promise<{ locale: Locale }>
