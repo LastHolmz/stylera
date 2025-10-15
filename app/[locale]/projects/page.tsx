@@ -28,7 +28,11 @@ export default async function ProjectsPage({
       </ShaderBackground>
 
       <div className='bg-background'>
-        <AllProjects dictionary={dictionary.allProjects} isRTL={isRTL} />
+        <AllProjects
+          dictionary={dictionary.allProjects}
+          isRTL={isRTL}
+          locale={locale}
+        />
         <ProjectsContactForm dictionary={dictionary.allProjects} />
       </div>
     </div>
