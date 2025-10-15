@@ -317,4 +317,13 @@ interface Dictionary {
     cancel: string
     confirm: string
   }
+  privacy?: {
+    title: string
+    intro: string
+    sections: {
+      heading: string
+      paragraph?: string
+      list?: string[]
+    }[]
+  }
 }

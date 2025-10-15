@@ -579,5 +579,67 @@
     "infoText": "Your appointment details will be sent to your calendar automatically.",
     "cancel": "Cancel",
     "confirm": "Confirm Booking"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "intro": "At StyleraTech, we respect your privacy and are committed to protecting your data. This policy explains how we collect, use, store, and share information when you interact with our website or services.",
+    "sections": [
+      {
+        "heading": "Information We Collect",
+        "paragraph": "We collect two types of data: information you voluntarily provide (e.g., name, email, contact details via forms) and information collected automatically (e.g., IP address, browser type, pages visited, and cookies).",
+        "list": [
+          "Contact and appointment forms",
+          "Analytics data to improve experiences",
+          "Language and interface preferences"
+        ]
+      },
+      {
+        "heading": "How We Use Your Information",
+        "list": [
+          "Deliver our services, respond to inquiries, and follow up on requests.",
+          "Improve performance and user experience through analytics.",
+          "Send important updates related to services or policies."
+        ]
+      },
+      {
+        "heading": "Legal Basis for Processing",
+        "paragraph": "We process your data based on your consent, contract performance where applicable, our legitimate interests in improving our services, and compliance with legal obligations."
+      },
+      {
+        "heading": "Cookies",
+        "paragraph": "We use cookies to enhance performance and personalize content. You can manage preferences through your browser settings. Disabling cookies may limit certain functionality."
+      },
+      {
+        "heading": "Data Sharing",
+        "paragraph": "We do not sell your data. We may share it with trusted service providers to support website functionality (such as hosting and analytics) under data protection agreements."
+      },
+      {
+        "heading": "Data Security and Retention",
+        "paragraph": "We apply technical and organizational measures to protect your data. We retain information only as long as needed for the stated purposes or as required by law."
+      },
+      {
+        "heading": "Your Rights",
+        "list": [
+          "Access and correction",
+          "Object to or restrict processing",
+          "Data portability",
+          "Withdraw consent",
+          "Erasure where applicable"
+        ],
+        "paragraph": "To exercise your rights, contact us using the email provided in the website footer."
+      },
+      {
+        "heading": "Third-Party Links",
+        "paragraph": "Our site may contain links to external websites beyond our control. We recommend reviewing their privacy policies."
+      },
+      {
+        "heading": "Updates to This Policy",
+        "paragraph": "We may update this policy from time to time. The last updated date will be indicated. Your continued use signifies acceptance of any changes."
+      },
+      {
+        "heading": "Contact Us",
+        "paragraph": "For any questions about this policy, reach us at: contact@styleratech.com"
+      }
+    ]
   }
 }
