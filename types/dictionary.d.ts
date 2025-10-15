@@ -326,4 +326,13 @@ interface Dictionary {
       list?: string[]
     }[]
   }
+  terms?: {
+    title: string
+    intro: string
+    sections: {
+      heading: string
+      paragraph?: string
+      list?: string[]
+    }[]
+  }
 }
