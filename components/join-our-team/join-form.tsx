@@ -142,6 +142,7 @@ export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
       <Div variants={comeFromBottomItem}>
         <Label className='mb-2 block'>{t.coverLetterLabel}</Label>
         <Textarea
+          className='placeholder:text-xs md:placeholder:text-sm'
           {...register('coverLetter')}
           placeholder={t.coverLetterPlaceholder}
         />

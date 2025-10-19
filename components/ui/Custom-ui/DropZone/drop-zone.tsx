@@ -46,7 +46,7 @@ export default function CVUpload({
           <span>{file.name}</span>
         </div>
       ) : (
-        <p className='text-sm text-muted-foreground'>
+        <p className='text-[10px] md:text-sm text-muted-foreground'>
           {isDragActive ? t.drop : t.drag}
         </p>
       )}
