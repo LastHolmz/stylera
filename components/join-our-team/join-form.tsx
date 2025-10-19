@@ -155,6 +155,7 @@ export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
           control={control}
           render={({ field }) => (
             <CVUpload
+              dictionary={dictionary}
               onDrop={(files) => field.onChange(files)}
               file={field.value?.[0]}
               error={errors.cv?.message as string}
