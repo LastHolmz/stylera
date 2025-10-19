@@ -51,7 +51,7 @@ export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
 
   async function onSubmit(data: ApplicationForm) {
     await new Promise((r) => setTimeout(r, 600))
-    console.log('Form submitted:', data)
+    // console.log('Form submitted:', data)
     setIsSubmitted(true)
     reset()
     setTimeout(() => setIsSubmitted(false), 5000)
@@ -66,10 +66,7 @@ export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
       {/* Name */}
       <Div variants={comeFromBottomItem}>
         <Label className='mb-2 block'>{t.nameLabel || 'Full Name'}</Label>
-        <Input
-          {...register('name')}
-          placeholder={t.namePlaceholder || 'Enter your full name'}
-        />
+        <Input {...register('name')} placeholder={t.namePlaceholder} />
         {errors.name && (
           <p className='text-sm text-destructive mt-1'>{errors.name.message}</p>
         )}
@@ -77,10 +74,10 @@ export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
 
       {/* Email */}
       <Div variants={comeFromBottomItem}>
-        <Label className='mb-2 block'>{t.emailLabel || 'Email'}</Label>
+        <Label className='mb-2 block'>{t.emailLabel}</Label>
         <Input
           {...register('email')}
-          placeholder={t.emailPlaceholder || 'you@example.com'}
+          placeholder={t.emailPlaceholder}
           type='email'
         />
         {errors.email && (
@@ -92,9 +89,7 @@ export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
 
       {/* Role — now using Shadcn Select */}
       <Div variants={comeFromBottomItem}>
-        <Label className='mb-2 block'>
-          {t.roleLabel || "Role you're applying for"}
-        </Label>
+        <Label className='mb-2 block'>{t.roleLabel}</Label>
         <Select
           onValueChange={(value) => setValue('role', value)}
           defaultValue=''
@@ -104,7 +99,7 @@ export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
             className='w-full bg-transparent border border-border text-foreground'
           >
             <SelectValue
-              placeholder={t.rolePlaceholder || 'Select a role'}
+              placeholder={t.rolePlaceholder}
               className='text-muted-foreground'
             />
           </SelectTrigger>
@@ -125,15 +120,10 @@ export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
 
       {/* Cover Letter */}
       <Div variants={comeFromBottomItem}>
-        <Label className='mb-2 block'>
-          {t.coverLetterLabel || 'Cover Letter (optional)'}
-        </Label>
+        <Label className='mb-2 block'>{t.coverLetterLabel}</Label>
         <Textarea
           {...register('coverLetter')}
-          placeholder={
-            t.coverLetterPlaceholder ||
-            'Write a short introduction about yourself'
-          }
+          placeholder={t.coverLetterPlaceholder}
         />
       </Div>
 
@@ -148,14 +138,12 @@ export default function JoinTeamForm({ dictionary, isRTL }: JoinTeamFormProps) {
           disabled={isSubmitting}
           className='px-8'
         >
-          {isSubmitting
-            ? t.sending || 'Sending...'
-            : t.submit || 'Submit Application'}
+          {isSubmitting ? t.sending : t.submit}
         </Button>
 
         {(isSubmitted || isSubmitSuccessful) && (
           <P className='text-green-400 text-sm' variants={textVariants}>
-            {t.success || 'Application submitted successfully'}
+            {t.success}
           </P>
         )}
       </Div>
