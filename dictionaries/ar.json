@@ -171,9 +171,9 @@
       "members": [
         {
           "role": "owner",
-          "name": "لاست هيرميس",
+          "name": "حذيفة الهامل",
           "position": "المالك لشركة Stylera Tech | مهندس برمجيات",
-          "bio": "مؤسس شركة Stylera Tech ومهندس برمجيات ذو خبرة تزيد عن ست سنوات في تطوير البرمجيات المتقدمة.",
+          "bio": "مؤسس شركة Stylera Tech ومهندس برمجيات ذو خبرة تزيد عن اربع سنوات في تطوير البرمجيات المتقدمة.",
           "image": "/images/Levi_(854).webp",
           "social": {
             "linkedin": "#",
@@ -191,17 +191,7 @@
             "github": "#"
           }
         },
-        {
-          "role": "developer",
-          "name": "ساجي محمد",
-          "position": "مطور برمجيات",
-          "bio": "مطور واجهات أمامية | React | Next.js",
-          "image": "/images/Saje New.webp",
-          "social": {
-            "linkedin": "https://www.linkedin.com/in/saje-mohammed-20783b299/",
-            "github": "https://github.com/Saje0"
-          }
-        },
+
         {
           "role": "designer",
           "name": "ريـم عصام",
