@@ -4,6 +4,7 @@
     "services": "خدماتنا",
     "about": "من نحن",
     "contact": "اتصل بنا",
+    "projects": "مشاريعنا",
     "join": "انضم الينا",
     "privacy": "سياسة الخصوصية",
     "terms": "شروط الخدمة"
@@ -537,7 +538,7 @@
         "title": "منصة MSET التعليمية",
         "description": "منصة تعليمية توفر أدوات وموارد تعليمية للطلاب والمؤسسات، مصممة للتوسع وتجربة مستخدم سلسة.",
         "category": "التعليم",
-        "image": "/ar-en-Logo.webp",
+        "image": "/images/projects/mset.png",
         "technologies": ["React", "Next.js", "MongoDB", "Node.js"],
         "github": "",
         "live": "https://mset.ly/ar"

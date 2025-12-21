@@ -29,6 +29,7 @@ export default function Navigation({ dictionary }: NavigationProps) {
   const navItems = [
     { key: "home", href: "/" },
     { key: "services", href: "/services" },
+    { key: "projects", href: "/projects" },
     { key: "about", href: "/who-we-are" },
     { key: "contact", href: "/contact" },
     { key: "join", href: "/join-our-team" },
@@ -56,7 +57,7 @@ export default function Navigation({ dictionary }: NavigationProps) {
         {navItems.map((item) => (
           <Link
             key={item.key}
-            href={`/${locale}${item.href === '/' ? '' : item.href}`}
+            href={`/${locale}${item.href === "/" ? "" : item.href}`}
             className={`text-sm font-light px-4 py-2 rounded-full transition-all duration-200 ${
               isActive(item.href)
                 ? "text-white bg-white/10"
@@ -101,7 +102,7 @@ export default function Navigation({ dictionary }: NavigationProps) {
             {navItems.map((item) => (
               <Link
                 key={item.key}
-                href={`/${locale}${item.href === '/' ? '' : item.href}`}
+                href={`/${locale}${item.href === "/" ? "" : item.href}`}
                 className={`text-xl font-light transition-all duration-200 ${
                   isActive(item.href)
                     ? "text-accent"

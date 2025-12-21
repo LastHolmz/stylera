@@ -70,7 +70,7 @@ export default async function StyleraTechPortfolio({
           )}
         </section>
         <TechnologiesSection dictionary={dictionary.technologies} />
-        <ProjectsSection dictionary={dictionary.projects} />
+        <ProjectsSection locale={locale} dictionary={dictionary.projects} />
         <TestimonialsSection dictionary={dictionary.testimonials} />
         <AboutSection dictionary={dictionary.HomeWhoWeAre} />
         <TeamSection dictionary={dictionary.teamSection} />

@@ -9,23 +9,12 @@ import {
 } from "@/constants/animation";
 import InViewSection from "../ui/Custom-ui/framer-motion/in-view-section";
 import ProjectCard from "@/components/projects/project-card";
+import projects from "@/lib/projects";
 
 interface ProjectsSectionProps {
   dictionary?: Dictionary["projects"];
-  locale?: string;
+  locale: "en" | "ar";
 }
-
-const projects = [
-  {
-    id: 1,
-    image: "/ar-en-Logo.webp",
-    key: "mset",
-    category: "Education",
-    technologies: ["React", "Next.js", "MongoDB"],
-    liveLink: "https://mset.ly/en",
-    githubLink: "#",
-  },
-];
 
 export default function ProjectsSection({
   dictionary,
@@ -48,20 +37,17 @@ export default function ProjectsSection({
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => {
-            const item = dictionary.items?.[project.key];
-            if (!item) return null;
-
+          {projects.projects.slice(0, 3).map((project, index) => {
             return (
-              <Div key={project.id} variants={itemVariants}>
+              <Div key={index} variants={itemVariants}>
                 <ProjectCard
-                  title={item.title}
-                  description={item.description}
-                  image={project.image}
-                  category={project.category}
-                  technologies={project.technologies}
-                  github={project.githubLink}
-                  live={project.liveLink}
+                  title={project[locale].title}
+                  description={project[locale].description}
+                  image={project[locale].image}
+                  category={project[locale].category}
+                  technologies={project[locale].technologies}
+                  // github={project[locale]?.githubLink}
+                  // live={project[locale].liveLink}
                 />
               </Div>
             );
